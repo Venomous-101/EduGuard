@@ -34,7 +34,7 @@ committed; use environment variables (see `.env.example`).
 
 ## Dependency security
 
-- Python dependencies are pinned in `requirements.txt`.
+- Python dependencies are version-bounded in `requirements.txt` (compatible-release floors plus upper bounds).
 - Dependabot monitors for vulnerable dependencies weekly and opens PRs
   automatically (see `.github/dependabot.yml`).
-- CI runs on every push and pull request (see `.github/workflows/ci.yml`).
+- CI ingests the knowledge base and runs the full pytest suite plus smoke tests on every push and pull request (see `.github/workflows/ci.yml`).

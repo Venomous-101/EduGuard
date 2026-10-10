@@ -8,7 +8,7 @@
 
 ## 1. Problem
 
-In the 2025-2026 academic year, the United Arab Emirates made artificial intelligence a compulsory subject from kindergarten through grade 12, the first country in the world to do so. Abu Dhabi allocated AED 13 billion to AI development, and the Ministry of Education trained nearly 1,000 specialist teachers for the rollout. The ambition is historic.
+In the 2025-2026 academic year, the United Arab Emirates made artificial intelligence a compulsory subject from kindergarten through grade 12, the first country in the world to do so. The Ministry of Education trained nearly 1,000 specialist teachers for the rollout. The ambition is historic.
 
 The enforcement layer beneath that ambition is missing. The UAE's AI ethics frameworks, including the 2024 Charter for the Development and Use of AI, are nonbinding. The Atlantic Council's assessment of the UAE's AI governance concludes that these frameworks "lack enforcement mechanisms, limiting their practical reach." Schools are therefore deploying AI tools, from tutoring chatbots to automated grading, under high-ambition strategy documents with no binding compliance layer beneath them.
 
@@ -26,7 +26,7 @@ EduGuard UAE evaluates a teacher's or administrator's AI use case (for example, 
 
 **Stage 2: GapAnalyzer (advisory).** A language model compares the submission against the retrieved policy chunks and produces structured findings, each required to include a verbatim quote. This stage is advisory only. If no language model is available, an extractive fallback surfaces the most relevant retrieved chunks directly. The LLM can never issue a verdict.
 
-**Stage 3: ComplianceChecker (deterministic, authoritative).** Hard policy rules are encoded as pure Python, with no model involved. Six rules cover the highest-risk patterns: AI-only grading (NON_COMPLIANT), biometric or emotion-recognition monitoring of students (NON_COMPLIANT), AI-only exam proctoring decisions (NON_COMPLIANT), student personal data shared with third parties (NEEDS_REVIEW), AI use with kindergarten children (NEEDS_REVIEW), and classroom AI deployment without teacher AI-literacy training (NEEDS_REVIEW). The rules implement negation handling, so "does not enter any student personal data" correctly does not fire the data rule. Rule verdicts take precedence over everything the advisory LLM stage produces.
+**Stage 3: ComplianceChecker (deterministic, authoritative).** Hard policy rules are encoded as pure Python, with no model involved. Seven rules cover the highest-risk patterns: AI-only grading (NON_COMPLIANT), biometric or emotion-recognition monitoring of students (NON_COMPLIANT), AI-only exam proctoring decisions (NON_COMPLIANT), a zero-tolerance child-safety rule for sexual content or exploitation involving minors (NON_COMPLIANT), student personal data shared with third parties (NEEDS_REVIEW), AI use with kindergarten children (NEEDS_REVIEW), and classroom AI deployment without teacher AI-literacy training (NEEDS_REVIEW). The rules implement negation handling, so "does not enter any student personal data" correctly does not fire the data rule. Rule verdicts take precedence over everything the advisory LLM stage produces.
 
 **Stage 4: Reporter.** The final report combines the deterministic verdict with the supporting citations. Where the knowledge base contains no relevant policy for a submission, the report states INSUFFICIENT_EVIDENCE rather than inventing an answer. This refusal behavior is deliberate: it is the mechanism that keeps the system honest.
 
@@ -88,7 +88,7 @@ Six test scenarios exercise the ComplianceChecker directly:
 | 5 | Teacher uses AI for lesson ideas, reviews all output, enters no student data | COMPLIANT (no rule fires) | PASS |
 | 6 | Negation handling: "does not enter personal data" does not fire R3 | No false positive | PASS |
 
-All six pass. Scenario 5 is the critical control: a responsible AI use case must clear the system, not just risky ones must be caught.
+All six pass. Scenario 5 is the critical control: a responsible AI use case must clear the system, not just risky ones must be caught. Additional regression tests cover the child-safety rule (R7), including a control that legitimate sexual-health education does not trigger it; the insufficient-evidence verdict path; and paraphrased grading violations.
 
 ### 4.2 End-to-end pipeline test
 

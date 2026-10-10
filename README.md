@@ -13,7 +13,7 @@ A teacher or school admin submits an AI lesson plan or classroom AI use case. Ed
 
 ## Why this exists
 
-The UAE made AI a **mandatory KG-12 subject from 2025-2026** and allocated AED 13 billion to AI development - yet its AI ethics frameworks are **nonbinding with no enforcement mechanism** (Atlantic Council). Schools deploying AI operate under high-ambition strategy with no operational compliance layer. EduGuard UAE is that layer.
+The UAE made AI a **mandatory KG-12 subject from 2025-2026** and is investing billions of dirhams in AI development - yet its AI ethics frameworks are **nonbinding with no enforcement mechanism** (Atlantic Council). Schools deploying AI operate under high-ambition strategy with no operational compliance layer. EduGuard UAE is that layer.
 
 ## Architecture
 
@@ -27,10 +27,10 @@ lesson plan ──> PolicyRetriever ──> GapAnalyzer ──> ComplianceChecke
 
 1. **PolicyRetriever** (`agents/`): RAG over a ChromaDB knowledge base of real policy documents. Returns verbatim chunks with source URLs. Never paraphrases policy, never invents sources.
 2. **GapAnalyzer** (`agents/`): LLM compares the submission against retrieved policy. Every finding must carry a verbatim quote + source URL, or it is downgraded to `INSUFFICIENT_EVIDENCE`. Advisory only. Falls back to extractive mode when no LLM is reachable.
-3. **ComplianceChecker** (`guardrails/`): **deterministic rules engine in pure Python** - banned practices (biometric monitoring, AI-only grading), student-data rules, age-appropriate-use rules, AI-literacy duty. The LLM can never override these.
-4. **Reporter** (`agents/`): assembles the verdict (`COMPLIANT` / `NEEDS_REVIEW` / `NON_COMPLIANT`), citations, recommended actions. Verdict precedence is deterministic.
+3. **ComplianceChecker** (`guardrails/`): **deterministic rules engine in pure Python** - banned practices (biometric monitoring, AI-only grading), student-data rules, age-appropriate-use rules, AI-literacy duty, and a zero-tolerance child-safety rule. The LLM can never override these.
+4. **Reporter** (`agents/`): assembles the verdict (`COMPLIANT` / `NEEDS_REVIEW` / `NON_COMPLIANT`; when no rule fires and the KB holds nothing relevant, the verdict is `NEEDS_REVIEW` with an `INSUFFICIENT_EVIDENCE` note), citations, recommended actions. Verdict precedence is deterministic.
 
-**Evidence-anchoring rule:** the agent NEVER states a policy claim without a verbatim citation from the KB.
+**Evidence-anchoring rule (enforced in code):** the agent NEVER states a policy claim without a verbatim citation from the KB. LLM-produced quotes are verified against the retrieved chunks and stripped when they do not match verbatim.
 
 ## Knowledge base
 
@@ -64,7 +64,7 @@ lesson plan ──> PolicyRetriever ──> GapAnalyzer ──> ComplianceChecke
 ## Quickstart
 
 ```bash
-cd eduguard
+cd EduGuard
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
@@ -91,7 +91,7 @@ python -m pytest tests/ -x -q
 
 ## API
 
-- `POST /evaluate` - `{lesson_plan: string, context: string}` -> verdict JSON with citations, fired rules, recommended actions, audit run id
+- `POST /evaluate` - `{lesson_plan: string, context: string}` -> verdict JSON (`COMPLIANT` / `NEEDS_REVIEW` / `NON_COMPLIANT`) with citations, fired rules, recommended actions, audit run id
 - `GET /health` - KB chunk count, LLM availability
 - `GET /sources` - KB documents with source URLs
 - `GET /` - demo UI

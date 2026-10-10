@@ -1,6 +1,6 @@
 DOC_ID: uae-ai-ethics-charter-2024
 TITLE: UAE Charter for the Development and Use of AI (2024) and AI ethics principles
-SOURCE_URL: https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/the-new-playbook-for-ai-leadership-the-case-of-the-united-arab-emirates/
+SOURCE_URL: https://uaelegislation.gov.ae/en/policy/details/the-uae-charter-for-the-development-and-use-of-artificial-intelligence
 
 The UAE Charter for the Development and Use of AI (2024) sets out 12 priorities for responsible AI development and deployment in the UAE. It builds on the UAE's earlier AI ethics principles and guidelines.
 

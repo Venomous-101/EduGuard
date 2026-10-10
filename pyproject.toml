@@ -1,0 +1,8 @@
+[project]
+name = "eduguard-uae"
+version = "0.1.0"
+description = "Evidence-anchored AI compliance agent for UAE schools"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["ai", "education", "compliance", "uae", "rag"]
