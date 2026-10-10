@@ -49,12 +49,15 @@ def get_kb():
 class EvaluateRequest(BaseModel):
     lesson_plan: str = Field(..., min_length=10, max_length=20000, description="The lesson plan or classroom AI use case to evaluate.")
     context: str = Field(default="", max_length=2000, description="Optional context: grade level, school, emirate, etc.")
+    openrouter_key: str = Field(default="", max_length=200, description="Optional: your own OpenRouter API key for LLM-powered gap analysis. The key is used for this request only and never stored.")
 
 
 @app.post("/evaluate")
 def evaluate(req: EvaluateRequest):
     try:
-        report = get_pipeline().evaluate(req.lesson_plan, req.context)
+        # The OpenRouter key is per-request only: never logged, never stored.
+        key = req.openrouter_key.strip() or None
+        report = get_pipeline().evaluate(req.lesson_plan, req.context, openrouter_key=key)
         return report
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))

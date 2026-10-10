@@ -30,7 +30,7 @@ class EduGuardPipeline:
         self.reporter = Reporter()
         self.log_dir = log_dir
 
-    def evaluate(self, lesson_plan, context=""):
+    def evaluate(self, lesson_plan, context="", openrouter_key=None):
         if not lesson_plan or not lesson_plan.strip():
             raise ValueError("lesson_plan must be a non-empty string")
         # Fresh audit logger per evaluation: isolates concurrent API requests
@@ -47,7 +47,7 @@ class EduGuardPipeline:
         audit.log_retrieval(f"{lesson_plan[:120]} | {context}", retrieval["hits"])
 
         # 2. Gap analysis (advisory)
-        gap = self.analyzer.analyze(lesson_plan, context, retrieval)
+        gap = self.analyzer.analyze(lesson_plan, context, retrieval, openrouter_key=openrouter_key)
         audit.log("analysis", "gap_analysis_complete", {
             "llm_available": gap.get("llm_available"),
             "num_findings": len(gap.get("findings", [])),

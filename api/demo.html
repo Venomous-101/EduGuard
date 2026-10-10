@@ -98,6 +98,13 @@
       <button class="ex-btn" onclick="setExample('good')">Compliant plan</button>
     </div>
     <button class="go-btn" id="go" onclick="run()">Evaluate against policy</button>
+    <details style="margin-top:12px">
+      <summary style="cursor:pointer;color:var(--muted);font-size:13px">Optional: LLM-powered gap analysis (your own OpenRouter key)</summary>
+      <div style="margin-top:8px">
+        <input type="password" id="orkey" placeholder="sk-or-v1-... (free key from openrouter.ai)" style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text)" autocomplete="off">
+        <p style="font-size:12px;color:var(--muted);margin:6px 0 0">Get a free key at <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai/keys</a>. Your key is sent with this request only and never stored. Without a key, you still get deterministic guardrails plus verbatim policy excerpts.</p>
+      </div>
+    </details>
   </div>
   <div id="out"></div>
 </main>
@@ -126,7 +133,7 @@ async function run() {
     const timeout = setTimeout(() => ctrl.abort(), 120000);  // 120s timeout
     const r = await fetch('/evaluate', {
       method: 'POST', headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ lesson_plan: document.getElementById('plan').value, context: document.getElementById('ctx').value }),
+      body: JSON.stringify({ lesson_plan: document.getElementById('plan').value, context: document.getElementById('ctx').value, openrouter_key: document.getElementById('orkey').value || "" }),
       signal: ctrl.signal
     });
     clearTimeout(timeout);

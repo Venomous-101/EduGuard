@@ -20,7 +20,11 @@ class GapAnalyzer:
     def __init__(self, llm=None):
         self.llm = llm or LLMBackend()
 
-    def analyze(self, lesson_plan, context, retrieval):
+    def analyze(self, lesson_plan, context, retrieval, openrouter_key=None):
+        # Per-request OpenRouter key (user's own key from the UI)
+        llm = self.llm
+        if openrouter_key:
+            llm = LLMBackend(api_key=openrouter_key, backend_override="openrouter")
         hits = retrieval["hits"]
         if not hits:
             return {
@@ -37,7 +41,7 @@ class GapAnalyzer:
             f"CONTEXT: {context}\n\n"
             f"POLICY EXCERPTS:\n{excerpts}"
         )
-        text = self.llm.generate(SYSTEM_PROMPT, user_prompt, max_tokens=1200)
+        text = llm.generate(SYSTEM_PROMPT, user_prompt, max_tokens=1200)
         if text is None:
             return self._extractive_fallback(lesson_plan, hits)
         import json, re

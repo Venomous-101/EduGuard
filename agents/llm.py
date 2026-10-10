@@ -3,11 +3,13 @@
 Backends:
   - "ollama" (default): local Ollama server, no API key needed.
   - "openai": OpenAI API via OPENAI_API_KEY env var.
+  - "openrouter": OpenRouter API via per-request API key (user supplies their
+    own free key in the UI; the key is used for that request only and never
+    stored or logged).
 
 If no backend is reachable, `available` is False and the pipeline degrades
-gracefully: the deterministic ComplianceChecker and extractive RAG still run,
-and GapAnalyzer reports that LLM analysis was unavailable instead of
-hallucinating one. The LLM NEVER overrides deterministic rules.
+gracefully: the deterministic ComplianceChecker and extractive RAG still run.
+The LLM NEVER overrides deterministic rules.
 """
 import os
 
@@ -15,7 +17,15 @@ import requests
 
 
 class LLMBackend:
-    def __init__(self):
+    def __init__(self, api_key=None, backend_override=None):
+        # Per-request override (e.g. user's own OpenRouter key from the UI)
+        if backend_override == "openrouter" and api_key:
+            self.backend = "openrouter"
+            self._api_key = api_key
+            self.model = os.environ.get("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
+            self.available = True
+            return
+        self._api_key = None
         self.backend = os.environ.get("EDUGUARD_LLM_BACKEND", "ollama").lower()
         self.available = False
         self.model = None
@@ -45,6 +55,8 @@ class LLMBackend:
         try:
             if self.backend == "openai":
                 return self._openai_generate(system_prompt, user_prompt, max_tokens, temperature)
+            if self.backend == "openrouter":
+                return self._openrouter_generate(system_prompt, user_prompt, max_tokens, temperature)
             return self._ollama_generate(system_prompt, user_prompt, max_tokens, temperature)
         except Exception:
             return None
@@ -65,6 +77,28 @@ class LLMBackend:
         )
         r.raise_for_status()
         return r.json()["message"]["content"].strip()
+
+    def _openrouter_generate(self, system_prompt, user_prompt, max_tokens, temperature):
+        r = requests.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {self._api_key}",
+                "HTTP-Referer": "https://github.com/Venomous-101/EduGuard",
+                "X-Title": "EduGuard UAE",
+            },
+            json={
+                "model": self.model,
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                "max_tokens": max_tokens,
+                "temperature": temperature,
+            },
+            timeout=120,
+        )
+        r.raise_for_status()
+        return r.json()["choices"][0]["message"]["content"].strip()
 
     def _openai_generate(self, system_prompt, user_prompt, max_tokens, temperature):
         r = requests.post(
