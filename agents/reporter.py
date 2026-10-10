@@ -27,8 +27,16 @@ class Reporter:
 
         findings = gap_analysis.get("findings", [])
 
+        # Verdict semantics: a COMPLIANT verdict requires BOTH no fired rules
+        # AND relevant retrieved policy. If the KB has nothing relevant,
+        # compliance cannot be positively established -> NEEDS_REVIEW.
+        if rule_verdict == "COMPLIANT" and retrieval["retrieval_confidence"] == "none":
+            final_verdict = "NEEDS_REVIEW"
+        else:
+            final_verdict = rule_verdict
+
         report = {
-            "verdict": rule_verdict,  # COMPLIANT | NEEDS_REVIEW | NON_COMPLIANT (deterministic)
+            "verdict": final_verdict,  # COMPLIANT | NEEDS_REVIEW | NON_COMPLIANT (deterministic)
             "evidence_note": evidence_note,
             "deterministic_rules_fired": [
                 {
@@ -51,11 +59,11 @@ class Reporter:
                 for f in findings
             ],
             "citations": citations,
-            "recommended_actions": self._actions(rule_verdict, fired_rules),
+            "recommended_actions": self._actions(final_verdict, fired_rules, retrieval),
         }
         return report
 
-    def _actions(self, verdict, fired_rules):
+    def _actions(self, verdict, fired_rules, retrieval=None):
         if verdict == "NON_COMPLIANT":
             return [
                 "Do not deploy as described. Redesign the flagged elements: " +
@@ -63,6 +71,11 @@ class Reporter:
                 "Resubmit for re-evaluation after redesign.",
             ]
         if verdict == "NEEDS_REVIEW":
+            if retrieval and retrieval.get("retrieval_confidence") == "none" and not fired_rules:
+                return [
+                    "INSUFFICIENT_EVIDENCE: the knowledge base has no relevant policy "
+                    "for this use case. Manual policy review is required before deployment.",
+                ]
             return [
                 "Human review required before deployment: " +
                 "; ".join(fr["title"] for fr in fired_rules if fr["severity"] == "NEEDS_REVIEW"),

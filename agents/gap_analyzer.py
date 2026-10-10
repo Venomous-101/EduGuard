@@ -47,17 +47,34 @@ class GapAnalyzer:
         except Exception:
             parsed = {"findings": [], "raw": text[:500]}
         parsed["llm_available"] = True
-        # Validate: every finding must carry a verbatim quote + source URL
+        # Validate: every finding must carry a verbatim quote + source URL,
+        # AND the quote must actually appear in the retrieved chunks.
+        # This enforces evidence-anchoring: a hallucinated quote is rejected.
+        chunk_texts = [h["text"] for h in hits]
         valid = []
         for f in parsed.get("findings", []):
-            if f.get("verbatim_quote") and f.get("source_url"):
+            quote = (f.get("verbatim_quote") or "").strip()
+            if quote and f.get("source_url") and self._quote_in_chunks(quote, chunk_texts):
                 valid.append(f)
             else:
                 f["type"] = "gap"
-                f["summary"] = (f.get("summary") or "") + " [INSUFFICIENT_EVIDENCE: no verbatim citation]"
+                f["verbatim_quote"] = ""
+                f["summary"] = (f.get("summary") or "") + " [INSUFFICIENT_EVIDENCE: quote not found in retrieved policy]"
                 valid.append(f)
         parsed["findings"] = valid
         return parsed
+
+    @staticmethod
+    def _quote_in_chunks(quote, chunk_texts):
+        """Normalized substring check: quote must appear verbatim in some chunk."""
+        def norm(s):
+            import re
+            return re.sub(r"\s+", " ", s).strip().lower()
+        nq = norm(quote)
+        # Require a meaningful length to avoid trivial matches
+        if len(nq) < 20:
+            return False
+        return any(nq in norm(c) for c in chunk_texts)
 
     def _extractive_fallback(self, lesson_plan, hits):
         """No LLM reachable: return the raw excerpts as candidate evidence."""

@@ -39,8 +39,8 @@ def get_pipeline():
 
 
 class EvaluateRequest(BaseModel):
-    lesson_plan: str = Field(..., min_length=10, description="The lesson plan or classroom AI use case to evaluate.")
-    context: str = Field(default="", description="Optional context: grade level, school, emirate, etc.")
+    lesson_plan: str = Field(..., min_length=10, max_length=20000, description="The lesson plan or classroom AI use case to evaluate.")
+    context: str = Field(default="", max_length=2000, description="Optional context: grade level, school, emirate, etc.")
 
 
 @app.post("/evaluate")

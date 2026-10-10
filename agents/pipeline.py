@@ -28,12 +28,15 @@ class EduGuardPipeline:
         self.analyzer = GapAnalyzer()
         self.checker = ComplianceChecker()
         self.reporter = Reporter()
-        self.audit = AuditLogger(log_dir=log_dir)
+        self.log_dir = log_dir
 
     def evaluate(self, lesson_plan, context=""):
         if not lesson_plan or not lesson_plan.strip():
             raise ValueError("lesson_plan must be a non-empty string")
-        self.audit.log("input", "evaluation_started", {
+        # Fresh audit logger per evaluation: isolates concurrent API requests
+        # so each run gets its own run_id, sequence counter, and JSONL file.
+        audit = AuditLogger(log_dir=self.log_dir)
+        audit.log("input", "evaluation_started", {
             "lesson_plan_chars": len(lesson_plan),
             "context": context,
             "kb_chunks": self.kb.count(),
@@ -41,11 +44,11 @@ class EduGuardPipeline:
 
         # 1. Retrieve
         retrieval = self.retriever.retrieve(lesson_plan, context)
-        self.audit.log_retrieval(f"{lesson_plan[:120]} | {context}", retrieval["hits"])
+        audit.log_retrieval(f"{lesson_plan[:120]} | {context}", retrieval["hits"])
 
         # 2. Gap analysis (advisory)
         gap = self.analyzer.analyze(lesson_plan, context, retrieval)
-        self.audit.log("analysis", "gap_analysis_complete", {
+        audit.log("analysis", "gap_analysis_complete", {
             "llm_available": gap.get("llm_available"),
             "num_findings": len(gap.get("findings", [])),
         })
@@ -53,11 +56,11 @@ class EduGuardPipeline:
         # 3. Deterministic compliance check (authoritative)
         rule_verdict, fired_rules = self.checker.evaluate(lesson_plan, context)
         for fr in fired_rules:
-            self.audit.log_rule_evaluation(fr["rule_id"], True, {
+            audit.log_rule_evaluation(fr["rule_id"], True, {
                 "matched_keywords": fr["matched_keywords"],
                 "severity": fr["severity"],
             })
-        self.audit.log("rules", "all_rules_evaluated", {
+        audit.log("rules", "all_rules_evaluated", {
             "num_fired": len(fired_rules),
             "verdict": rule_verdict,
         })
@@ -66,10 +69,10 @@ class EduGuardPipeline:
         report = self.reporter.build(
             lesson_plan, context, retrieval, gap, rule_verdict, fired_rules
         )
-        self.audit.log_verdict(
+        audit.log_verdict(
             rule_verdict, report["citations"],
             f"{len(fired_rules)} rules fired; {len(gap.get('findings', []))} advisory findings",
         )
-        report["audit_run_id"] = self.audit.run_id
-        report["audit_log_path"] = self.audit.path
+        report["audit_run_id"] = audit.run_id
+        report["audit_log_path"] = audit.path
         return report

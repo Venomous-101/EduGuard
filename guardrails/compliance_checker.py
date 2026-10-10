@@ -8,6 +8,7 @@ model output.
 
 Verdict precedence: NON_COMPLIANT > NEEDS_REVIEW > COMPLIANT.
 """
+import re
 
 # Each rule: id, severity, policy_basis (doc_id + url), matcher keywords.
 # A rule FIRES when its keywords match the submission text (case-insensitive).
@@ -125,27 +126,30 @@ class ComplianceChecker:
         text = f"{lesson_plan}\n{context}".lower()
         sentences = [s.strip() for s in text.replace(";", ".").split(".")]
         negations = ("not ", "without ", "never ", "doesn't ", "don't ",
-                     "isn't ", "aren't ", "won't ", "cannot ", "can't ", "no ")
+                     "isn't ", "aren't ", "won't ", "cannot ", "can't ", "no ",
+                     "banned ", "ban ", "prohibit ", "prohibits ", "prohibited ",
+                     "forbid ", "forbidden ", "against ")
         fired = []
         for rule in self.rules:
             matched = []
             for kw in rule["keywords"]:
+                # Word-boundary regex: avoids matching "trained" inside "untrained"
+                kw_pattern = r"\b" + re.escape(kw) + r"\b"
                 for sent in sentences:
-                    idx = sent.find(kw)
-                    if idx == -1:
+                    m = re.search(kw_pattern, sent)
+                    if not m:
                         continue
                     # Negated only if a negation word appears BEFORE the keyword.
-                    # (e.g. "does not enter personal data" is fine;
-                    #  "with no human review" is itself the violation.)
-                    before = f" {sent[:idx]} "
+                    before = f" {sent[:m.start()]} "
                     if not any(neg in before for neg in negations):
                         matched.append(kw)
                         break
             if not matched:
                 continue
             # requires_absence: skip if any "already handled" phrase is present
+            # as a whole word (fixes "untrained" matching "trained").
             absent = rule.get("requires_absence", [])
-            if any(phrase in text for phrase in absent):
+            if any(re.search(r"\b" + re.escape(phrase) + r"\b", text) for phrase in absent):
                 continue
             fired.append({
                     "rule_id": rule["id"],
