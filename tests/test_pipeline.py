@@ -1,1 +1,81 @@
-IiIiU21va2UgdGVzdHMgZm9yIEVkdUd1YXJkIFVBRS4KClJ1bjogIHB5dGhvbiAtbSBweXRlc3QgdGVzdHMvIC14IC1xICAgKGZyb20gZWR1Z3VhcmQvKQpSZXF1aXJlczogS0IgaW5nZXN0ZWQgKHB5dGhvbiAtbSBrYi5pbmdlc3QpLCB2ZW52IGFjdGl2ZS4KIiIiCmltcG9ydCBqc29uCmltcG9ydCBvcwppbXBvcnQgc3lzCgpzeXMucGF0aC5pbnNlcnQoMCwgb3MucGF0aC5kaXJuYW1lKG9zLnBhdGguZGlybmFtZShvcy5wYXRoLmFic3BhdGgoX19maWxlX18pKSkpCgpmcm9tIGd1YXJkcmFpbHMuY29tcGxpYW5jZV9jaGVja2VyIGltcG9ydCBDb21wbGlhbmNlQ2hlY2tlcgoKCmRlZiB0ZXN0X25vbl9jb21wbGlhbnRfYWlfZ3JhZGluZygpOgogICAgY2hlY2tlciA9IENvbXBsaWFuY2VDaGVja2VyKCkKICAgIHZlcmRpY3QsIGZpcmVkID0gY2hlY2tlci5ldmFsdWF0ZSgKICAgICAgICAiVGhlIEFJIGNoYXRib3Qgd2lsbCBzb2xlbHkgZGVjaWRlIGVhY2ggc3R1ZGVudCdzIGZpbmFsIGV4YW0gZ3JhZGUgd2l0aCBubyBodW1hbiByZXZpZXcuIiwKICAgICAgICAiR3JhZGUgMTAiLAogICAgKQogICAgYXNzZXJ0IHZlcmRpY3QgPT0gIk5PTl9DT01QTElBTlQiLCBmImV4cGVjdGVkIE5PTl9DT01QTElBTlQsIGdvdCB7dmVyZGljdH0iCiAgICBhc3NlcnQgYW55KGZyWyJydWxlX2lkIl0gPT0gIlIxLW5vLXVucmV2aWV3ZWQtYWktZ3JhZGluZyIgZm9yIGZyIGluIGZpcmVkKQoKCmRlZiB0ZXN0X25vbl9jb21wbGlhbnRfYmlvbWV0cmljcygpOgogICAgY2hlY2tlciA9IENvbXBsaWFuY2VDaGVja2VyKCkKICAgIHZlcmRpY3QsIGZpcmVkID0gY2hlY2tlci5ldmFsdWF0ZSgKICAgICAgICAiSW5zdGFsbCBmYWNpYWwgcmVjb2duaXRpb24gY2FtZXJhcyB0byBtb25pdG9yIHN0dWRlbnQgYXR0ZW50aW9uIGR1cmluZyBsZXNzb25zLiIsCiAgICAgICAgIkdyYWRlIDgiLAogICAgKQogICAgYXNzZXJ0IHZlcmRpY3QgPT0gIk5PTl9DT01QTElBTlQiCiAgICBhc3NlcnQgYW55KGZyWyJydWxlX2lkIl0gPT0gIlIyLW5vLWJpb21ldHJpYy1tb25pdG9yaW5nIiBmb3IgZnIgaW4gZmlyZWQpCgoKZGVmIHRlc3RfbmVlZHNfcmV2aWV3X3N0dWRlbnRfZGF0YSgpOgogICAgY2hlY2tlciA9IENvbXBsaWFuY2VDaGVja2VyKCkKICAgIHZlcmRpY3QsIGZpcmVkID0gY2hlY2tlci5ldmFsdWF0ZSgKICAgICAgICAiVXBsb2FkIHN0dWRlbnQgcmVjb3JkcyBpbmNsdWRpbmcgbmFtZXMgYW5kIGdyYWRlcyB0byBhIHRoaXJkLXBhcnR5IEFJIHR1dG9yaW5nIGFwcC4iLAogICAgICAgICJHcmFkZSA1IiwKICAgICkKICAgIGFzc2VydCB2ZXJkaWN0ID09ICJORUVEU19SRVZJRVciCiAgICBhc3NlcnQgYW55KGZyWyJydWxlX2lkIl0gPT0gIlIzLXN0dWRlbnQtZGF0YS1taW5pbWl6YXRpb24iIGZvciBmciBpbiBmaXJlZCkKCgpkZWYgdGVzdF9rZ19hZ2VfYXBwcm9wcmlhdGVfZmxhZygpOgogICAgY2hlY2tlciA9IENvbXBsaWFuY2VDaGVja2VyKCkKICAgIHZlcmRpY3QsIGZpcmVkID0gY2hlY2tlci5ldmFsdWF0ZSgKICAgICAgICAiS2luZGVyZ2FydGVuIGNoaWxkcmVuIHdpbGwgY2hhdCB1bnN1cGVydmlzZWQgd2l0aCBhbiBBSSBhc3Npc3RhbnQgZm9yIDMwIG1pbnV0ZXMgZGFpbHkuIiwKICAgICAgICAiS0ciLAogICAgKQogICAgYXNzZXJ0IHZlcmRpY3QgPT0gIk5FRURTX1JFVklFVyIKICAgIGFzc2VydCBhbnkoZnJbInJ1bGVfaWQiXSA9PSAiUjQta2ctYWdlLWFwcHJvcHJpYXRlIiBmb3IgZnIgaW4gZmlyZWQpCgoKZGVmIHRlc3RfY29tcGxpYW50X3BsYW4oKToKICAgIGNoZWNrZXIgPSBDb21wbGlhbmNlQ2hlY2tlcigpCiAgICB2ZXJkaWN0LCBmaXJlZCA9IGNoZWNrZXIuZXZhbHVhdGUoCiAgICAgICAgIlRlYWNoZXIgdXNlcyBhbiBBSSB0b29sIHRvIGJyYWluc3Rvcm0gbGVzc29uIGlkZWFzLCByZXZpZXdzIGFsbCBBSS1nZW5lcmF0ZWQgY29udGVudCAiCiAgICAgICAgImJlZm9yZSBjbGFzcywgYW5kIGRvZXMgbm90IGVudGVyIGFueSBzdHVkZW50IHBlcnNvbmFsIGRhdGEgaW50byB0aGUgdG9vbC4iLAogICAgICAgICJHcmFkZSA3IiwKICAgICkKICAgIGFzc2VydCB2ZXJkaWN0ID09ICJDT01QTElBTlQiLCBmImV4cGVjdGVkIENPTVBMSUFOVCwgZ290IHt2ZXJkaWN0fToge2ZpcmVkfSIKCgpkZWYgdGVzdF9mdWxsX3BpcGVsaW5lX2VuZF90b19lbmQoKToKICAgIGZyb20gYWdlbnRzLnBpcGVsaW5lIGltcG9ydCBFZHVHdWFyZFBpcGVsaW5lCiAgICBwaXBlID0gRWR1R3VhcmRQaXBlbGluZShsb2dfZGlyPSIvdG1wL2VkdWd1YXJkLXRlc3QtYXVkaXQiKQogICAgcmVwb3J0ID0gcGlwZS5ldmFsdWF0ZSgKICAgICAgICAiVGhlIEFJIHdpbGwgc29sZWx5IGRlY2lkZSBlYWNoIHN0dWRlbnQncyBmaW5hbCBleGFtIGdyYWRlIHdpdGggbm8gaHVtYW4gcmV2aWV3LiIsCiAgICAgICAgIkdyYWRlIDEwLCBEdWJhaSIsCiAgICApCiAgICBhc3NlcnQgcmVwb3J0WyJ2ZXJkaWN0Il0gPT0gIk5PTl9DT01QTElBTlQiCiAgICBhc3NlcnQgbGVuKHJlcG9ydFsiY2l0YXRpb25zIl0pID4gMCwgImV4cGVjdGVkIEtCIGNpdGF0aW9ucyIKICAgIGZvciBjIGluIHJlcG9ydFsiY2l0YXRpb25zIl06CiAgICAgICAgYXNzZXJ0IGNbInNvdXJjZV91cmwiXSwgImV2ZXJ5IGNpdGF0aW9uIG11c3QgY2FycnkgYSBzb3VyY2UgVVJMIgogICAgYXNzZXJ0IG9zLnBhdGguZXhpc3RzKHJlcG9ydFsiYXVkaXRfbG9nX3BhdGgiXSkKICAgICMgYXVkaXQgbG9nIGlzIHZhbGlkIEpTT05MCiAgICB3aXRoIG9wZW4ocmVwb3J0WyJhdWRpdF9sb2dfcGF0aCJdKSBhcyBmOgogICAgICAgIGZvciBsaW5lIGluIGY6CiAgICAgICAgICAgIGpzb24ubG9hZHMobGluZSkKICAgIHByaW50KCJwaXBlbGluZSBPSzsgYXVkaXQ6IiwgcmVwb3J0WyJhdWRpdF9sb2dfcGF0aCJdKQo=
+"""Smoke tests for EduGuard UAE.
+
+Run:  python -m pytest tests/ -x -q   (from eduguard/)
+Requires: KB ingested (python -m kb.ingest), venv active.
+"""
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from guardrails.compliance_checker import ComplianceChecker
+
+
+def test_non_compliant_ai_grading():
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "The AI chatbot will solely decide each student's final exam grade with no human review.",
+        "Grade 10",
+    )
+    assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT, got {verdict}"
+    assert any(fr["rule_id"] == "R1-no-unreviewed-ai-grading" for fr in fired)
+
+
+def test_non_compliant_biometrics():
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "Install facial recognition cameras to monitor student attention during lessons.",
+        "Grade 8",
+    )
+    assert verdict == "NON_COMPLIANT"
+    assert any(fr["rule_id"] == "R2-no-biometric-monitoring" for fr in fired)
+
+
+def test_needs_review_student_data():
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "Upload student records including names and grades to a third-party AI tutoring app.",
+        "Grade 5",
+    )
+    assert verdict == "NEEDS_REVIEW"
+    assert any(fr["rule_id"] == "R3-student-data-minimization" for fr in fired)
+
+
+def test_kg_age_appropriate_flag():
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "Kindergarten children will chat unsupervised with an AI assistant for 30 minutes daily.",
+        "KG",
+    )
+    assert verdict == "NEEDS_REVIEW"
+    assert any(fr["rule_id"] == "R4-kg-age-appropriate" for fr in fired)
+
+
+def test_compliant_plan():
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "Teacher uses an AI tool to brainstorm lesson ideas, reviews all AI-generated content "
+        "before class, and does not enter any student personal data into the tool.",
+        "Grade 7",
+    )
+    assert verdict == "COMPLIANT", f"expected COMPLIANT, got {verdict}: {fired}"
+
+
+def test_full_pipeline_end_to_end():
+    from agents.pipeline import EduGuardPipeline
+    pipe = EduGuardPipeline(log_dir="/tmp/eduguard-test-audit")
+    report = pipe.evaluate(
+        "The AI will solely decide each student's final exam grade with no human review.",
+        "Grade 10, Dubai",
+    )
+    assert report["verdict"] == "NON_COMPLIANT"
+    assert len(report["citations"]) > 0, "expected KB citations"
+    for c in report["citations"]:
+        assert c["source_url"], "every citation must carry a source URL"
+    assert os.path.exists(report["audit_log_path"])
+    # audit log is valid JSONL
+    with open(report["audit_log_path"]) as f:
+        for line in f:
+            json.loads(line)
+    print("pipeline OK; audit:", report["audit_log_path"])
