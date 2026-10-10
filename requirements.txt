@@ -1,1 +1,8 @@
-Y2hyb21hZGI+PTAuNS4wCmZhc3RhcGk+PTAuMTEwLjAKdXZpY29ybj49MC4yOS4wCnB5ZGFudGljPj0yLjAuMApweXRob24tbXVsdGlwYXJ0Pj0wLjAuOQpyZXF1ZXN0cz49Mi4zMS4wCiMgT3B0aW9uYWw6IGhlYXZpZXIgbG9jYWwgZW1iZWRkaW5ncyAocmVxdWlyZXMgdG9yY2gsIH4yR0IpCiMgc2VudGVuY2UtdHJhbnNmb3JtZXJzPj0yLjcuMAo=
+chromadb>=0.5.0
+fastapi>=0.110.0
+uvicorn>=0.29.0
+pydantic>=2.0.0
+python-multipart>=0.0.9
+requests>=2.31.0
+# Optional: heavier local embeddings (requires torch, ~2GB)
+# sentence-transformers>=2.7.0

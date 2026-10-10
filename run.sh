@@ -1,1 +1,16 @@
-IyEvYmluL2Jhc2gKIyBFZHVHdWFyZCBVQUUgLSBydW4gdGhlIGRlbW8gQVBJCiMgVXNhZ2U6IC4vcnVuLnNoCmNkICIkKGRpcm5hbWUgIiQwIikiCmV4cG9ydCBub19wcm94eT0ibG9jYWxob3N0LDEyNy4wLjAuMSIgTk9fUFJPWFk9ImxvY2FsaG9zdCwxMjcuMC4wLjEiCmlmIFsgISAtZCAiLnZlbnYiIF07IHRoZW4KICBlY2hvICJDcmVhdGluZyB2ZW52IGFuZCBpbnN0YWxsaW5nIGRlcGVuZGVuY2llcy4uLiIKICBweXRob24zIC1tIHZlbnYgLnZlbnYKICAudmVudi9iaW4vcGlwIGluc3RhbGwgLS1uby1jYWNoZS1kaXIgLXIgcmVxdWlyZW1lbnRzLnR4dApmaQppZiBbICEgLWQgImtiL2Nocm9tYV9kYiIgXTsgdGhlbgogIGVjaG8gIkluZ2VzdGluZyBrbm93bGVkZ2UgYmFzZS4uLiIKICAudmVudi9iaW4vcHl0aG9uIC1tIGtiLmluZ2VzdApmaQplY2hvICJTdGFydGluZyBFZHVHdWFyZCBVQUUgb24gaHR0cDovL2xvY2FsaG9zdDo4MDAwIgoudmVudi9iaW4vdXZpY29ybiBhcGkubWFpbjphcHAgLS1wb3J0IDgwMDAK
+#!/bin/bash
+# EduGuard UAE - run the demo API
+# Usage: ./run.sh
+cd "$(dirname "$0")"
+export no_proxy="localhost,127.0.0.1" NO_PROXY="localhost,127.0.0.1"
+if [ ! -d ".venv" ]; then
+  echo "Creating venv and installing dependencies..."
+  python3 -m venv .venv
+  .venv/bin/pip install --no-cache-dir -r requirements.txt
+fi
+if [ ! -d "kb/chroma_db" ]; then
+  echo "Ingesting knowledge base..."
+  .venv/bin/python -m kb.ingest
+fi
+echo "Starting EduGuard UAE on http://localhost:8000"
+.venv/bin/uvicorn api.main:app --port 8000

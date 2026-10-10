@@ -1,1 +1,120 @@
-IiIiQ2hyb21hREIga25vd2xlZGdlLWJhc2Ugc3RvcmUgZm9yIEVkdUd1YXJkIFVBRS4KCkV2ZXJ5IGNodW5rIGNhcnJpZXMgbWFuZGF0b3J5IGNpdGF0aW9uIG1ldGFkYXRhOiBkb2NfaWQsIHRpdGxlLCBzb3VyY2VfdXJsLgpSZXRyaWV2YWwgcmV0dXJucyB2ZXJiYXRpbSBjaHVuayB0ZXh0IHBsdXMgdGhhdCBtZXRhZGF0YSwgc28gZXZlcnkgZG93bnN0cmVhbQpjbGFpbSBjYW4gYmUgdHJhY2VkIHRvIGEgc291cmNlIGRvY3VtZW50LiBObyBjaHVuayB3aXRob3V0IGEgc291cmNlIFVSTCBpcwpldmVyIGluZ2VzdGVkLgoKRW1iZWRkaW5nczogQ2hyb21hREIncyBidWlsdC1pbiBPTk5YIGVtYmVkZGluZyAoYWxsLU1pbmlMTS1MNi12MiksIGZ1bGx5CmxvY2FsLCBubyBBUEkga2V5LiBTZXQgRURVR1VBUkRfRU1CRURESU5HPXNlbnRlbmNlLXRyYW5zZm9ybWVycyB0byB1c2UgdGhlCmhlYXZpZXIgdG9yY2gtYmFzZWQgbW9kZWwgaW5zdGVhZCAocmVxdWlyZXMgYHBpcCBpbnN0YWxsIHNlbnRlbmNlLXRyYW5zZm9ybWVyc2ApLgoiIiIKaW1wb3J0IG9zCgppbXBvcnQgY2hyb21hZGIKZnJvbSBjaHJvbWFkYi51dGlscyBpbXBvcnQgZW1iZWRkaW5nX2Z1bmN0aW9ucwoKQ09MTEVDVElPTl9OQU1FID0gImVkdWd1YXJkX3BvbGljeV9rYiIKCgpkZWYgZ2V0X2Nocm9tYV9wYXRoKCk6CiAgICByZXR1cm4gb3MuZW52aXJvbi5nZXQoCiAgICAgICAgIkNIUk9NQV9EQl9QQVRIIiwKICAgICAgICBvcy5wYXRoLmpvaW4ob3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpLCAiY2hyb21hX2RiIiksCiAgICApCgoKZGVmIF9tYWtlX2VtYmVkZGluZ19mdW5jdGlvbigpOgogICAgaWYgb3MuZW52aXJvbi5nZXQoIkVEVUdVQVJEX0VNQkVERElORyIpID09ICJzZW50ZW5jZS10cmFuc2Zvcm1lcnMiOgogICAgICAgIHJldHVybiBlbWJlZGRpbmdfZnVuY3Rpb25zLlNlbnRlbmNlVHJhbnNmb3JtZXJFbWJlZGRpbmdGdW5jdGlvbigKICAgICAgICAgICAgbW9kZWxfbmFtZT0iYWxsLU1pbmlMTS1MNi12MiIKICAgICAgICApCiAgICByZXR1cm4gZW1iZWRkaW5nX2Z1bmN0aW9ucy5EZWZhdWx0RW1iZWRkaW5nRnVuY3Rpb24oKQoKCmNsYXNzIFBvbGljeUtCOgogICAgZGVmIF9faW5pdF9fKHNlbGYsIHBlcnNpc3RfcGF0aD1Ob25lKToKICAgICAgICBzZWxmLnBlcnNpc3RfcGF0aCA9IHBlcnNpc3RfcGF0aCBvciBnZXRfY2hyb21hX3BhdGgoKQogICAgICAgIG9zLm1ha2VkaXJzKHNlbGYucGVyc2lzdF9wYXRoLCBleGlzdF9vaz1UcnVlKQogICAgICAgIHNlbGYuY2xpZW50ID0gY2hyb21hZGIuUGVyc2lzdGVudENsaWVudChwYXRoPXNlbGYucGVyc2lzdF9wYXRoKQogICAgICAgICMgZ2V0X29yX2NyZWF0ZTogb24gY3JlYXRlLCBhdHRhY2ggb3VyIGVtYmVkZGluZyBmdW5jdGlvbjsgb24gbG9hZCwKICAgICAgICAjIHJldXNlIHRoZSBwZXJzaXN0ZWQgb25lIHRvIGF2b2lkIGVtYmVkZGluZy1mdW5jdGlvbiBjb25mbGljdHMuCiAgICAgICAgdHJ5OgogICAgICAgICAgICBzZWxmLmNvbGxlY3Rpb24gPSBzZWxmLmNsaWVudC5nZXRfY29sbGVjdGlvbihuYW1lPUNPTExFQ1RJT05fTkFNRSkKICAgICAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgICAgICBzZWxmLmNvbGxlY3Rpb24gPSBzZWxmLmNsaWVudC5jcmVhdGVfY29sbGVjdGlvbigKICAgICAgICAgICAgICAgIG5hbWU9Q09MTEVDVElPTl9OQU1FLAogICAgICAgICAgICAgICAgZW1iZWRkaW5nX2Z1bmN0aW9uPV9tYWtlX2VtYmVkZGluZ19mdW5jdGlvbigpLAogICAgICAgICAgICAgICAgbWV0YWRhdGE9eyJkZXNjcmlwdGlvbiI6ICJFZHVHdWFyZCBVQUUgcG9saWN5IGtub3dsZWRnZSBiYXNlIn0sCiAgICAgICAgICAgICkKCiAgICBkZWYgYWRkX2NodW5rcyhzZWxmLCBjaHVua3MpOgogICAgICAgICIiImNodW5rczogbGlzdCBvZiBkaWN0cyB3aXRoIGtleXM6IHRleHQsIGRvY19pZCwgdGl0bGUsIHNvdXJjZV91cmwsIGNodW5rX2lkLiIiIgogICAgICAgIGZvciBjIGluIGNodW5rczoKICAgICAgICAgICAgaWYgbm90IGMuZ2V0KCJzb3VyY2VfdXJsIik6CiAgICAgICAgICAgICAgICByYWlzZSBWYWx1ZUVycm9yKGYiQ2h1bmsgbWlzc2luZyBzb3VyY2VfdXJsOiB7Yy5nZXQoJ2NodW5rX2lkJyl9IikKICAgICAgICAjIEVuc3VyZSB0aGUgZW1iZWRkaW5nIGZ1bmN0aW9uIGlzIGF0dGFjaGVkIGZvciB3cml0ZXMuCiAgICAgICAgdHJ5OgogICAgICAgICAgICBjb2xsZWN0aW9uID0gc2VsZi5jbGllbnQuZ2V0X2NvbGxlY3Rpb24oCiAgICAgICAgICAgICAgICBuYW1lPUNPTExFQ1RJT05fTkFNRSwKICAgICAgICAgICAgICAgIGVtYmVkZGluZ19mdW5jdGlvbj1fbWFrZV9lbWJlZGRpbmdfZnVuY3Rpb24oKSwKICAgICAgICAgICAgKQogICAgICAgIGV4Y2VwdCBFeGNlcHRpb246CiAgICAgICAgICAgIGNvbGxlY3Rpb24gPSBzZWxmLmNvbGxlY3Rpb24KICAgICAgICBpZHMgPSBbY1siY2h1bmtfaWQiXSBmb3IgYyBpbiBjaHVua3NdCiAgICAgICAgY29sbGVjdGlvbi5hZGQoCiAgICAgICAgICAgIGlkcz1pZHMsCiAgICAgICAgICAgIGRvY3VtZW50cz1bY1sidGV4dCJdIGZvciBjIGluIGNodW5rc10sCiAgICAgICAgICAgIG1ldGFkYXRhcz1bCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgImRvY19pZCI6IGNbImRvY19pZCJdLAogICAgICAgICAgICAgICAgICAgICJ0aXRsZSI6IGNbInRpdGxlIl0sCiAgICAgICAgICAgICAgICAgICAgInNvdXJjZV91cmwiOiBjWyJzb3VyY2VfdXJsIl0sCiAgICAgICAgICAgICAgICAgICAgImNodW5rX2lkIjogY1siY2h1bmtfaWQiXSwKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGZvciBjIGluIGNodW5rcwogICAgICAgICAgICBdLAogICAgICAgICkKICAgICAgICByZXR1cm4gbGVuKGlkcykKCiAgICBkZWYgcXVlcnkoc2VsZiwgcXVlcnlfdGV4dCwgbl9yZXN1bHRzPTUpOgogICAgICAgICIiIlJldHVybnMgbGlzdCBvZiBkaWN0czogdGV4dCwgZG9jX2lkLCB0aXRsZSwgc291cmNlX3VybCwgY2h1bmtfaWQsIGRpc3RhbmNlLiIiIgogICAgICAgIHRyeToKICAgICAgICAgICAgY29sbGVjdGlvbiA9IHNlbGYuY2xpZW50LmdldF9jb2xsZWN0aW9uKAogICAgICAgICAgICAgICAgbmFtZT1DT0xMRUNUSU9OX05BTUUsCiAgICAgICAgICAgICAgICBlbWJlZGRpbmdfZnVuY3Rpb249X21ha2VfZW1iZWRkaW5nX2Z1bmN0aW9uKCksCiAgICAgICAgICAgICkKICAgICAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgICAgICBjb2xsZWN0aW9uID0gc2VsZi5jb2xsZWN0aW9uCiAgICAgICAgcmVzID0gY29sbGVjdGlvbi5xdWVyeSgKICAgICAgICAgICAgcXVlcnlfdGV4dHM9W3F1ZXJ5X3RleHRdLCBuX3Jlc3VsdHM9bl9yZXN1bHRzCiAgICAgICAgKQogICAgICAgIGhpdHMgPSBbXQogICAgICAgIGRvY3MgPSByZXMuZ2V0KCJkb2N1bWVudHMiLCBbW11dKVswXQogICAgICAgIG1ldGFzID0gcmVzLmdldCgibWV0YWRhdGFzIiwgW1tdXSlbMF0KICAgICAgICBkaXN0cyA9IHJlcy5nZXQoImRpc3RhbmNlcyIsIFtbXV0pWzBdCiAgICAgICAgZm9yIGRvYywgbWV0YSwgZGlzdCBpbiB6aXAoZG9jcywgbWV0YXMsIGRpc3RzKToKICAgICAgICAgICAgaGl0cy5hcHBlbmQoewogICAgICAgICAgICAgICAgInRleHQiOiBkb2MsCiAgICAgICAgICAgICAgICAiZG9jX2lkIjogbWV0YS5nZXQoImRvY19pZCIpLAogICAgICAgICAgICAgICAgInRpdGxlIjogbWV0YS5nZXQoInRpdGxlIiksCiAgICAgICAgICAgICAgICAic291cmNlX3VybCI6IG1ldGEuZ2V0KCJzb3VyY2VfdXJsIiksCiAgICAgICAgICAgICAgICAiY2h1bmtfaWQiOiBtZXRhLmdldCgiY2h1bmtfaWQiKSwKICAgICAgICAgICAgICAgICJkaXN0YW5jZSI6IGRpc3QsCiAgICAgICAgICAgIH0pCiAgICAgICAgcmV0dXJuIGhpdHMKCiAgICBkZWYgY291bnQoc2VsZik6CiAgICAgICAgcmV0dXJuIHNlbGYuY29sbGVjdGlvbi5jb3VudCgpCgogICAgZGVmIGxpc3Rfc291cmNlcyhzZWxmKToKICAgICAgICAiIiJEaXN0aW5jdCBkb2N1bWVudHMgY3VycmVudGx5IGluIHRoZSBLQi4iIiIKICAgICAgICBkYXRhID0gc2VsZi5jb2xsZWN0aW9uLmdldChpbmNsdWRlPVsibWV0YWRhdGFzIl0pCiAgICAgICAgc2VlbiA9IHt9CiAgICAgICAgZm9yIG0gaW4gZGF0YS5nZXQoIm1ldGFkYXRhcyIsIFtdKToKICAgICAgICAgICAgc2VlblttWyJkb2NfaWQiXV0gPSB7CiAgICAgICAgICAgICAgICAiZG9jX2lkIjogbVsiZG9jX2lkIl0sCiAgICAgICAgICAgICAgICAidGl0bGUiOiBtWyJ0aXRsZSJdLAogICAgICAgICAgICAgICAgInNvdXJjZV91cmwiOiBtWyJzb3VyY2VfdXJsIl0sCiAgICAgICAgICAgIH0KICAgICAgICByZXR1cm4gc29ydGVkKHNlZW4udmFsdWVzKCksIGtleT1sYW1iZGEgczogc1siZG9jX2lkIl0pCg==
+"""ChromaDB knowledge-base store for EduGuard UAE.
+
+Every chunk carries mandatory citation metadata: doc_id, title, source_url.
+Retrieval returns verbatim chunk text plus that metadata, so every downstream
+claim can be traced to a source document. No chunk without a source URL is
+ever ingested.
+
+Embeddings: ChromaDB's built-in ONNX embedding (all-MiniLM-L6-v2), fully
+local, no API key. Set EDUGUARD_EMBEDDING=sentence-transformers to use the
+heavier torch-based model instead (requires `pip install sentence-transformers`).
+"""
+import os
+
+import chromadb
+from chromadb.utils import embedding_functions
+
+COLLECTION_NAME = "eduguard_policy_kb"
+
+
+def get_chroma_path():
+    return os.environ.get(
+        "CHROMA_DB_PATH",
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "chroma_db"),
+    )
+
+
+def _make_embedding_function():
+    if os.environ.get("EDUGUARD_EMBEDDING") == "sentence-transformers":
+        return embedding_functions.SentenceTransformerEmbeddingFunction(
+            model_name="all-MiniLM-L6-v2"
+        )
+    return embedding_functions.DefaultEmbeddingFunction()
+
+
+class PolicyKB:
+    def __init__(self, persist_path=None):
+        self.persist_path = persist_path or get_chroma_path()
+        os.makedirs(self.persist_path, exist_ok=True)
+        self.client = chromadb.PersistentClient(path=self.persist_path)
+        # get_or_create: on create, attach our embedding function; on load,
+        # reuse the persisted one to avoid embedding-function conflicts.
+        try:
+            self.collection = self.client.get_collection(name=COLLECTION_NAME)
+        except Exception:
+            self.collection = self.client.create_collection(
+                name=COLLECTION_NAME,
+                embedding_function=_make_embedding_function(),
+                metadata={"description": "EduGuard UAE policy knowledge base"},
+            )
+
+    def add_chunks(self, chunks):
+        """chunks: list of dicts with keys: text, doc_id, title, source_url, chunk_id."""
+        for c in chunks:
+            if not c.get("source_url"):
+                raise ValueError(f"Chunk missing source_url: {c.get('chunk_id')}")
+        # Ensure the embedding function is attached for writes.
+        try:
+            collection = self.client.get_collection(
+                name=COLLECTION_NAME,
+                embedding_function=_make_embedding_function(),
+            )
+        except Exception:
+            collection = self.collection
+        ids = [c["chunk_id"] for c in chunks]
+        collection.add(
+            ids=ids,
+            documents=[c["text"] for c in chunks],
+            metadatas=[
+                {
+                    "doc_id": c["doc_id"],
+                    "title": c["title"],
+                    "source_url": c["source_url"],
+                    "chunk_id": c["chunk_id"],
+                }
+                for c in chunks
+            ],
+        )
+        return len(ids)
+
+    def query(self, query_text, n_results=5):
+        """Returns list of dicts: text, doc_id, title, source_url, chunk_id, distance."""
+        try:
+            collection = self.client.get_collection(
+                name=COLLECTION_NAME,
+                embedding_function=_make_embedding_function(),
+            )
+        except Exception:
+            collection = self.collection
+        res = collection.query(
+            query_texts=[query_text], n_results=n_results
+        )
+        hits = []
+        docs = res.get("documents", [[]])[0]
+        metas = res.get("metadatas", [[]])[0]
+        dists = res.get("distances", [[]])[0]
+        for doc, meta, dist in zip(docs, metas, dists):
+            hits.append({
+                "text": doc,
+                "doc_id": meta.get("doc_id"),
+                "title": meta.get("title"),
+                "source_url": meta.get("source_url"),
+                "chunk_id": meta.get("chunk_id"),
+                "distance": dist,
+            })
+        return hits
+
+    def count(self):
+        return self.collection.count()
+
+    def list_sources(self):
+        """Distinct documents currently in the KB."""
+        data = self.collection.get(include=["metadatas"])
+        seen = {}
+        for m in data.get("metadatas", []):
+            seen[m["doc_id"]] = {
+                "doc_id": m["doc_id"],
+                "title": m["title"],
+                "source_url": m["source_url"],
+            }
+        return sorted(seen.values(), key=lambda s: s["doc_id"])
