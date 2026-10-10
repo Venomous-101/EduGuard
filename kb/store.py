@@ -25,15 +25,29 @@ def get_chroma_path():
     )
 
 
+_EMBEDDING_FUNCTION_CACHE = {}
+
+
 def _make_embedding_function():
-    if os.environ.get("EDUGUARD_EMBEDDING") == "sentence-transformers":
-        return embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name="all-MiniLM-L6-v2"
-        )
-    # Force CPU execution provider: ChromaDB's default ONNX embedding tries
-    # AzureExecutionProvider first, which fails on machines without it.
-    # Instantiating directly with CPUExecutionProvider avoids the crash.
-    return ONNXMiniLM_L6_V2(preferred_providers=["CPUExecutionProvider"])
+    """Return the embedding function, cached per mode. Building the ONNX
+    embedding function loads a model, so it is created once per process
+    instead of once per query."""
+    mode = os.environ.get("EDUGUARD_EMBEDDING", "onnx")
+    if mode not in _EMBEDDING_FUNCTION_CACHE:
+        if mode == "sentence-transformers":
+            _EMBEDDING_FUNCTION_CACHE[mode] = (
+                embedding_functions.SentenceTransformerEmbeddingFunction(
+                    model_name="all-MiniLM-L6-v2"
+                )
+            )
+        else:
+            # Force CPU execution provider: ChromaDB's default ONNX embedding
+            # tries AzureExecutionProvider first, which fails on machines
+            # without it. Instantiating with CPUExecutionProvider avoids it.
+            _EMBEDDING_FUNCTION_CACHE[mode] = ONNXMiniLM_L6_V2(
+                preferred_providers=["CPUExecutionProvider"]
+            )
+    return _EMBEDDING_FUNCTION_CACHE[mode]
 
 
 class PolicyKB:

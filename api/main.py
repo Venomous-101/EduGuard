@@ -29,6 +29,7 @@ app = FastAPI(
 )
 
 _pipeline = None
+_kb = None
 
 
 def get_pipeline():
@@ -36,6 +37,13 @@ def get_pipeline():
     if _pipeline is None:
         _pipeline = EduGuardPipeline()
     return _pipeline
+
+
+def get_kb():
+    global _kb
+    if _kb is None:
+        _kb = PolicyKB()
+    return _kb
 
 
 class EvaluateRequest(BaseModel):
@@ -56,7 +64,7 @@ def evaluate(req: EvaluateRequest):
 
 @app.get("/health")
 def health():
-    kb = PolicyKB()
+    kb = get_kb()
     llm = LLMBackend()
     return {
         "status": "ok",
@@ -70,7 +78,7 @@ def health():
 
 @app.get("/sources")
 def sources():
-    return {"sources": PolicyKB().list_sources()}
+    return {"sources": get_kb().list_sources()}
 
 
 @app.get("/")

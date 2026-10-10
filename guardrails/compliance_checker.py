@@ -18,9 +18,9 @@ RULES = [
         "severity": "NON_COMPLIANT",
         "title": "AI must not solely determine student grades or assessment outcomes",
         "policy_basis": {
-            "doc_id": "eu-ai-act-education",
-            "title": "EU AI Act, Annex III (education) and UNESCO Guidance on AI in Education",
-            "source_url": "https://casrai.org/dictionary/term/eu-ai-act-annex-iii-high-risk-use-cases",
+            "doc_id": "eu-ai-act-education-full",
+            "title": "EU AI Act (Regulation (EU) 2024/1689), Annex III point 3(b): evaluating learning outcomes",
+            "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
         },
         "keywords": [
             "solely decide", "solely determine", "final grade decided by ai",
@@ -30,6 +30,10 @@ RULES = [
             "no teacher checking", "without any human oversight",
             "determine student grades without", "ai will grade",
             "automatically grade", "grade students automatically",
+            "alone decides each student", "alone decides the grade", "alone decides grades",
+            "alone decides the final", "alone determines the grade", "alone determines grades",
+            "alone determines the final", "fully automated grading",
+            "end-to-end automated grading",
         ],
         "guidance": "AI systems evaluating learning outcomes are high-risk (EU AI Act Annex III, point 3(b)). "
                     "Grades must remain under meaningful human oversight; AI may assist but not solely determine outcomes.",
@@ -39,9 +43,9 @@ RULES = [
         "severity": "NON_COMPLIANT",
         "title": "No biometric identification or emotion recognition of students",
         "policy_basis": {
-            "doc_id": "eu-ai-act-education",
-            "title": "EU AI Act prohibited practices (emotion inference in education/work)",
-            "source_url": "https://www.ai-expert.co.uk/blog/eu-ai-act-risk-tiers-explained",
+            "doc_id": "eu-ai-act-education-full",
+            "title": "EU AI Act Article 5(1)(f): emotion inference in education and work is prohibited",
+            "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
         },
         "keywords": [
             "facial recognition", "face recognition", "emotion detection",
@@ -76,7 +80,7 @@ RULES = [
         "policy_basis": {
             "doc_id": "uae-moe-ai-curriculum-2025",
             "title": "UAE MoE AI curriculum (2025-2026): KG uses visual/interactive activities through stories and play",
-            "source_url": "https://www.Entrepreneur.Com/en-ae/technology/uae-to-make-ai-official-subject-in-schools/491071",
+            "source_url": "https://www.moe.gov.ae/",
         },
         "keywords": ["kindergarten", "kg ", "kg,", "early years", "age 4", "age 5", "5-year-old"],
         "guidance": "Per the UAE MoE curriculum, KG learners discover AI through visual, interactive activities, stories and play, "
@@ -87,9 +91,9 @@ RULES = [
         "severity": "NEEDS_REVIEW",
         "title": "Teachers deploying AI need sufficient AI literacy",
         "policy_basis": {
-            "doc_id": "eu-ai-act-education",
+            "doc_id": "eu-ai-act-education-full",
             "title": "EU AI Act Article 4 (AI literacy duty for deployers)",
-            "source_url": "https://www.law.kuleuven.be/citip/blog/this-time-humans-learn-about-machines-ai-literacy-in-the-ai-act-part-2/",
+            "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
         },
         "keywords": ["deploy ai", "deploy a new ai", "roll out", "introduce ai", "new ai tool",
                      "new ai tutoring system", "ai system in class", "ai system in all classrooms"],
@@ -103,9 +107,9 @@ RULES = [
         "severity": "NON_COMPLIANT",
         "title": "No AI-only proctoring decisions without human review",
         "policy_basis": {
-            "doc_id": "eu-ai-act-education",
+            "doc_id": "eu-ai-act-education-full",
             "title": "EU AI Act Annex III, point 3(d): monitoring/detecting prohibited behaviour during tests is high-risk",
-            "source_url": "https://casrai.org/dictionary/term/eu-ai-act-annex-iii-high-risk-use-cases",
+            "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
         },
         "keywords": [
             "auto-flag cheating", "automatically disqualify", "ai proctor",
@@ -152,6 +156,7 @@ class ComplianceChecker:
         fired = []
         for rule in self.rules:
             matched = []
+            matched_sentences = []
             for kw in rule["keywords"]:
                 # Word-boundary regex: avoids matching "trained" inside "untrained"
                 kw_pattern = r"\b" + re.escape(kw) + r"\b"
@@ -163,13 +168,20 @@ class ComplianceChecker:
                     before = f" {sent[:m.start()]} "
                     if not any(neg in before for neg in negations):
                         matched.append(kw)
+                        matched_sentences.append(sent)
                         break
             if not matched:
                 continue
             # requires_absence: skip if any "already handled" phrase is present
-            # as a whole word (fixes "untrained" matching "trained").
+            # as a whole word (fixes "untrained" matching "trained"), but only
+            # within the sentences that actually matched this rule, so an
+            # unrelated "training" mention elsewhere cannot silence the rule.
             absent = rule.get("requires_absence", [])
-            if any(re.search(r"\b" + re.escape(phrase) + r"\b", text) for phrase in absent):
+            if absent and any(
+                re.search(r"\b" + re.escape(phrase) + r"\b", sent)
+                for sent in matched_sentences
+                for phrase in absent
+            ):
                 continue
             fired.append({
                     "rule_id": rule["id"],

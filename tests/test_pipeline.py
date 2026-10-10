@@ -119,3 +119,37 @@ def test_child_safety_rule():
     )
     assert not any(f["rule_id"] == "R7-child-safety" for f in fired2), "R7 false positive on legit health ed"
     print("child-safety rule OK")
+
+def test_paraphrased_ai_only_grading():
+    """R1 must catch paraphrased AI-only grading, not just keyword phrases."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "The chatbot alone decides each student's final mark, with no teacher involvement.",
+        "Grade 11",
+    )
+    assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT, got {verdict}: {fired}"
+    assert any(fr["rule_id"] == "R1-no-unreviewed-ai-grading" for fr in fired)
+
+
+def test_r5_scoped_to_matched_sentence():
+    """R5 fires when deployment lacks teacher training, even if 'training' is
+    mentioned elsewhere (e.g. for students) in a different sentence."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "We will deploy a new AI tool in all classrooms next term. Separately, "
+        "students receive AI ethics training modules.",
+        "Grade 9",
+    )
+    assert verdict == "NEEDS_REVIEW", f"expected NEEDS_REVIEW, got {verdict}: {fired}"
+    assert any(fr["rule_id"] == "R5-teacher-ai-literacy" for fr in fired)
+
+
+def test_r5_suppressed_when_training_in_same_sentence():
+    """R5 stays suppressed when training is part of the same deployment plan."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "We will deploy a new AI tool in all classrooms next term, after every "
+        "teacher completes a training workshop.",
+        "Grade 9",
+    )
+    assert verdict == "COMPLIANT", f"expected COMPLIANT, got {verdict}: {fired}"
