@@ -3,73 +3,156 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EduGuard UAE - AI Compliance Agent for Schools</title>
+<title>EduGuard UAE - Evidence-Anchored AI Compliance for Schools</title>
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
-  h1 { font-size: 1.6rem; } .sub { color: #555; margin-top: -0.8rem; }
-  textarea, input { width: 100%; padding: 0.6rem; margin: 0.4rem 0; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; }
-  button { background: #0b5fff; color: #fff; border: 0; padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 1rem; cursor: pointer; }
-  button:disabled { background: #999; }
-  .verdict { font-size: 1.3rem; font-weight: 700; padding: 0.8rem; border-radius: 8px; margin: 1rem 0; }
-  .COMPLIANT { background: #e6f7e6; color: #146614; }
-  .NEEDS_REVIEW { background: #fff7e0; color: #8a6d00; }
-  .NON_COMPLIANT { background: #fde8e8; color: #a31212; }
-  .card { border: 1px solid #ddd; border-radius: 8px; padding: 0.8rem; margin: 0.6rem 0; }
-  .cite { font-size: 0.85rem; color: #444; } .cite a { color: #0b5fff; }
-  blockquote { border-left: 3px solid #0b5fff; margin: 0.5rem 0; padding: 0.3rem 0.8rem; background: #f5f8ff; font-size: 0.9rem; }
-  .notice { font-size: 0.8rem; color: #777; margin-top: 2rem; }
-  pre { background: #f4f4f4; padding: 0.8rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; }
+  :root {
+    --bg: #0f172a; --surface: #1e293b; --surface2: #273449;
+    --text: #f1f5f9; --muted: #94a3b8; --accent: #38bdf8;
+    --green: #34d399; --amber: #fbbf24; --red: #f87171;
+    --border: #334155;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+  header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding: 2.5rem 1rem; text-align: center; border-bottom: 1px solid var(--border); }
+  header h1 { margin: 0; font-size: 2.2rem; letter-spacing: -0.5px; }
+  header h1 .guard { color: var(--accent); }
+  header p { color: var(--muted); max-width: 640px; margin: 0.8rem auto 0; font-size: 1.05rem; line-height: 1.5; }
+  .badges { margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+  .badge { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 0.3rem 0.9rem; font-size: 0.82rem; color: var(--muted); }
+  .badge b { color: var(--text); }
+  main { max-width: 960px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .panel h2 { margin: 0 0 1rem; font-size: 1.15rem; color: var(--accent); }
+  label { display: block; font-weight: 600; margin: 0.8rem 0 0.3rem; font-size: 0.92rem; }
+  textarea, input { width: 100%; padding: 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; font-family: inherit; }
+  textarea:focus, input:focus { outline: none; border-color: var(--accent); }
+  .examples { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.8rem 0; }
+  .ex-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 0.45rem 0.85rem; font-size: 0.83rem; cursor: pointer; }
+  .ex-btn:hover { color: var(--text); border-color: var(--accent); }
+  .go-btn { background: linear-gradient(135deg, #0284c7, #38bdf8); color: #fff; border: 0; padding: 0.85rem 2rem; border-radius: 10px; font-size: 1.05rem; font-weight: 700; cursor: pointer; margin-top: 1rem; width: 100%; }
+  .go-btn:hover { filter: brightness(1.1); }
+  .go-btn:disabled { opacity: 0.6; cursor: wait; }
+  .verdict-banner { border-radius: 12px; padding: 1.4rem; margin: 1.5rem 0; text-align: center; }
+  .verdict-banner .v { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
+  .verdict-banner .sub { margin-top: 0.4rem; font-size: 0.92rem; opacity: 0.85; }
+  .COMPLIANT { background: rgba(52,211,153,0.12); border: 2px solid var(--green); }
+  .COMPLIANT .v { color: var(--green); }
+  .NEEDS_REVIEW { background: rgba(251,191,36,0.1); border: 2px solid var(--amber); }
+  .NEEDS_REVIEW .v { color: var(--amber); }
+  .NON_COMPLIANT { background: rgba(248,113,113,0.1); border: 2px solid var(--red); }
+  .NON_COMPLIANT .v { color: var(--red); }
+  .rule-card { background: var(--surface2); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 1rem; margin: 0.7rem 0; }
+  .rule-card.sev-NON_COMPLIANT { border-left-color: var(--red); }
+  .rule-card.sev-NEEDS_REVIEW { border-left-color: var(--amber); }
+  .rule-card .rid { font-family: monospace; font-size: 0.8rem; color: var(--muted); }
+  .rule-card .rtitle { font-weight: 700; margin: 0.2rem 0; }
+  .rule-card .rguidance { font-size: 0.9rem; color: var(--muted); margin-top: 0.4rem; font-style: italic; }
+  .cite-link { font-size: 0.85rem; }
+  .cite-link a { color: var(--accent); text-decoration: none; }
+  .cite-link a:hover { text-decoration: underline; }
+  blockquote { border-left: 3px solid var(--accent); margin: 0.6rem 0; padding: 0.5rem 1rem; background: rgba(56,189,248,0.06); border-radius: 0 8px 8px 0; font-size: 0.9rem; color: #cbd5e1; }
+  .finding-type { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 0.15rem 0.6rem; border-radius: 12px; margin-bottom: 0.4rem; }
+  .finding-type.conflict { background: rgba(248,113,113,0.15); color: var(--red); }
+  .finding-type.gap { background: rgba(251,191,36,0.15); color: var(--amber); }
+  .finding-type.aligned { background: rgba(52,211,153,0.15); color: var(--green); }
+  .actions-list { padding-left: 1.2rem; }
+  .actions-list li { margin: 0.4rem 0; }
+  .meta { font-size: 0.82rem; color: var(--muted); margin-top: 1rem; text-align: center; }
+  .pipeline-steps { display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; margin: 1.2rem 0; font-size: 0.8rem; }
+  .step { background: var(--surface2); border: 1px solid var(--border); padding: 0.35rem 0.8rem; border-radius: 16px; color: var(--muted); }
+  .step b { color: var(--accent); }
+  .loading { text-align: center; padding: 2rem; color: var(--muted); }
+  .spinner { display: inline-block; width: 28px; height: 28px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 0.8rem; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.82rem; border-top: 1px solid var(--border); }
+  footer a { color: var(--accent); }
+  h3.section { color: var(--text); font-size: 1.05rem; margin: 1.6rem 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
 </style>
 </head>
 <body>
-<h1>EduGuard UAE</h1>
-<p class="sub">Evidence-anchored AI compliance agent for UAE schools &mdash; ITU AI for Good Hackathon UAE</p>
-
-<label><strong>Lesson plan / classroom AI use case</strong></label>
-<textarea id="plan" rows="8" placeholder="Describe how AI will be used in the classroom...">Grade 10 mathematics: the teacher will use an AI chatbot to generate practice problems, and the AI will solely decide each student's final exam grade with no human review.</textarea>
-<label><strong>Context (optional)</strong></label>
-<input id="ctx" placeholder="e.g. Grade 10, public school, Dubai" value="Grade 10, public school, Dubai">
-<p><button id="go" onclick="run()">Evaluate against policy</button></p>
-<div id="out"></div>
-<p class="notice">SIMULATION ONLY. All test data is synthetic. Every policy claim below is anchored to a verbatim citation from the knowledge base, or explicitly marked INSUFFICIENT_EVIDENCE.</p>
-
+<header>
+  <h1>EduGuard <span class="guard">UAE</span></h1>
+  <p>Evidence-anchored AI compliance agent for UAE schools. Every verdict is traced to verbatim policy citations. Deterministic guardrails, never overridden by the LLM.</p>
+  <div class="badges">
+    <span class="badge"><b>ITU</b> AI for Good Lab Hackathon UAE</span>
+    <span class="badge"><b>22</b> policy sources</span>
+    <span class="badge"><b>6</b> deterministic guardrails</span>
+    <span class="badge">Full audit trail</span>
+  </div>
+  <div class="pipeline-steps">
+    <span class="step"><b>1</b> PolicyRetriever (RAG)</span><span class="step"><b>2</b> GapAnalyzer (LLM advisory)</span><span class="step"><b>3</b> ComplianceChecker (deterministic)</span><span class="step"><b>4</b> Reporter (cited verdict)</span>
+  </div>
+</header>
+<main>
+  <div class="panel">
+    <h2>Evaluate a classroom AI use case</h2>
+    <label>Lesson plan / AI use case</label>
+    <textarea id="plan" rows="6" placeholder="Describe how AI will be used in the classroom...">Grade 10 mathematics: the teacher will use an AI chatbot to generate practice problems, and the AI will solely decide each student's final exam grade with no human review.</textarea>
+    <label>Context (optional)</label>
+    <input id="ctx" placeholder="e.g. Grade 10, public school, Dubai" value="Grade 10, public school, Dubai">
+    <label style="color:var(--muted); font-weight:400; font-size:0.85rem;">Try an example:</label>
+    <div class="examples">
+      <button class="ex-btn" onclick="setExample('grading')">AI-only grading</button>
+      <button class="ex-btn" onclick="setExample('biometric')">Biometric monitoring</button>
+      <button class="ex-btn" onclick="setExample('data')">Student data upload</button>
+      <button class="ex-btn" onclick="setExample('good')">Compliant plan</button>
+    </div>
+    <button class="go-btn" id="go" onclick="run()">Evaluate against policy</button>
+  </div>
+  <div id="out"></div>
+</main>
+<footer>
+  SIMULATION ONLY. All test data is synthetic. No real student data is processed.<br>
+  Built for the ITU AI for Good Lab Hackathon UAE. <a href="https://github.com/Venomous-101/EduGuard" target="_blank">GitHub</a> | MIT License
+</footer>
 <script>
+const EXAMPLES = {
+  grading: ["I want to use AI to grade all my students' final exams with no teacher review.", "Grade 12, Dubai"],
+  biometric: ["Install facial recognition cameras to monitor student attention during lessons.", "Grade 8, Abu Dhabi"],
+  data: ["Upload student records including names and grades to a third-party AI tutoring app for personalization.", "Grade 5, Sharjah"],
+  good: ["Teacher uses an AI tool to brainstorm lesson ideas, reviews all AI-generated content before class, and does not enter any student personal data into the tool.", "Grade 7, Dubai"]
+};
+function setExample(k) {
+  document.getElementById('plan').value = EXAMPLES[k][0];
+  document.getElementById('ctx').value = EXAMPLES[k][1];
+}
+function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 async function run() {
   const btn = document.getElementById('go'); btn.disabled = true; btn.textContent = 'Evaluating...';
-  const out = document.getElementById('out'); out.innerHTML = '<p>Running retrieval, gap analysis, deterministic rules...</p>';
+  const out = document.getElementById('out');
+  out.innerHTML = '<div class="panel loading"><div class="spinner"></div><br>Running retrieval, gap analysis, deterministic rules...</div>';
   try {
     const r = await fetch('/evaluate', {
       method: 'POST', headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ lesson_plan: document.getElementById('plan').value, context: document.getElementById('ctx').value })
     });
     const d = await r.json();
-    if (!r.ok) { out.innerHTML = '<p style="color:red">Error: ' + (d.detail || r.status) + '</p>'; return; }
-    let h = '<div class="verdict ' + d.verdict + '">Verdict: ' + d.verdict.replace(/_/g, ' ') + '</div>';
-    h += '<p class="cite">' + d.evidence_note + '</p>';
+    if (!r.ok) { out.innerHTML = '<div class="panel"><p style="color:var(--red)">Error: ' + esc(d.detail || r.status) + '</p></div>'; return; }
+    let h = '<div class="verdict-banner ' + d.verdict + '"><div class="v">' + d.verdict.replace(/_/g,' ') + '</div><div class="sub">' + esc(d.evidence_note) + '</div></div>';
     if (d.deterministic_rules_fired.length) {
-      h += '<h3>Deterministic rules fired</h3>';
+      h += '<div class="panel"><h2>Deterministic guardrails fired</h2>';
       d.deterministic_rules_fired.forEach(fr => {
-        h += '<div class="card"><strong>' + fr.rule_id + ' [' + fr.severity + ']</strong><br>' + fr.title +
-             '<br><span class="cite">Policy basis: <a href="' + fr.policy_basis.source_url + '" target="_blank">' + fr.policy_basis.title + '</a></span>' +
-             '<br><em>' + fr.guidance + '</em></div>';
+        h += '<div class="rule-card sev-' + fr.severity + '"><div class="rid">' + esc(fr.rule_id) + ' &middot; ' + esc(fr.severity) + '</div><div class="rtitle">' + esc(fr.title) + '</div><div class="cite-link">Policy basis: <a href="' + esc(fr.policy_basis.source_url) + '" target="_blank">' + esc(fr.policy_basis.title) + '</a></div><div class="rguidance">' + esc(fr.guidance) + '</div></div>';
       });
+      h += '</div>';
     }
     if (d.advisory_gap_findings.length) {
-      h += '<h3>Advisory gap findings</h3>';
+      h += '<div class="panel"><h2>Advisory gap analysis</h2><p style="color:var(--muted);font-size:0.85rem;margin-top:-0.5rem;">LLM-powered, advisory only. Cannot override deterministic rules.</p>';
       d.advisory_gap_findings.forEach(f => {
-        h += '<div class="card"><strong>[' + f.type + ']</strong> ' + (f.summary || '') +
-             (f.verbatim_quote ? '<blockquote>' + f.verbatim_quote + '</blockquote>' : '') +
-             (f.source_url ? '<span class="cite">Source: <a href="' + f.source_url + '" target="_blank">' + (f.source_title || f.source_url) + '</a></span>' : '') + '</div>';
+        h += '<div class="rule-card"><span class="finding-type ' + esc(f.type||'gap') + '">' + esc(f.type||'gap') + '</span><div>' + esc(f.summary||'') + '</div>' +
+             (f.verbatim_quote ? '<blockquote>' + esc(f.verbatim_quote) + '</blockquote>' : '') +
+             (f.source_url ? '<div class="cite-link">Source: <a href="' + esc(f.source_url) + '" target="_blank">' + esc(f.source_title || f.source_url) + '</a></div>' : '') + '</div>';
       });
+      h += '</div>';
     }
-    h += '<h3>Recommended actions</h3><ul>' + d.recommended_actions.map(a => '<li>' + a + '</li>').join('') + '</ul>';
-    h += '<h3>Knowledge-base citations</h3>';
+    h += '<div class="panel"><h2>Recommended actions</h2><ul class="actions-list">' + d.recommended_actions.map(a => '<li>' + esc(a) + '</li>').join('') + '</ul></div>';
+    h += '<div class="panel"><h2>Knowledge-base citations (' + d.citations.length + ')</h2>';
     d.citations.forEach(c => {
-      h += '<div class="card"><span class="cite"><a href="' + c.source_url + '" target="_blank">' + c.title + '</a> (' + c.chunk_id + ')</span><blockquote>' + c.verbatim_excerpt + '...</blockquote></div>';
+      h += '<div class="rule-card"><div class="cite-link"><a href="' + esc(c.source_url) + '" target="_blank"><b>' + esc(c.title) + '</b></a> <span style="color:var(--muted)">(' + esc(c.chunk_id) + ')</span></div><blockquote>' + esc(c.verbatim_excerpt) + '...</blockquote></div>';
     });
-    h += '<p class="cite">Audit run: ' + d.audit_run_id + '</p>';
+    h += '<div class="meta">Audit run: <code>' + esc(d.audit_run_id) + '</code> &middot; every stage logged</div></div>';
     out.innerHTML = h;
-  } catch (e) { out.innerHTML = '<p style="color:red">Error: ' + e.message + '</p>'; }
+  } catch (e) { out.innerHTML = '<div class="panel"><p style="color:var(--red)">Error: ' + esc(e.message) + '</p></div>'; }
   btn.disabled = false; btn.textContent = 'Evaluate against policy';
 }
 </script>

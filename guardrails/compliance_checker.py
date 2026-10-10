@@ -25,7 +25,10 @@ RULES = [
             "solely decide", "solely determine", "final grade decided by ai",
             "ai decides the grade", "automatic grading without review",
             "no human review", "without teacher review", "no teacher review",
-            "with no teacher review",
+            "with no teacher review", "grade all final exams automatically",
+            "no teacher checking", "without any human oversight",
+            "determine student grades without", "ai will grade",
+            "automatically grade", "grade students automatically",
         ],
         "guidance": "AI systems evaluating learning outcomes are high-risk (EU AI Act Annex III, point 3(b)). "
                     "Grades must remain under meaningful human oversight; AI may assist but not solely determine outcomes.",
@@ -41,8 +44,9 @@ RULES = [
         },
         "keywords": [
             "facial recognition", "face recognition", "emotion detection",
-            "emotion recognition", "biometric", "eye tracking for attention",
-            "attention monitoring via camera",
+            "emotion recognition", "emotion ai", "biometric", "eye tracking for attention",
+            "attention monitoring via camera", "detect if students are bored",
+            "detect student emotions",
         ],
         "guidance": "Emotion inference and biometric identification in education are prohibited practices under the EU AI Act. "
                     "Classroom monitoring must not use biometrics.",
@@ -86,7 +90,8 @@ RULES = [
             "title": "EU AI Act Article 4 (AI literacy duty for deployers)",
             "source_url": "https://www.law.kuleuven.be/citip/blog/this-time-humans-learn-about-machines-ai-literacy-in-the-ai-act-part-2/",
         },
-        "keywords": ["deploy ai", "roll out", "introduce ai", "new ai tool", "ai system in class"],
+        "keywords": ["deploy ai", "deploy a new ai", "roll out", "introduce ai", "new ai tool",
+                     "new ai tutoring system", "ai system in class", "ai system in all classrooms"],
         # Fire only when deployment is described WITHOUT any mention of training/literacy.
         "requires_absence": ["training", "literate", "literacy", "trained", "workshop", "certified"],
         "guidance": "Deployers of AI systems must ensure staff have sufficient AI literacy for the context of use "

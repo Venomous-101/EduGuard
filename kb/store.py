@@ -13,6 +13,7 @@ import os
 
 import chromadb
 from chromadb.utils import embedding_functions
+from chromadb.utils.embedding_functions.onnx_mini_lm_l6_v2 import ONNXMiniLM_L6_V2
 
 COLLECTION_NAME = "eduguard_policy_kb"
 
@@ -29,7 +30,10 @@ def _make_embedding_function():
         return embedding_functions.SentenceTransformerEmbeddingFunction(
             model_name="all-MiniLM-L6-v2"
         )
-    return embedding_functions.DefaultEmbeddingFunction()
+    # Force CPU execution provider: ChromaDB's default ONNX embedding tries
+    # AzureExecutionProvider first, which fails on machines without it.
+    # Instantiating directly with CPUExecutionProvider avoids the crash.
+    return ONNXMiniLM_L6_V2(preferred_providers=["CPUExecutionProvider"])
 
 
 class PolicyKB:
