@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Guardrail smoke tests (no pytest needed)
+        run: |
+          python -c "
+          from guardrails.compliance_checker import ComplianceChecker
+          c = ComplianceChecker()
+          v, f = c.evaluate('The AI chatbot will solely decide each student final exam grade with no human review.', 'Grade 10')
+          assert v == 'NON_COMPLIANT', v
+          v, f = c.evaluate('Install facial recognition cameras to monitor student attention during lessons.', 'Grade 8')
+          assert v == 'NON_COMPLIANT', v
+          v, f = c.evaluate('Upload student records including names and grades to a third-party AI tutoring app.', 'Grade 5')
+          assert v == 'NEEDS_REVIEW', v
+          print('All guardrail smoke tests passed.')
+          "
+
+      - name: Verify no secrets committed
+        run: |
+          ! grep -r "sk-\|api_key\s*=\s*['\"][^'\"]" --include="*.py" agents/ api/ kb/ guardrails/ audit/ || (echo "Possible secret found in code" && exit 1)
+          echo "No hardcoded secrets found."
