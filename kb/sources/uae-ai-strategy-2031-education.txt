@@ -4,7 +4,7 @@ SOURCE_URL: https://www.atlanticcouncil.org/in-depth-research-reports/issue-brie
 
 The UAE National Strategy for Artificial Intelligence 2031 sets the goal of positioning the UAE as a global leader in AI. Education is a central pillar: the strategy calls for building a generation skilled in AI, integrating AI into the education system, and developing national talent capable of leading in an AI-driven economy.
 
-The UAE has established dedicated AI governance institutions, including the UAE Council for Artificial Intelligence and Blockchain, the Office of Artificial Intelligence, Digital Economy and Remote Work Applications, and the Artificial Intelligence and Advanced Technology Council (AIATC) in Abu Dhabi. Abu Dhabi allocated AED 13 billion to AI development.
+The UAE has established dedicated AI governance institutions, including the UAE Council for Artificial Intelligence and Blockchain, the Office of Artificial Intelligence, Digital Economy and Remote Work Applications, and the Artificial Intelligence and Advanced Technology Council (AIATC) in Abu Dhabi. Abu Dhabi has made significant investments in AI development. [UNVERIFIED: the specific 'AED 13 billion' figure could not be confirmed from an official source.]
 
 The UAE issued AI ethics principles and guidelines, and in 2024 published the UAE Charter for the Development and Use of AI, organized around 12 priorities for responsible AI. However, these frameworks are nonbinding: assessments note that the UAE's AI ethics frameworks lack enforcement mechanisms, limiting their practical reach. This enforcement gap is the central policy problem EduGuard UAE addresses: schools deploying AI operate under high-ambition strategy documents with no binding compliance layer beneath them.
 

@@ -34,18 +34,32 @@ lesson plan ──> PolicyRetriever ──> GapAnalyzer ──> ComplianceChecke
 
 ## Knowledge base
 
-`kb/sources/` holds policy documents (each with `DOC_ID`, `TITLE`, `SOURCE_URL` header). Current corpus (8 documents):
+`kb/sources/` holds policy documents (each with `DOC_ID`, `TITLE`, `SOURCE_URL` header). Current corpus (22 documents):
 
 | doc_id | source |
 |---|---|
-| uae-moe-ai-curriculum-2025 | UAE MoE: AI compulsory KG-12 (2025-2026) |
-| uae-ai-strategy-2031-education | UAE National AI Strategy 2031 (education + governance) |
+| abudhabi-aiatc-mbzuai-education | Abu Dhabi AI Governance (AIATC) and MBZUAI Education Role |
+| coe-ai-education-framework | Council of Europe AI and Education: Framework Convention |
+| dubai-ai-policy-education | Dubai AI Policies and Education Initiatives |
+| eu-ai-act-education | EU AI Act: Art. 4 (AI literacy) + Annex III education high-risk |
+| eu-ai-act-education-full | EU AI Act (Regulation (EU) 2024/1689): full education provisions |
+| itu-ai-standards-education | ITU AI for Good, AI Standards, and Child Online Protection |
+| oecd-ai-education-principles | OECD AI Principles (2019, revised 2024) and Guidance on AI in Education |
+| singapore-ai-education-framework | Singapore AI-in-Education Framework and National Approach |
 | uae-ai-ethics-charter-2024 | UAE Charter for Development and Use of AI (2024) |
+| uae-ai-strategy-2031-education | UAE National AI Strategy 2031 (education + governance) |
 | uae-data-protection-2021 | UAE Federal Decree-Law No. 45 of 2021 (data protection principles) |
+| uae-moe-ai-curriculum-2025 | UAE MoE: AI compulsory KG-12 (2025-2026) |
+| uae-moe-ai-guidelines-schools | UAE MoE AI Guidelines and Curriculum for Schools |
+| uae-tdra-digital-safety | UAE TDRA Digital Safety and Child Digital Safety Law |
+| uae-teacher-ai-training-framework | UAE Teacher AI Training Framework (2025-2026 rollout) |
+| uk-dfe-ai-education-guidance | UK DfE Guidance on Generative AI in Education (2025) |
 | unesco-ai-competency-students-2024 | UNESCO AI Competency Framework for Students (2024) |
 | unesco-ai-competency-teachers-2024 | UNESCO AI Competency Framework for Teachers (2024) |
+| unesco-ethics-ai-recommendation-2021 | UNESCO Recommendation on the Ethics of AI (2021) |
 | unesco-genai-guidance-2023 | UNESCO Guidance for Generative AI in Education and Research (2023) |
-| eu-ai-act-education | EU AI Act: Art. 4 (AI literacy) + Annex III education high-risk |
+| unesco-genai-guidance-2023-full | UNESCO GenAI Guidance (2023): full key recommendations |
+| unicef-ai-children-guidance | UNICEF Guidance on AI for Children |
 
 ## Quickstart
 

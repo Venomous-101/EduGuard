@@ -122,10 +122,14 @@ async function run() {
   const out = document.getElementById('out');
   out.innerHTML = '<div class="panel loading"><div class="spinner"></div><br>Running retrieval, gap analysis, deterministic rules...</div>';
   try {
+    const ctrl = new AbortController();
+    const timeout = setTimeout(() => ctrl.abort(), 120000);  // 120s timeout
     const r = await fetch('/evaluate', {
       method: 'POST', headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ lesson_plan: document.getElementById('plan').value, context: document.getElementById('ctx').value })
+      body: JSON.stringify({ lesson_plan: document.getElementById('plan').value, context: document.getElementById('ctx').value }),
+      signal: ctrl.signal
     });
+    clearTimeout(timeout);
     const d = await r.json();
     if (!r.ok) { out.innerHTML = '<div class="panel"><p style="color:var(--red)">Error: ' + esc(d.detail || r.status) + '</p></div>'; return; }
     let h = '<div class="verdict-banner ' + d.verdict + '"><div class="v">' + d.verdict.replace(/_/g,' ') + '</div><div class="sub">' + esc(d.evidence_note) + '</div></div>';

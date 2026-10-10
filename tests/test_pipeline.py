@@ -79,3 +79,24 @@ def test_full_pipeline_end_to_end():
         for line in f:
             json.loads(line)
     print("pipeline OK; audit:", report["audit_log_path"])
+
+
+def test_insufficient_evidence_path():
+    """When the KB has no relevant policy, verdict must be NEEDS_REVIEW (not COMPLIANT)."""
+    from agents.reporter import Reporter
+    reporter = Reporter()
+    # Simulate empty retrieval
+    retrieval = {"hits": [], "retrieval_confidence": "none"}
+    gap = {"findings": [], "llm_available": False}
+    report = reporter.build(
+        "Completely unrelated gibberish xyzzy qwerty",
+        "Mars",
+        retrieval,
+        gap,
+        "COMPLIANT",  # no rules fired
+        [],
+    )
+    assert report["verdict"] == "NEEDS_REVIEW", f"expected NEEDS_REVIEW, got {report['verdict']}"
+    assert "INSUFFICIENT_EVIDENCE" in report["evidence_note"]
+    assert any("INSUFFICIENT_EVIDENCE" in a for a in report["recommended_actions"])
+    print("insufficient-evidence path OK")
