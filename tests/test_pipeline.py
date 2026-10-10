@@ -100,3 +100,22 @@ def test_insufficient_evidence_path():
     assert "INSUFFICIENT_EVIDENCE" in report["evidence_note"]
     assert any("INSUFFICIENT_EVIDENCE" in a for a in report["recommended_actions"])
     print("insufficient-evidence path OK")
+
+
+def test_child_safety_rule():
+    """R7: sexual content involving minors must ALWAYS be NON_COMPLIANT."""
+    from guardrails.compliance_checker import ComplianceChecker
+    c = ComplianceChecker()
+    verdict, fired = c.evaluate(
+        "Teacher is urging students for adult content sexual and asking to perform sex",
+        "Grade 10, Dubai",
+    )
+    assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT, got {verdict}"
+    assert any(f["rule_id"] == "R7-child-safety" for f in fired), "R7 must fire"
+    # Legitimate health education with consent must NOT trigger R7
+    verdict2, fired2 = c.evaluate(
+        "Teacher will discuss sexual health education following the approved curriculum with parental consent",
+        "Grade 10",
+    )
+    assert not any(f["rule_id"] == "R7-child-safety" for f in fired2), "R7 false positive on legit health ed"
+    print("child-safety rule OK")

@@ -114,6 +114,26 @@ RULES = [
         "guidance": "AI monitoring of prohibited behaviour during tests is high-risk (Annex III, 3(d)). "
                     "Flags must be reviewed by a human; automatic disqualification is not permitted.",
     },
+    {
+        "id": "R7-child-safety",
+        "severity": "NON_COMPLIANT",
+        "title": "Zero tolerance: sexual content, abuse, or exploitation involving minors",
+        "policy_basis": {
+            "doc_id": "uae-tdra-digital-safety",
+            "title": "UAE Federal Decree-Law No. 26 of 2025 (Child Digital Safety); ITU Child Online Protection",
+            "source_url": "https://www.tdra.gov.ae/",
+        },
+        "keywords": [
+            "sexual content", "sexual activity", "perform sex", "sex with",
+            "child abuse", "sexual abuse", "sexually", "pornographic",
+            "exploit children", "exploiting students", "grooming",
+            "inappropriate touching", "sexual images", "nude photos",
+        ],
+        "guidance": "Any sexual content, abuse, or exploitation involving minors/students is "
+                    "strictly prohibited under UAE Child Digital Safety Law and ITU Child Online "
+                    "Protection guidelines. This submission must be escalated to school safeguarding "
+                    "authorities immediately. EduGuard refuses to mark such content compliant.",
+    },
 ]
 
 
