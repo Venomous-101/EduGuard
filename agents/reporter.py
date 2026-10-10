@@ -1,1 +1,70 @@
-IiIiUmVwb3J0ZXI6IGFzc2VtYmxlcyB0aGUgZmluYWwgdmVyZGljdC4KCkV2aWRlbmNlLWFuY2hvcmluZyBydWxlICh0aGUgIzEgd2lubmluZyB0cmFpdCk6IHRoZSByZXBvcnQgTkVWRVIgc3RhdGVzIGEKcG9saWN5IGNsYWltIHdpdGhvdXQgYSB2ZXJiYXRpbSBjaXRhdGlvbiBmcm9tIHRoZSBLQiBvciBmcm9tIGEgY29kaWZpZWQKZ3VhcmRyYWlsIHJ1bGUuIFdoZXJlIHRoZSBLQiBoYXMgbm8gcmVsZXZhbnQgcG9saWN5LCB0aGUgdmVyZGljdCBzZWN0aW9uCmV4cGxpY2l0bHkgc2F5cyBJTlNVRkZJQ0lFTlRfRVZJREVOQ0UgaW5zdGVhZCBvZiBpbnZlbnRpbmcgb25lLgoiIiIKCgpjbGFzcyBSZXBvcnRlcjoKICAgIGRlZiBidWlsZChzZWxmLCBsZXNzb25fcGxhbiwgY29udGV4dCwgcmV0cmlldmFsLCBnYXBfYW5hbHlzaXMsIHJ1bGVfdmVyZGljdCwgZmlyZWRfcnVsZXMpOgogICAgICAgIGNpdGF0aW9ucyA9IFtdCiAgICAgICAgZm9yIGggaW4gcmV0cmlldmFsWyJoaXRzIl06CiAgICAgICAgICAgIGNpdGF0aW9ucy5hcHBlbmQoewogICAgICAgICAgICAgICAgInRpdGxlIjogaFsidGl0bGUiXSwKICAgICAgICAgICAgICAgICJzb3VyY2VfdXJsIjogaFsic291cmNlX3VybCJdLAogICAgICAgICAgICAgICAgInZlcmJhdGltX2V4Y2VycHQiOiBoWyJ0ZXh0Il1bOjUwMF0sCiAgICAgICAgICAgICAgICAiY2h1bmtfaWQiOiBoWyJjaHVua19pZCJdLAogICAgICAgICAgICB9KQoKICAgICAgICBpZiByZXRyaWV2YWxbInJldHJpZXZhbF9jb25maWRlbmNlIl0gPT0gIm5vbmUiOgogICAgICAgICAgICBldmlkZW5jZV9ub3RlID0gKCJJTlNVRkZJQ0lFTlRfRVZJREVOQ0U6IHRoZSBrbm93bGVkZ2UgYmFzZSBjb250YWlucyBubyBwb2xpY3kgIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJyZWxldmFudCB0byB0aGlzIHN1Ym1pc3Npb24uIE5vIHBvbGljeSBjbGFpbSBpcyBtYWRlLiIpCiAgICAgICAgZWxzZToKICAgICAgICAgICAgZXZpZGVuY2Vfbm90ZSA9IChmIntsZW4oY2l0YXRpb25zKX0gcG9saWN5IGV4Y2VycHRzIHJldHJpZXZlZDsgIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJhbGwgY2xhaW1zIGJlbG93IGFyZSBhbmNob3JlZCB0byB0aGUgdmVyYmF0aW0gY2l0YXRpb25zIGxpc3RlZC4iKQoKICAgICAgICBmaW5kaW5ncyA9IGdhcF9hbmFseXNpcy5nZXQoImZpbmRpbmdzIiwgW10pCgogICAgICAgIHJlcG9ydCA9IHsKICAgICAgICAgICAgInZlcmRpY3QiOiBydWxlX3ZlcmRpY3QsICAjIENPTVBMSUFOVCB8IE5FRURTX1JFVklFVyB8IE5PTl9DT01QTElBTlQgKGRldGVybWluaXN0aWMpCiAgICAgICAgICAgICJldmlkZW5jZV9ub3RlIjogZXZpZGVuY2Vfbm90ZSwKICAgICAgICAgICAgImRldGVybWluaXN0aWNfcnVsZXNfZmlyZWQiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgInJ1bGVfaWQiOiBmclsicnVsZV9pZCJdLAogICAgICAgICAgICAgICAgICAgICJzZXZlcml0eSI6IGZyWyJzZXZlcml0eSJdLAogICAgICAgICAgICAgICAgICAgICJ0aXRsZSI6IGZyWyJ0aXRsZSJdLAogICAgICAgICAgICAgICAgICAgICJndWlkYW5jZSI6IGZyWyJndWlkYW5jZSJdLAogICAgICAgICAgICAgICAgICAgICJwb2xpY3lfYmFzaXMiOiBmclsicG9saWN5X2Jhc2lzIl0sCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBmb3IgZnIgaW4gZmlyZWRfcnVsZXMKICAgICAgICAgICAgXSwKICAgICAgICAgICAgImFkdmlzb3J5X2dhcF9maW5kaW5ncyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAidHlwZSI6IGYuZ2V0KCJ0eXBlIiksCiAgICAgICAgICAgICAgICAgICAgInN1bW1hcnkiOiBmLmdldCgic3VtbWFyeSIpLAogICAgICAgICAgICAgICAgICAgICJ2ZXJiYXRpbV9xdW90ZSI6IGYuZ2V0KCJ2ZXJiYXRpbV9xdW90ZSIpLAogICAgICAgICAgICAgICAgICAgICJzb3VyY2VfdGl0bGUiOiBmLmdldCgic291cmNlX3RpdGxlIiksCiAgICAgICAgICAgICAgICAgICAgInNvdXJjZV91cmwiOiBmLmdldCgic291cmNlX3VybCIpLAogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgZm9yIGYgaW4gZmluZGluZ3MKICAgICAgICAgICAgXSwKICAgICAgICAgICAgImNpdGF0aW9ucyI6IGNpdGF0aW9ucywKICAgICAgICAgICAgInJlY29tbWVuZGVkX2FjdGlvbnMiOiBzZWxmLl9hY3Rpb25zKHJ1bGVfdmVyZGljdCwgZmlyZWRfcnVsZXMpLAogICAgICAgIH0KICAgICAgICByZXR1cm4gcmVwb3J0CgogICAgZGVmIF9hY3Rpb25zKHNlbGYsIHZlcmRpY3QsIGZpcmVkX3J1bGVzKToKICAgICAgICBpZiB2ZXJkaWN0ID09ICJOT05fQ09NUExJQU5UIjoKICAgICAgICAgICAgcmV0dXJuIFsKICAgICAgICAgICAgICAgICJEbyBub3QgZGVwbG95IGFzIGRlc2NyaWJlZC4gUmVkZXNpZ24gdGhlIGZsYWdnZWQgZWxlbWVudHM6ICIgKwogICAgICAgICAgICAgICAgIjsgIi5qb2luKGZyWyJ0aXRsZSJdIGZvciBmciBpbiBmaXJlZF9ydWxlcyBpZiBmclsic2V2ZXJpdHkiXSA9PSAiTk9OX0NPTVBMSUFOVCIpLAogICAgICAgICAgICAgICAgIlJlc3VibWl0IGZvciByZS1ldmFsdWF0aW9uIGFmdGVyIHJlZGVzaWduLiIsCiAgICAgICAgICAgIF0KICAgICAgICBpZiB2ZXJkaWN0ID09ICJORUVEU19SRVZJRVciOgogICAgICAgICAgICByZXR1cm4gWwogICAgICAgICAgICAgICAgIkh1bWFuIHJldmlldyByZXF1aXJlZCBiZWZvcmUgZGVwbG95bWVudDogIiArCiAgICAgICAgICAgICAgICAiOyAiLmpvaW4oZnJbInRpdGxlIl0gZm9yIGZyIGluIGZpcmVkX3J1bGVzIGlmIGZyWyJzZXZlcml0eSJdID09ICJORUVEU19SRVZJRVciKSwKICAgICAgICAgICAgXQogICAgICAgIHJldHVybiBbIk5vIGJsb2NraW5nIGlzc3VlcyBmb3VuZCBhZ2FpbnN0IHRoZSBjdXJyZW50IHBvbGljeSBjb3JwdXMuIEtlZXAgbW9uaXRvcmluZyBmb3IgcG9saWN5IHVwZGF0ZXMuIl0K
+"""Reporter: assembles the final verdict.
+
+Evidence-anchoring rule (the #1 winning trait): the report NEVER states a
+policy claim without a verbatim citation from the KB or from a codified
+guardrail rule. Where the KB has no relevant policy, the verdict section
+explicitly says INSUFFICIENT_EVIDENCE instead of inventing one.
+"""
+
+
+class Reporter:
+    def build(self, lesson_plan, context, retrieval, gap_analysis, rule_verdict, fired_rules):
+        citations = []
+        for h in retrieval["hits"]:
+            citations.append({
+                "title": h["title"],
+                "source_url": h["source_url"],
+                "verbatim_excerpt": h["text"][:500],
+                "chunk_id": h["chunk_id"],
+            })
+
+        if retrieval["retrieval_confidence"] == "none":
+            evidence_note = ("INSUFFICIENT_EVIDENCE: the knowledge base contains no policy "
+                             "relevant to this submission. No policy claim is made.")
+        else:
+            evidence_note = (f"{len(citations)} policy excerpts retrieved; "
+                             "all claims below are anchored to the verbatim citations listed.")
+
+        findings = gap_analysis.get("findings", [])
+
+        report = {
+            "verdict": rule_verdict,  # COMPLIANT | NEEDS_REVIEW | NON_COMPLIANT (deterministic)
+            "evidence_note": evidence_note,
+            "deterministic_rules_fired": [
+                {
+                    "rule_id": fr["rule_id"],
+                    "severity": fr["severity"],
+                    "title": fr["title"],
+                    "guidance": fr["guidance"],
+                    "policy_basis": fr["policy_basis"],
+                }
+                for fr in fired_rules
+            ],
+            "advisory_gap_findings": [
+                {
+                    "type": f.get("type"),
+                    "summary": f.get("summary"),
+                    "verbatim_quote": f.get("verbatim_quote"),
+                    "source_title": f.get("source_title"),
+                    "source_url": f.get("source_url"),
+                }
+                for f in findings
+            ],
+            "citations": citations,
+            "recommended_actions": self._actions(rule_verdict, fired_rules),
+        }
+        return report
+
+    def _actions(self, verdict, fired_rules):
+        if verdict == "NON_COMPLIANT":
+            return [
+                "Do not deploy as described. Redesign the flagged elements: " +
+                "; ".join(fr["title"] for fr in fired_rules if fr["severity"] == "NON_COMPLIANT"),
+                "Resubmit for re-evaluation after redesign.",
+            ]
+        if verdict == "NEEDS_REVIEW":
+            return [
+                "Human review required before deployment: " +
+                "; ".join(fr["title"] for fr in fired_rules if fr["severity"] == "NEEDS_REVIEW"),
+            ]
+        return ["No blocking issues found against the current policy corpus. Keep monitoring for policy updates."]

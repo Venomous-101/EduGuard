@@ -1,1 +1,75 @@
-IiIiRWR1R3VhcmQgVUFFIHBpcGVsaW5lIG9yY2hlc3RyYXRvci4KCkZsb3c6CiAgMS4gUG9saWN5UmV0cmlldmVyICAoUkFHIG92ZXIgQ2hyb21hREIsIHZlcmJhdGltIGNodW5rcyArIGNpdGF0aW9ucykKICAyLiBHYXBBbmFseXplciAgICAgIChMTE0gYWR2aXNvcnkgY29tcGFyaXNvbjsgZXh0cmFjdGl2ZSBmYWxsYmFjayBpZiBubyBMTE0pCiAgMy4gQ29tcGxpYW5jZUNoZWNrZXIoREVURVJNSU5JU1RJQyBydWxlcyBlbmdpbmU7IExMTSBuZXZlciBvdmVycmlkZXMpCiAgNC4gUmVwb3J0ZXIgICAgICAgICAodmVyZGljdCArIGNpdGF0aW9ucywgb3IgSU5TVUZGSUNJRU5UX0VWSURFTkNFKQoKRXZlcnkgc3RhZ2UgaXMgYXVkaXQtbG9nZ2VkIHRvIEpTT05MLgoiIiIKaW1wb3J0IG9zCmltcG9ydCBzeXMKCnN5cy5wYXRoLmluc2VydCgwLCBvcy5wYXRoLmRpcm5hbWUob3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpKSkKCmZyb20gYWdlbnRzLnBvbGljeV9yZXRyaWV2ZXIgaW1wb3J0IFBvbGljeVJldHJpZXZlciAgIyBub3FhOiBFNDAyCmZyb20gYWdlbnRzLmdhcF9hbmFseXplciBpbXBvcnQgR2FwQW5hbHl6ZXIgICMgbm9xYTogRTQwMgpmcm9tIGFnZW50cy5yZXBvcnRlciBpbXBvcnQgUmVwb3J0ZXIgICMgbm9xYTogRTQwMgpmcm9tIGd1YXJkcmFpbHMuY29tcGxpYW5jZV9jaGVja2VyIGltcG9ydCBDb21wbGlhbmNlQ2hlY2tlciAgIyBub3FhOiBFNDAyCmZyb20gYXVkaXQubG9nZ2VyIGltcG9ydCBBdWRpdExvZ2dlciAgIyBub3FhOiBFNDAyCmZyb20ga2Iuc3RvcmUgaW1wb3J0IFBvbGljeUtCICAjIG5vcWE6IEU0MDIKCgpjbGFzcyBFZHVHdWFyZFBpcGVsaW5lOgogICAgZGVmIF9faW5pdF9fKHNlbGYsIGxvZ19kaXI9Tm9uZSk6CiAgICAgICAgc2VsZi5rYiA9IFBvbGljeUtCKCkKICAgICAgICBzZWxmLnJldHJpZXZlciA9IFBvbGljeVJldHJpZXZlcihrYj1zZWxmLmtiKQogICAgICAgIHNlbGYuYW5hbHl6ZXIgPSBHYXBBbmFseXplcigpCiAgICAgICAgc2VsZi5jaGVja2VyID0gQ29tcGxpYW5jZUNoZWNrZXIoKQogICAgICAgIHNlbGYucmVwb3J0ZXIgPSBSZXBvcnRlcigpCiAgICAgICAgc2VsZi5hdWRpdCA9IEF1ZGl0TG9nZ2VyKGxvZ19kaXI9bG9nX2RpcikKCiAgICBkZWYgZXZhbHVhdGUoc2VsZiwgbGVzc29uX3BsYW4sIGNvbnRleHQ9IiIpOgogICAgICAgIGlmIG5vdCBsZXNzb25fcGxhbiBvciBub3QgbGVzc29uX3BsYW4uc3RyaXAoKToKICAgICAgICAgICAgcmFpc2UgVmFsdWVFcnJvcigibGVzc29uX3BsYW4gbXVzdCBiZSBhIG5vbi1lbXB0eSBzdHJpbmciKQogICAgICAgIHNlbGYuYXVkaXQubG9nKCJpbnB1dCIsICJldmFsdWF0aW9uX3N0YXJ0ZWQiLCB7CiAgICAgICAgICAgICJsZXNzb25fcGxhbl9jaGFycyI6IGxlbihsZXNzb25fcGxhbiksCiAgICAgICAgICAgICJjb250ZXh0IjogY29udGV4dCwKICAgICAgICAgICAgImtiX2NodW5rcyI6IHNlbGYua2IuY291bnQoKSwKICAgICAgICB9KQoKICAgICAgICAjIDEuIFJldHJpZXZlCiAgICAgICAgcmV0cmlldmFsID0gc2VsZi5yZXRyaWV2ZXIucmV0cmlldmUobGVzc29uX3BsYW4sIGNvbnRleHQpCiAgICAgICAgc2VsZi5hdWRpdC5sb2dfcmV0cmlldmFsKGYie2xlc3Nvbl9wbGFuWzoxMjBdfSB8IHtjb250ZXh0fSIsIHJldHJpZXZhbFsiaGl0cyJdKQoKICAgICAgICAjIDIuIEdhcCBhbmFseXNpcyAoYWR2aXNvcnkpCiAgICAgICAgZ2FwID0gc2VsZi5hbmFseXplci5hbmFseXplKGxlc3Nvbl9wbGFuLCBjb250ZXh0LCByZXRyaWV2YWwpCiAgICAgICAgc2VsZi5hdWRpdC5sb2coImFuYWx5c2lzIiwgImdhcF9hbmFseXNpc19jb21wbGV0ZSIsIHsKICAgICAgICAgICAgImxsbV9hdmFpbGFibGUiOiBnYXAuZ2V0KCJsbG1fYXZhaWxhYmxlIiksCiAgICAgICAgICAgICJudW1fZmluZGluZ3MiOiBsZW4oZ2FwLmdldCgiZmluZGluZ3MiLCBbXSkpLAogICAgICAgIH0pCgogICAgICAgICMgMy4gRGV0ZXJtaW5pc3RpYyBjb21wbGlhbmNlIGNoZWNrIChhdXRob3JpdGF0aXZlKQogICAgICAgIHJ1bGVfdmVyZGljdCwgZmlyZWRfcnVsZXMgPSBzZWxmLmNoZWNrZXIuZXZhbHVhdGUobGVzc29uX3BsYW4sIGNvbnRleHQpCiAgICAgICAgZm9yIGZyIGluIGZpcmVkX3J1bGVzOgogICAgICAgICAgICBzZWxmLmF1ZGl0LmxvZ19ydWxlX2V2YWx1YXRpb24oZnJbInJ1bGVfaWQiXSwgVHJ1ZSwgewogICAgICAgICAgICAgICAgIm1hdGNoZWRfa2V5d29yZHMiOiBmclsibWF0Y2hlZF9rZXl3b3JkcyJdLAogICAgICAgICAgICAgICAgInNldmVyaXR5IjogZnJbInNldmVyaXR5Il0sCiAgICAgICAgICAgIH0pCiAgICAgICAgc2VsZi5hdWRpdC5sb2coInJ1bGVzIiwgImFsbF9ydWxlc19ldmFsdWF0ZWQiLCB7CiAgICAgICAgICAgICJudW1fZmlyZWQiOiBsZW4oZmlyZWRfcnVsZXMpLAogICAgICAgICAgICAidmVyZGljdCI6IHJ1bGVfdmVyZGljdCwKICAgICAgICB9KQoKICAgICAgICAjIDQuIFJlcG9ydAogICAgICAgIHJlcG9ydCA9IHNlbGYucmVwb3J0ZXIuYnVpbGQoCiAgICAgICAgICAgIGxlc3Nvbl9wbGFuLCBjb250ZXh0LCByZXRyaWV2YWwsIGdhcCwgcnVsZV92ZXJkaWN0LCBmaXJlZF9ydWxlcwogICAgICAgICkKICAgICAgICBzZWxmLmF1ZGl0LmxvZ192ZXJkaWN0KAogICAgICAgICAgICBydWxlX3ZlcmRpY3QsIHJlcG9ydFsiY2l0YXRpb25zIl0sCiAgICAgICAgICAgIGYie2xlbihmaXJlZF9ydWxlcyl9IHJ1bGVzIGZpcmVkOyB7bGVuKGdhcC5nZXQoJ2ZpbmRpbmdzJywgW10pKX0gYWR2aXNvcnkgZmluZGluZ3MiLAogICAgICAgICkKICAgICAgICByZXBvcnRbImF1ZGl0X3J1bl9pZCJdID0gc2VsZi5hdWRpdC5ydW5faWQKICAgICAgICByZXBvcnRbImF1ZGl0X2xvZ19wYXRoIl0gPSBzZWxmLmF1ZGl0LnBhdGgKICAgICAgICByZXR1cm4gcmVwb3J0Cg==
+"""EduGuard UAE pipeline orchestrator.
+
+Flow:
+  1. PolicyRetriever  (RAG over ChromaDB, verbatim chunks + citations)
+  2. GapAnalyzer      (LLM advisory comparison; extractive fallback if no LLM)
+  3. ComplianceChecker(DETERMINISTIC rules engine; LLM never overrides)
+  4. Reporter         (verdict + citations, or INSUFFICIENT_EVIDENCE)
+
+Every stage is audit-logged to JSONL.
+"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from agents.policy_retriever import PolicyRetriever  # noqa: E402
+from agents.gap_analyzer import GapAnalyzer  # noqa: E402
+from agents.reporter import Reporter  # noqa: E402
+from guardrails.compliance_checker import ComplianceChecker  # noqa: E402
+from audit.logger import AuditLogger  # noqa: E402
+from kb.store import PolicyKB  # noqa: E402
+
+
+class EduGuardPipeline:
+    def __init__(self, log_dir=None):
+        self.kb = PolicyKB()
+        self.retriever = PolicyRetriever(kb=self.kb)
+        self.analyzer = GapAnalyzer()
+        self.checker = ComplianceChecker()
+        self.reporter = Reporter()
+        self.audit = AuditLogger(log_dir=log_dir)
+
+    def evaluate(self, lesson_plan, context=""):
+        if not lesson_plan or not lesson_plan.strip():
+            raise ValueError("lesson_plan must be a non-empty string")
+        self.audit.log("input", "evaluation_started", {
+            "lesson_plan_chars": len(lesson_plan),
+            "context": context,
+            "kb_chunks": self.kb.count(),
+        })
+
+        # 1. Retrieve
+        retrieval = self.retriever.retrieve(lesson_plan, context)
+        self.audit.log_retrieval(f"{lesson_plan[:120]} | {context}", retrieval["hits"])
+
+        # 2. Gap analysis (advisory)
+        gap = self.analyzer.analyze(lesson_plan, context, retrieval)
+        self.audit.log("analysis", "gap_analysis_complete", {
+            "llm_available": gap.get("llm_available"),
+            "num_findings": len(gap.get("findings", [])),
+        })
+
+        # 3. Deterministic compliance check (authoritative)
+        rule_verdict, fired_rules = self.checker.evaluate(lesson_plan, context)
+        for fr in fired_rules:
+            self.audit.log_rule_evaluation(fr["rule_id"], True, {
+                "matched_keywords": fr["matched_keywords"],
+                "severity": fr["severity"],
+            })
+        self.audit.log("rules", "all_rules_evaluated", {
+            "num_fired": len(fired_rules),
+            "verdict": rule_verdict,
+        })
+
+        # 4. Report
+        report = self.reporter.build(
+            lesson_plan, context, retrieval, gap, rule_verdict, fired_rules
+        )
+        self.audit.log_verdict(
+            rule_verdict, report["citations"],
+            f"{len(fired_rules)} rules fired; {len(gap.get('findings', []))} advisory findings",
+        )
+        report["audit_run_id"] = self.audit.run_id
+        report["audit_log_path"] = self.audit.path
+        return report

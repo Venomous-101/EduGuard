@@ -1,1 +1,76 @@
-IiIiR2FwQW5hbHl6ZXI6IGNvbXBhcmVzIGEgc3VibWl0dGVkIGxlc3NvbiBwbGFuIGFnYWluc3QgcmV0cmlldmVkIHBvbGljeS4KClVzZXMgdGhlIExMTSB3aGVuIGF2YWlsYWJsZTsgb3RoZXJ3aXNlIHByb2R1Y2VzIGFuIGV4dHJhY3RpdmUgY29tcGFyaXNvbgpmcm9tIHRoZSByZXRyaWV2ZWQgY2h1bmtzIChubyBpbnZlbnRlZCBhbmFseXNpcykuIE91dHB1dCBpcyBhIGxpc3Qgb2YKY2FuZGlkYXRlIGZpbmRpbmdzLCBlYWNoIHRpZWQgdG8gdmVyYmF0aW0gY2l0YXRpb25zLiBGaW5kaW5ncyBhcmUgQURWSVNPUlk6CnRoZSBkZXRlcm1pbmlzdGljIENvbXBsaWFuY2VDaGVja2VyIChndWFyZHJhaWxzLykgaGFzIHRoZSBmaW5hbCBzYXkuCiIiIgpmcm9tIGFnZW50cy5sbG0gaW1wb3J0IExMTUJhY2tlbmQKClNZU1RFTV9QUk9NUFQgPSAiIiJZb3UgYXJlIGEgcG9saWN5IGdhcCBhbmFseXN0IGZvciBBSSB1c2UgaW4gVUFFIHNjaG9vbHMuCllvdSBjb21wYXJlIGEgdGVhY2hlcidzIHN1Ym1pdHRlZCBsZXNzb24gcGxhbiBhZ2FpbnN0IFZFUkJBVElNIHBvbGljeSBleGNlcnB0cy4KUnVsZXM6Ci0gRXZlcnkgZmluZGluZyBNVVNUIHF1b3RlIHRoZSBleGFjdCBwb2xpY3kgdGV4dCBpdCByZWxpZXMgb24gKGNvcHkgaXQgZXhhY3RseSkuCi0gTkVWRVIgaW52ZW50IGEgbGF3LCBhcnRpY2xlIG51bWJlciwgb3IgVVJMLiBJZiBubyBleGNlcnB0IHN1cHBvcnRzIGEgcG9pbnQsIHNheSBJTlNVRkZJQ0lFTlRfRVZJREVOQ0UuCi0gRGlzdGluZ3Vpc2g6IChhKSBkaXJlY3QgY29uZmxpY3RzIHdpdGggcG9saWN5LCAoYikgZ2FwcyB3aGVyZSBwb2xpY3kgaXMgc2lsZW50LCAoYykgZ29vZCBhbGlnbm1lbnQuCi0gT3V0cHV0IEpTT04gb25seTogeyJmaW5kaW5ncyI6IFt7InR5cGUiOiAiY29uZmxpY3R8Z2FwfGFsaWduZWQiLCAic3VtbWFyeSI6ICIuLi4iLCAidmVyYmF0aW1fcXVvdGUiOiAiLi4uIiwgInNvdXJjZV90aXRsZSI6ICIuLi4iLCAic291cmNlX3VybCI6ICIuLi4ifV19IiIiCgoKY2xhc3MgR2FwQW5hbHl6ZXI6CiAgICBkZWYgX19pbml0X18oc2VsZiwgbGxtPU5vbmUpOgogICAgICAgIHNlbGYubGxtID0gbGxtIG9yIExMTUJhY2tlbmQoKQoKICAgIGRlZiBhbmFseXplKHNlbGYsIGxlc3Nvbl9wbGFuLCBjb250ZXh0LCByZXRyaWV2YWwpOgogICAgICAgIGhpdHMgPSByZXRyaWV2YWxbImhpdHMiXQogICAgICAgIGlmIG5vdCBoaXRzOgogICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgICAgImZpbmRpbmdzIjogW10sCiAgICAgICAgICAgICAgICAibGxtX2F2YWlsYWJsZSI6IEZhbHNlLAogICAgICAgICAgICAgICAgIm5vdGUiOiAiSU5TVUZGSUNJRU5UX0VWSURFTkNFOiBubyByZWxldmFudCBwb2xpY3kgcmV0cmlldmVkIGZyb20gS0IuIiwKICAgICAgICAgICAgfQogICAgICAgIGV4Y2VycHRzID0gIlxuXG4iLmpvaW4oCiAgICAgICAgICAgIGYiW3toWyd0aXRsZSddfV0gKHtoWydzb3VyY2VfdXJsJ119KVxue2hbJ3RleHQnXX0iCiAgICAgICAgICAgIGZvciBoIGluIGhpdHNbOjZdCiAgICAgICAgKQogICAgICAgIHVzZXJfcHJvbXB0ID0gKAogICAgICAgICAgICBmIkxFU1NPTiBQTEFOIC8gQ0xBU1NST09NIEFJIFVTRSBDQVNFOlxue2xlc3Nvbl9wbGFufVxuXG4iCiAgICAgICAgICAgIGYiQ09OVEVYVDoge2NvbnRleHR9XG5cbiIKICAgICAgICAgICAgZiJQT0xJQ1kgRVhDRVJQVFM6XG57ZXhjZXJwdHN9IgogICAgICAgICkKICAgICAgICB0ZXh0ID0gc2VsZi5sbG0uZ2VuZXJhdGUoU1lTVEVNX1BST01QVCwgdXNlcl9wcm9tcHQsIG1heF90b2tlbnM9MTIwMCkKICAgICAgICBpZiB0ZXh0IGlzIE5vbmU6CiAgICAgICAgICAgIHJldHVybiBzZWxmLl9leHRyYWN0aXZlX2ZhbGxiYWNrKGxlc3Nvbl9wbGFuLCBoaXRzKQogICAgICAgIGltcG9ydCBqc29uLCByZQogICAgICAgIG0gPSByZS5zZWFyY2gociJcey4qXH0iLCB0ZXh0LCByZS5ET1RBTEwpCiAgICAgICAgdHJ5OgogICAgICAgICAgICBwYXJzZWQgPSBqc29uLmxvYWRzKG0uZ3JvdXAoMCkpIGlmIG0gZWxzZSB7ImZpbmRpbmdzIjogW119CiAgICAgICAgZXhjZXB0IEV4Y2VwdGlvbjoKICAgICAgICAgICAgcGFyc2VkID0geyJmaW5kaW5ncyI6IFtdLCAicmF3IjogdGV4dFs6NTAwXX0KICAgICAgICBwYXJzZWRbImxsbV9hdmFpbGFibGUiXSA9IFRydWUKICAgICAgICAjIFZhbGlkYXRlOiBldmVyeSBmaW5kaW5nIG11c3QgY2FycnkgYSB2ZXJiYXRpbSBxdW90ZSArIHNvdXJjZSBVUkwKICAgICAgICB2YWxpZCA9IFtdCiAgICAgICAgZm9yIGYgaW4gcGFyc2VkLmdldCgiZmluZGluZ3MiLCBbXSk6CiAgICAgICAgICAgIGlmIGYuZ2V0KCJ2ZXJiYXRpbV9xdW90ZSIpIGFuZCBmLmdldCgic291cmNlX3VybCIpOgogICAgICAgICAgICAgICAgdmFsaWQuYXBwZW5kKGYpCiAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAgICBmWyJ0eXBlIl0gPSAiZ2FwIgogICAgICAgICAgICAgICAgZlsic3VtbWFyeSJdID0gKGYuZ2V0KCJzdW1tYXJ5Iikgb3IgIiIpICsgIiBbSU5TVUZGSUNJRU5UX0VWSURFTkNFOiBubyB2ZXJiYXRpbSBjaXRhdGlvbl0iCiAgICAgICAgICAgICAgICB2YWxpZC5hcHBlbmQoZikKICAgICAgICBwYXJzZWRbImZpbmRpbmdzIl0gPSB2YWxpZAogICAgICAgIHJldHVybiBwYXJzZWQKCiAgICBkZWYgX2V4dHJhY3RpdmVfZmFsbGJhY2soc2VsZiwgbGVzc29uX3BsYW4sIGhpdHMpOgogICAgICAgICIiIk5vIExMTSByZWFjaGFibGU6IHJldHVybiB0aGUgcmF3IGV4Y2VycHRzIGFzIGNhbmRpZGF0ZSBldmlkZW5jZS4iIiIKICAgICAgICByZXR1cm4gewogICAgICAgICAgICAiZmluZGluZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgInR5cGUiOiAiZ2FwIiwKICAgICAgICAgICAgICAgICAgICAic3VtbWFyeSI6ICJMTE0gdW5hdmFpbGFibGU7IG1hbnVhbCByZXZpZXcgb2YgcmV0cmlldmVkIHBvbGljeSByZXF1aXJlZC4iLAogICAgICAgICAgICAgICAgICAgICJ2ZXJiYXRpbV9xdW90ZSI6IGhbInRleHQiXVs6NDAwXSwKICAgICAgICAgICAgICAgICAgICAic291cmNlX3RpdGxlIjogaFsidGl0bGUiXSwKICAgICAgICAgICAgICAgICAgICAic291cmNlX3VybCI6IGhbInNvdXJjZV91cmwiXSwKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGZvciBoIGluIGhpdHNbOjRdCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJsbG1fYXZhaWxhYmxlIjogRmFsc2UsCiAgICAgICAgfQo=
+"""GapAnalyzer: compares a submitted lesson plan against retrieved policy.
+
+Uses the LLM when available; otherwise produces an extractive comparison
+from the retrieved chunks (no invented analysis). Output is a list of
+candidate findings, each tied to verbatim citations. Findings are ADVISORY:
+the deterministic ComplianceChecker (guardrails/) has the final say.
+"""
+from agents.llm import LLMBackend
+
+SYSTEM_PROMPT = """You are a policy gap analyst for AI use in UAE schools.
+You compare a teacher's submitted lesson plan against VERBATIM policy excerpts.
+Rules:
+- Every finding MUST quote the exact policy text it relies on (copy it exactly).
+- NEVER invent a law, article number, or URL. If no excerpt supports a point, say INSUFFICIENT_EVIDENCE.
+- Distinguish: (a) direct conflicts with policy, (b) gaps where policy is silent, (c) good alignment.
+- Output JSON only: {"findings": [{"type": "conflict|gap|aligned", "summary": "...", "verbatim_quote": "...", "source_title": "...", "source_url": "..."}]}"""
+
+
+class GapAnalyzer:
+    def __init__(self, llm=None):
+        self.llm = llm or LLMBackend()
+
+    def analyze(self, lesson_plan, context, retrieval):
+        hits = retrieval["hits"]
+        if not hits:
+            return {
+                "findings": [],
+                "llm_available": False,
+                "note": "INSUFFICIENT_EVIDENCE: no relevant policy retrieved from KB.",
+            }
+        excerpts = "\n\n".join(
+            f"[{h['title']}] ({h['source_url']})\n{h['text']}"
+            for h in hits[:6]
+        )
+        user_prompt = (
+            f"LESSON PLAN / CLASSROOM AI USE CASE:\n{lesson_plan}\n\n"
+            f"CONTEXT: {context}\n\n"
+            f"POLICY EXCERPTS:\n{excerpts}"
+        )
+        text = self.llm.generate(SYSTEM_PROMPT, user_prompt, max_tokens=1200)
+        if text is None:
+            return self._extractive_fallback(lesson_plan, hits)
+        import json, re
+        m = re.search(r"\{.*\}", text, re.DOTALL)
+        try:
+            parsed = json.loads(m.group(0)) if m else {"findings": []}
+        except Exception:
+            parsed = {"findings": [], "raw": text[:500]}
+        parsed["llm_available"] = True
+        # Validate: every finding must carry a verbatim quote + source URL
+        valid = []
+        for f in parsed.get("findings", []):
+            if f.get("verbatim_quote") and f.get("source_url"):
+                valid.append(f)
+            else:
+                f["type"] = "gap"
+                f["summary"] = (f.get("summary") or "") + " [INSUFFICIENT_EVIDENCE: no verbatim citation]"
+                valid.append(f)
+        parsed["findings"] = valid
+        return parsed
+
+    def _extractive_fallback(self, lesson_plan, hits):
+        """No LLM reachable: return the raw excerpts as candidate evidence."""
+        return {
+            "findings": [
+                {
+                    "type": "gap",
+                    "summary": "LLM unavailable; manual review of retrieved policy required.",
+                    "verbatim_quote": h["text"][:400],
+                    "source_title": h["title"],
+                    "source_url": h["source_url"],
+                }
+                for h in hits[:4]
+            ],
+            "llm_available": False,
+        }

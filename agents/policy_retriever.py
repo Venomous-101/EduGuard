@@ -1,1 +1,37 @@
-IiIiUG9saWN5UmV0cmlldmVyOiBSQUcgb3ZlciB0aGUgQ2hyb21hREIgcG9saWN5IEtCLgoKUmV0dXJucyB2ZXJiYXRpbSBjaHVua3Mgd2l0aCBmdWxsIGNpdGF0aW9uIG1ldGFkYXRhLiBUaGlzIGFnZW50IG5ldmVyCnBhcmFwaHJhc2VzIHBvbGljeSBhbmQgbmV2ZXIgaW52ZW50cyBzb3VyY2VzOiBpZiB0aGUgS0IgaGFzIG5vdGhpbmcKcmVsZXZhbnQsIGl0IHNheXMgc28gZXhwbGljaXRseSAocmV0cmlldmFsX2NvbmZpZGVuY2UgPSAnbm9uZScpLgoiIiIKZnJvbSBrYi5zdG9yZSBpbXBvcnQgUG9saWN5S0IKCgpjbGFzcyBQb2xpY3lSZXRyaWV2ZXI6CiAgICBkZWYgX19pbml0X18oc2VsZiwga2I9Tm9uZSwgbl9yZXN1bHRzPTYpOgogICAgICAgIHNlbGYua2IgPSBrYiBvciBQb2xpY3lLQigpCiAgICAgICAgc2VsZi5uX3Jlc3VsdHMgPSBuX3Jlc3VsdHMKCiAgICBkZWYgX3F1ZXJpZXNfZm9yKHNlbGYsIGxlc3Nvbl9wbGFuLCBjb250ZXh0KToKICAgICAgICBiYXNlID0gZiJ7bGVzc29uX3BsYW59XG57Y29udGV4dH0iLnN0cmlwKCkKICAgICAgICByZXR1cm4gWwogICAgICAgICAgICBiYXNlLCAgIyBmdWxsIHN1Ym1pc3Npb24KICAgICAgICAgICAgZiJBSSBpbiBlZHVjYXRpb24gcG9saWN5IGNsYXNzcm9vbSB1c2U6IHtjb250ZXh0fSIsCiAgICAgICAgICAgIGYic3R1ZGVudCBkYXRhIHByaXZhY3kgQUkgZWR1Y2F0aW9uIHtjb250ZXh0fSIsCiAgICAgICAgICAgIGYiQUkgYXNzZXNzbWVudCBncmFkaW5nIGV4YW1pbmF0aW9ucyBwb2xpY3kge2NvbnRleHR9IiwKICAgICAgICBdCgogICAgZGVmIHJldHJpZXZlKHNlbGYsIGxlc3Nvbl9wbGFuLCBjb250ZXh0PSIiKToKICAgICAgICBzZWVuID0ge30KICAgICAgICBmb3IgcSBpbiBzZWxmLl9xdWVyaWVzX2ZvcihsZXNzb25fcGxhbiwgY29udGV4dCk6CiAgICAgICAgICAgIGZvciBoaXQgaW4gc2VsZi5rYi5xdWVyeShxLCBuX3Jlc3VsdHM9c2VsZi5uX3Jlc3VsdHMpOgogICAgICAgICAgICAgICAgc2VlbltoaXRbImNodW5rX2lkIl1dID0gaGl0CiAgICAgICAgaGl0cyA9IHNvcnRlZChzZWVuLnZhbHVlcygpLCBrZXk9bGFtYmRhIGg6IGhbImRpc3RhbmNlIl0pWzogc2VsZi5uX3Jlc3VsdHMgKiAyXQogICAgICAgICMgS2VlcCBvbmx5IHJlYXNvbmFibHkgcmVsZXZhbnQgaGl0cyAoZGlzdGFuY2UgdGhyZXNob2xkIG9uIG5vcm1hbGl6ZWQgZW1iZWRkaW5ncykKICAgICAgICByZWxldmFudCA9IFtoIGZvciBoIGluIGhpdHMgaWYgaFsiZGlzdGFuY2UiXSA8IDEuMl0KICAgICAgICByZXR1cm4gewogICAgICAgICAgICAiaGl0cyI6IHJlbGV2YW50LAogICAgICAgICAgICAibnVtX2hpdHMiOiBsZW4ocmVsZXZhbnQpLAogICAgICAgICAgICAicmV0cmlldmFsX2NvbmZpZGVuY2UiOiAiaGlnaCIgaWYgbGVuKHJlbGV2YW50KSA+PSAzIGVsc2UgKAogICAgICAgICAgICAgICAgImxvdyIgaWYgcmVsZXZhbnQgZWxzZSAibm9uZSIpLAogICAgICAgIH0K
+"""PolicyRetriever: RAG over the ChromaDB policy KB.
+
+Returns verbatim chunks with full citation metadata. This agent never
+paraphrases policy and never invents sources: if the KB has nothing
+relevant, it says so explicitly (retrieval_confidence = 'none').
+"""
+from kb.store import PolicyKB
+
+
+class PolicyRetriever:
+    def __init__(self, kb=None, n_results=6):
+        self.kb = kb or PolicyKB()
+        self.n_results = n_results
+
+    def _queries_for(self, lesson_plan, context):
+        base = f"{lesson_plan}\n{context}".strip()
+        return [
+            base,  # full submission
+            f"AI in education policy classroom use: {context}",
+            f"student data privacy AI education {context}",
+            f"AI assessment grading examinations policy {context}",
+        ]
+
+    def retrieve(self, lesson_plan, context=""):
+        seen = {}
+        for q in self._queries_for(lesson_plan, context):
+            for hit in self.kb.query(q, n_results=self.n_results):
+                seen[hit["chunk_id"]] = hit
+        hits = sorted(seen.values(), key=lambda h: h["distance"])[: self.n_results * 2]
+        # Keep only reasonably relevant hits (distance threshold on normalized embeddings)
+        relevant = [h for h in hits if h["distance"] < 1.2]
+        return {
+            "hits": relevant,
+            "num_hits": len(relevant),
+            "retrieval_confidence": "high" if len(relevant) >= 3 else (
+                "low" if relevant else "none"),
+        }
