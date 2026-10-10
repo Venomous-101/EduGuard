@@ -128,10 +128,29 @@ RULES = [
             "source_url": "https://www.tdra.gov.ae/",
         },
         "keywords": [
-            "sexual content", "sexual activity", "perform sex", "sex with",
-            "child abuse", "sexual abuse", "sexually", "pornographic",
-            "exploit children", "exploiting students", "grooming",
-            "inappropriate touching", "sexual images", "nude photos",
+            # Sexual acts and content
+            "sexual content", "sexual activity", "sexual act", "sexual acts",
+            "perform sex", "perform intercourse", "have sex", "having sex",
+            "sex with", "sexual intercourse", "intercourse",
+            "sexually", "sexualized", "sexualise", "sexualize",
+            "pornographic", "pornography", "porn",
+            "explicit content", "sexually explicit",
+            "erotic", "molest", "molestation", "molesting",
+            # Nudity
+            "naked", "nude", "nudity", "undress", "undressed", "undressing",
+            "strip", "stripping", "nude photos", "sexual images",
+            "remove clothes", "take off clothes", "without clothes",
+            # Abuse and exploitation
+            "child abuse", "sexual abuse", "sex abuse",
+            "abuse children", "abuse students", "abusing",
+            "exploit children", "exploiting students", "exploitation",
+            "grooming", "groom",
+            "inappropriate touching", "inappropriately touch",
+            "touch inappropriately", "unwanted touching",
+            "predator", "predatory",
+            # Solicitation
+            "asking students to be naked", "asking to perform",
+            "solicit", "soliciting", "solicitation",
         ],
         "guidance": "Any sexual content, abuse, or exploitation involving minors/students is "
                     "strictly prohibited under UAE Child Digital Safety Law and ITU Child Online "
