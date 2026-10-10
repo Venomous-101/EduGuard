@@ -1,1 +1,92 @@
-IyBFZHVHdWFyZCBVQUUKClshW0NJXShodHRwczovL2dpdGh1Yi5jb20vVmVub21vdXMtMTAxL0VkdUd1YXJkL2FjdGlvbnMvd29ya2Zsb3dzL2NpLnltbC9iYWRnZS5zdmcpXShodHRwczovL2dpdGh1Yi5jb20vVmVub21vdXMtMTAxL0VkdUd1YXJkL2FjdGlvbnMvd29ya2Zsb3dzL2NpLnltbCkKWyFbTGljZW5zZTogTUlUXShodHRwczovL2ltZy5zaGllbGRzLmlvL2JhZGdlL0xpY2Vuc2UtTUlULXllbGxvdy5zdmcpXShMSUNFTlNFKQpbIVtQeXRob24gMy4xMCtdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvcHl0aG9uLTMuMTAlMkItYmx1ZS5zdmcpXShodHRwczovL3d3dy5weXRob24ub3JnLykKWyFbSVRVIEFJIGZvciBHb29kXShodHRwczovL2ltZy5zaGllbGRzLmlvL2JhZGdlL0lUVS1BSSUyMGZvciUyMEdvb2QlMjBMYWItYmx1ZXZpb2xldC5zdmcpXShodHRwczovL3d3dy5pdHUuaW50LykKCioqRXZpZGVuY2UtYW5jaG9yZWQgQUkgY29tcGxpYW5jZSBhZ2VudCBmb3IgVUFFIHNjaG9vbHMqKiAtIGJ1aWx0IGZvciB0aGUgSVRVIEFJIGZvciBHb29kIExhYiBIYWNrYXRob24gKFVBRSBlZGl0aW9uKS4KCkEgdGVhY2hlciBvciBzY2hvb2wgYWRtaW4gc3VibWl0cyBhbiBBSSBsZXNzb24gcGxhbiBvciBjbGFzc3Jvb20gQUkgdXNlIGNhc2UuIEVkdUd1YXJkIGNoZWNrcyBpdCBhZ2FpbnN0IFVBRSBlZHVjYXRpb24gQUkgcG9saWN5LCBVTkVTQ08gQUkgY29tcGV0ZW5jeSBmcmFtZXdvcmtzLCBhbmQgRVUgQUkgQWN0IGVkdWNhdGlvbiBwcm92aXNpb25zLiBFdmVyeSB2ZXJkaWN0IGNhcnJpZXMgKip2ZXJiYXRpbSBjaXRhdGlvbnMqKiBmcm9tIHRoZSBrbm93bGVkZ2UgYmFzZSwgb3IgaXMgZXhwbGljaXRseSBtYXJrZWQgYElOU1VGRklDSUVOVF9FVklERU5DRWAuIERldGVybWluaXN0aWMgZ3VhcmRyYWlscyAocGxhaW4gY29kZSwgbm90IHRoZSBMTE0pIGVuZm9yY2UgaGFyZCBwb2xpY3kgcnVsZXMuIEV2ZXJ5IHJldHJpZXZhbCwgcnVsZSBldmFsdWF0aW9uLCBhbmQgdmVyZGljdCBpcyBhdWRpdC1sb2dnZWQuCgo+IFNJTVVMQVRJT04gT05MWS4gQWxsIGRlbW8gZGF0YSBpcyBzeW50aGV0aWMuIE5vIHJlYWwgc3R1ZGVudCBkYXRhIGlzIHByb2Nlc3NlZC4KCiMjIFdoeSB0aGlzIGV4aXN0cwoKVGhlIFVBRSBtYWRlIEFJIGEgKiptYW5kYXRvcnkgS0ctMTIgc3ViamVjdCBmcm9tIDIwMjUtMjAyNioqIGFuZCBhbGxvY2F0ZWQgQUVEIDEzIGJpbGxpb24gdG8gQUkgZGV2ZWxvcG1lbnQgLSB5ZXQgaXRzIEFJIGV0aGljcyBmcmFtZXdvcmtzIGFyZSAqKm5vbmJpbmRpbmcgd2l0aCBubyBlbmZvcmNlbWVudCBtZWNoYW5pc20qKiAoQXRsYW50aWMgQ291bmNpbCkuIFNjaG9vbHMgZGVwbG95aW5nIEFJIG9wZXJhdGUgdW5kZXIgaGlnaC1hbWJpdGlvbiBzdHJhdGVneSB3aXRoIG5vIG9wZXJhdGlvbmFsIGNvbXBsaWFuY2UgbGF5ZXIuIEVkdUd1YXJkIFVBRSBpcyB0aGF0IGxheWVyLgoKIyMgQXJjaGl0ZWN0dXJlCgpgYGAKbGVzc29uIHBsYW4g4pSA4pSAPiBQb2xpY3lSZXRyaWV2ZXIg4pSA4pSAPiBHYXBBbmFseXplciDilIDilIA+IENvbXBsaWFuY2VDaGVja2VyIOKUgOKUgD4gUmVwb3J0ZXIg4pSA4pSAPiB2ZXJkaWN0IEpTT04KICAoUkFHIG92ZXIgQ2hyb21hREIpICAgKExMTSwgYWR2aXNvcnkpICAgKERFVEVSTUlOSVNUSUMgcnVsZXMpICAgKGNpdGVkIHZlcmRpY3QpCiAgICAgICAg4pSCICAgICAgICAgICAgICAgICAgICAgIOKUgiAgICAgICAgICAgICAgICAgICAg4pSCICAgICAgICAgICAgICAgICAgICDilIIKICAgICAgICDilJTilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilLTilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilLTilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilJgKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYXVkaXQgbG9nIChKU09OTCwgZXZlcnkgc3RhZ2UpCmBgYAoKMS4gKipQb2xpY3lSZXRyaWV2ZXIqKiAoYGFnZW50cy9gKTogUkFHIG92ZXIgYSBDaHJvbWFEQiBrbm93bGVkZ2UgYmFzZSBvZiByZWFsIHBvbGljeSBkb2N1bWVudHMuIFJldHVybnMgdmVyYmF0aW0gY2h1bmtzIHdpdGggc291cmNlIFVSTHMuIE5ldmVyIHBhcmFwaHJhc2VzIHBvbGljeSwgbmV2ZXIgaW52ZW50cyBzb3VyY2VzLgoyLiAqKkdhcEFuYWx5emVyKiogKGBhZ2VudHMvYCk6IExMTSBjb21wYXJlcyB0aGUgc3VibWlzc2lvbiBhZ2FpbnN0IHJldHJpZXZlZCBwb2xpY3kuIEV2ZXJ5IGZpbmRpbmcgbXVzdCBjYXJyeSBhIHZlcmJhdGltIHF1b3RlICsgc291cmNlIFVSTCwgb3IgaXQgaXMgZG93bmdyYWRlZCB0byBgSU5TVUZGSUNJRU5UX0VWSURFTkNFYC4gQWR2aXNvcnkgb25seS4gRmFsbHMgYmFjayB0byBleHRyYWN0aXZlIG1vZGUgd2hlbiBubyBMTE0gaXMgcmVhY2hhYmxlLgozLiAqKkNvbXBsaWFuY2VDaGVja2VyKiogKGBndWFyZHJhaWxzL2ApOiAqKmRldGVybWluaXN0aWMgcnVsZXMgZW5naW5lIGluIHB1cmUgUHl0aG9uKiogLSBiYW5uZWQgcHJhY3RpY2VzIChiaW9tZXRyaWMgbW9uaXRvcmluZywgQUktb25seSBncmFkaW5nKSwgc3R1ZGVudC1kYXRhIHJ1bGVzLCBhZ2UtYXBwcm9wcmlhdGUtdXNlIHJ1bGVzLCBBSS1saXRlcmFjeSBkdXR5LiBUaGUgTExNIGNhbiBuZXZlciBvdmVycmlkZSB0aGVzZS4KNC4gKipSZXBvcnRlcioqIChgYWdlbnRzL2ApOiBhc3NlbWJsZXMgdGhlIHZlcmRpY3QgKGBDT01QTElBTlRgIC8gYE5FRURTX1JFVklFV2AgLyBgTk9OX0NPTVBMSUFOVGApLCBjaXRhdGlvbnMsIHJlY29tbWVuZGVkIGFjdGlvbnMuIFZlcmRpY3QgcHJlY2VkZW5jZSBpcyBkZXRlcm1pbmlzdGljLgoKKipFdmlkZW5jZS1hbmNob3JpbmcgcnVsZToqKiB0aGUgYWdlbnQgTkVWRVIgc3RhdGVzIGEgcG9saWN5IGNsYWltIHdpdGhvdXQgYSB2ZXJiYXRpbSBjaXRhdGlvbiBmcm9tIHRoZSBLQi4KCiMjIEtub3dsZWRnZSBiYXNlCgpga2Ivc291cmNlcy9gIGhvbGRzIHBvbGljeSBkb2N1bWVudHMgKGVhY2ggd2l0aCBgRE9DX0lEYCwgYFRJVExFYCwgYFNPVVJDRV9VUkxgIGhlYWRlcikuIEN1cnJlbnQgY29ycHVzICg4IGRvY3VtZW50cyk6Cgp8IGRvY19pZCB8IHNvdXJjZSB8CnwtLS18LS0tfAp8IHVhZS1tb2UtYWktY3VycmljdWx1bS0yMDI1IHwgVUFFIE1vRTogQUkgY29tcHVsc29yeSBLRy0xMiAoMjAyNS0yMDI2KSB8CnwgdWFlLWFpLXN0cmF0ZWd5LTIwMzEtZWR1Y2F0aW9uIHwgVUFFIE5hdGlvbmFsIEFJIFN0cmF0ZWd5IDIwMzEgKGVkdWNhdGlvbiArIGdvdmVybmFuY2UpIHwKfCB1YWUtYWktZXRoaWNzLWNoYXJ0ZXItMjAyNCB8IFVBRSBDaGFydGVyIGZvciBEZXZlbG9wbWVudCBhbmQgVXNlIG9mIEFJICgyMDI0KSB8CnwgdWFlLWRhdGEtcHJvdGVjdGlvbi0yMDIxIHwgVUFFIEZlZGVyYWwgRGVjcmVlLUxhdyBOby4gNDUgb2YgMjAyMSAoZGF0YSBwcm90ZWN0aW9uIHByaW5jaXBsZXMpIHwKfCB1bmVzY28tYWktY29tcGV0ZW5jeS1zdHVkZW50cy0yMDI0IHwgVU5FU0NPIEFJIENvbXBldGVuY3kgRnJhbWV3b3JrIGZvciBTdHVkZW50cyAoMjAyNCkgfAp8IHVuZXNjby1haS1jb21wZXRlbmN5LXRlYWNoZXJzLTIwMjQgfCBVTkVTQ08gQUkgQ29tcGV0ZW5jeSBGcmFtZXdvcmsgZm9yIFRlYWNoZXJzICgyMDI0KSB8CnwgdW5lc2NvLWdlbmFpLWd1aWRhbmNlLTIwMjMgfCBVTkVTQ08gR3VpZGFuY2UgZm9yIEdlbmVyYXRpdmUgQUkgaW4gRWR1Y2F0aW9uIGFuZCBSZXNlYXJjaCAoMjAyMykgfAp8IGV1LWFpLWFjdC1lZHVjYXRpb24gfCBFVSBBSSBBY3Q6IEFydC4gNCAoQUkgbGl0ZXJhY3kpICsgQW5uZXggSUlJIGVkdWNhdGlvbiBoaWdoLXJpc2sgfAoKIyMgUXVpY2tzdGFydAoKYGBgYmFzaApjZCBlZHVndWFyZApweXRob24zIC1tIHZlbnYgLnZlbnYgJiYgc291cmNlIC52ZW52L2Jpbi9hY3RpdmF0ZQpwaXAgaW5zdGFsbCAtciByZXF1aXJlbWVudHMudHh0CgojIDEuIEluZ2VzdCB0aGUga25vd2xlZGdlIGJhc2UgKGxvY2FsIGVtYmVkZGluZ3MsIG5vIEFQSSBrZXkpCnB5dGhvbiAtbSBrYi5pbmdlc3QKCiMgMi4gUnVuIHRoZSBBUEkKdXZpY29ybiBhcGkubWFpbjphcHAgLS1wb3J0IDgwMDAKCiMgMy4gT3BlbiBodHRwOi8vbG9jYWxob3N0OjgwMDAgIChkZW1vIFVJKQojICAgIFBPU1QgL2V2YWx1YXRlICB7Imxlc3Nvbl9wbGFuIjogIi4uLiIsICJjb250ZXh0IjogIi4uLiJ9CmBgYAoKT3B0aW9uYWwgTExNIGZvciBnYXAgYW5hbHlzaXMgKE9sbGFtYSBkZWZhdWx0OyB3aXRob3V0IGl0IHRoZSBwaXBlbGluZSBzdGlsbCB3b3JrcyBkZXRlcm1pbmlzdGljYWxseSk6CmBgYGJhc2gKb2xsYW1hIHB1bGwgcXdlbjIuNTo3YgojIG9yOiBFRFVHVUFSRF9MTE1fQkFDS0VORD1vcGVuYWkgICsgIE9QRU5BSV9BUElfS0VZPS4uLiAgKG5ldmVyIGNvbW1pdCBrZXlzKQpgYGAKClJ1biB0ZXN0czoKYGBgYmFzaApweXRob24gLW0gcHl0ZXN0IHRlc3RzLyAteCAtcQpgYGAKCiMjIEFQSQoKLSBgUE9TVCAvZXZhbHVhdGVgIC0gYHtsZXNzb25fcGxhbjogc3RyaW5nLCBjb250ZXh0OiBzdHJpbmd9YCAtPiB2ZXJkaWN0IEpTT04gd2l0aCBjaXRhdGlvbnMsIGZpcmVkIHJ1bGVzLCByZWNvbW1lbmRlZCBhY3Rpb25zLCBhdWRpdCBydW4gaWQKLSBgR0VUIC9oZWFsdGhgIC0gS0IgY2h1bmsgY291bnQsIExMTSBhdmFpbGFiaWxpdHkKLSBgR0VUIC9zb3VyY2VzYCAtIEtCIGRvY3VtZW50cyB3aXRoIHNvdXJjZSBVUkxzCi0gYEdFVCAvYCAtIGRlbW8gVUkKCiMjIElUVSBzdGFuZGFyZHMgYWxpZ25tZW50CgotICoqWS4zMTcyIE1MIHBpcGVsaW5lIG1hcHBpbmcqKjogS0IgaW5nZXN0aW9uID0gZGF0YSBzb3VyY2Ugbm9kZXM7IHRoZSBmb3VyIGFnZW50cyA9IE1MIHBpcGVsaW5lIG5vZGVzOyBgRWR1R3VhcmRQaXBlbGluZWAgPSBNTCBGdW5jdGlvbiBPcmNoZXN0cmF0b3I7IGVycm9yLXNjZW5hcmlvIGV2YWx1YXRpb25zID0gTUwgc2FuZGJveCAoaXNvbGF0ZWQgdGVzdCBlbnZpcm9ubWVudCkuCi0gKipBSSBSZWFkaW5lc3MgRnJhbWV3b3JrKio6IHRoZSBLQiBvcGVyYXRpb25hbGl6ZXMgdGhlICJzdGFuZGFyZHMtZW5hYmxlZCBzdGFrZWhvbGRlciBidXktaW4iIGFuZCAic2FuZGJveCBhbmQgcGlsb3QgZXhwZXJpbWVudGF0aW9uIiBmYWN0b3JzIGZvciB0aGUgZWR1Y2F0aW9uIGRvbWFpbi4KCiMjIExpY2Vuc2UKCk1JVC4gU2VlIExJQ0VOU0UuCg==
+# EduGuard UAE
+
+[![CI](https://github.com/Venomous-101/EduGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/Venomous-101/EduGuard/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![ITU AI for Good](https://img.shields.io/badge/ITU-AI%20for%20Good%20Lab-blueviolet.svg)](https://www.itu.int/)
+
+**Evidence-anchored AI compliance agent for UAE schools** - built for the ITU AI for Good Lab Hackathon (UAE edition).
+
+A teacher or school admin submits an AI lesson plan or classroom AI use case. EduGuard checks it against UAE education AI policy, UNESCO AI competency frameworks, and EU AI Act education provisions. Every verdict carries **verbatim citations** from the knowledge base, or is explicitly marked `INSUFFICIENT_EVIDENCE`. Deterministic guardrails (plain code, not the LLM) enforce hard policy rules. Every retrieval, rule evaluation, and verdict is audit-logged.
+
+> SIMULATION ONLY. All demo data is synthetic. No real student data is processed.
+
+## Why this exists
+
+The UAE made AI a **mandatory KG-12 subject from 2025-2026** and allocated AED 13 billion to AI development - yet its AI ethics frameworks are **nonbinding with no enforcement mechanism** (Atlantic Council). Schools deploying AI operate under high-ambition strategy with no operational compliance layer. EduGuard UAE is that layer.
+
+## Architecture
+
+```
+lesson plan ──> PolicyRetriever ──> GapAnalyzer ──> ComplianceChecker ──> Reporter ──> verdict JSON
+  (RAG over ChromaDB)   (LLM, advisory)   (DETERMINISTIC rules)   (cited verdict)
+        │                      │                    │                    │
+        └──────────────────────┴────────────────────┴────────────────────┘
+                              audit log (JSONL, every stage)
+```
+
+1. **PolicyRetriever** (`agents/`): RAG over a ChromaDB knowledge base of real policy documents. Returns verbatim chunks with source URLs. Never paraphrases policy, never invents sources.
+2. **GapAnalyzer** (`agents/`): LLM compares the submission against retrieved policy. Every finding must carry a verbatim quote + source URL, or it is downgraded to `INSUFFICIENT_EVIDENCE`. Advisory only. Falls back to extractive mode when no LLM is reachable.
+3. **ComplianceChecker** (`guardrails/`): **deterministic rules engine in pure Python** - banned practices (biometric monitoring, AI-only grading), student-data rules, age-appropriate-use rules, AI-literacy duty. The LLM can never override these.
+4. **Reporter** (`agents/`): assembles the verdict (`COMPLIANT` / `NEEDS_REVIEW` / `NON_COMPLIANT`), citations, recommended actions. Verdict precedence is deterministic.
+
+**Evidence-anchoring rule:** the agent NEVER states a policy claim without a verbatim citation from the KB.
+
+## Knowledge base
+
+`kb/sources/` holds policy documents (each with `DOC_ID`, `TITLE`, `SOURCE_URL` header). Current corpus (8 documents):
+
+| doc_id | source |
+|---|---|
+| uae-moe-ai-curriculum-2025 | UAE MoE: AI compulsory KG-12 (2025-2026) |
+| uae-ai-strategy-2031-education | UAE National AI Strategy 2031 (education + governance) |
+| uae-ai-ethics-charter-2024 | UAE Charter for Development and Use of AI (2024) |
+| uae-data-protection-2021 | UAE Federal Decree-Law No. 45 of 2021 (data protection principles) |
+| unesco-ai-competency-students-2024 | UNESCO AI Competency Framework for Students (2024) |
+| unesco-ai-competency-teachers-2024 | UNESCO AI Competency Framework for Teachers (2024) |
+| unesco-genai-guidance-2023 | UNESCO Guidance for Generative AI in Education and Research (2023) |
+| eu-ai-act-education | EU AI Act: Art. 4 (AI literacy) + Annex III education high-risk |
+
+## Quickstart
+
+```bash
+cd eduguard
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+# 1. Ingest the knowledge base (local embeddings, no API key)
+python -m kb.ingest
+
+# 2. Run the API
+uvicorn api.main:app --port 8000
+
+# 3. Open http://localhost:8000  (demo UI)
+#    POST /evaluate  {"lesson_plan": "...", "context": "..."}
+```
+
+Optional LLM for gap analysis (Ollama default; without it the pipeline still works deterministically):
+```bash
+ollama pull qwen2.5:7b
+# or: EDUGUARD_LLM_BACKEND=openai  +  OPENAI_API_KEY=...  (never commit keys)
+```
+
+Run tests:
+```bash
+python -m pytest tests/ -x -q
+```
+
+## API
+
+- `POST /evaluate` - `{lesson_plan: string, context: string}` -> verdict JSON with citations, fired rules, recommended actions, audit run id
+- `GET /health` - KB chunk count, LLM availability
+- `GET /sources` - KB documents with source URLs
+- `GET /` - demo UI
+
+## ITU standards alignment
+
+- **Y.3172 ML pipeline mapping**: KB ingestion = data source nodes; the four agents = ML pipeline nodes; `EduGuardPipeline` = ML Function Orchestrator; error-scenario evaluations = ML sandbox (isolated test environment).
+- **AI Readiness Framework**: the KB operationalizes the "standards-enabled stakeholder buy-in" and "sandbox and pilot experimentation" factors for the education domain.
+
+## License
+
+MIT. See LICENSE.

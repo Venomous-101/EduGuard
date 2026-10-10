@@ -1,1 +1,7 @@
-LmVudgoudmVudi8KX19weWNhY2hlX18vCioucHljCmtiL2Nocm9tYV9kYi8KYXVkaXQvKi5qc29ubAoqLmxvZwo=
+.env
+.venv/
+__pycache__/
+*.pyc
+kb/chroma_db/
+audit/*.jsonl
+*.log
