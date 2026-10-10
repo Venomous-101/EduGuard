@@ -1,1 +1,79 @@
-IiIiRWR1R3VhcmQgVUFFIC0gRmFzdEFQSSBiYWNrZW5kLgoKRW5kcG9pbnRzOgogIFBPU1QgL2V2YWx1YXRlICAge2xlc3Nvbl9wbGFuOiBzdHIsIGNvbnRleHQ6IHN0cn0gLT4gdmVyZGljdCBKU09OCiAgR0VUICAvaGVhbHRoICAgICAtPiBLQiBjaHVuayBjb3VudCwgTExNIGF2YWlsYWJpbGl0eQogIEdFVCAgL3NvdXJjZXMgICAgLT4gS0Igc291cmNlIGRvY3VtZW50cyB3aXRoIFVSTHMKICBHRVQgIC8gICAgICAgICAgIC0+IGRlbW8gVUkKClJ1bjoKICB1dmljb3JuIGFwaS5tYWluOmFwcCAtLXJlbG9hZCAtLXBvcnQgODAwMCAgIChmcm9tIHRoZSBlZHVndWFyZC8gZGlyZWN0b3J5KQoiIiIKaW1wb3J0IG9zCmltcG9ydCBzeXMKCnN5cy5wYXRoLmluc2VydCgwLCBvcy5wYXRoLmRpcm5hbWUob3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpKSkKCmZyb20gZmFzdGFwaSBpbXBvcnQgRmFzdEFQSSwgSFRUUEV4Y2VwdGlvbgpmcm9tIGZhc3RhcGkucmVzcG9uc2VzIGltcG9ydCBGaWxlUmVzcG9uc2UKZnJvbSBweWRhbnRpYyBpbXBvcnQgQmFzZU1vZGVsLCBGaWVsZAoKZnJvbSBhZ2VudHMucGlwZWxpbmUgaW1wb3J0IEVkdUd1YXJkUGlwZWxpbmUgICMgbm9xYTogRTQwMgpmcm9tIGFnZW50cy5sbG0gaW1wb3J0IExMTUJhY2tlbmQgICMgbm9xYTogRTQwMgpmcm9tIGtiLnN0b3JlIGltcG9ydCBQb2xpY3lLQiAgIyBub3FhOiBFNDAyCgphcHAgPSBGYXN0QVBJKAogICAgdGl0bGU9IkVkdUd1YXJkIFVBRSIsCiAgICBkZXNjcmlwdGlvbj0iRXZpZGVuY2UtYW5jaG9yZWQgQUkgY29tcGxpYW5jZSBhZ2VudCBmb3IgVUFFIHNjaG9vbHMgKElUVSBBSSBmb3IgR29vZCBIYWNrYXRob24gVUFFKS4iLAogICAgdmVyc2lvbj0iMC4xLjAiLAopCgpfcGlwZWxpbmUgPSBOb25lCgoKZGVmIGdldF9waXBlbGluZSgpOgogICAgZ2xvYmFsIF9waXBlbGluZQogICAgaWYgX3BpcGVsaW5lIGlzIE5vbmU6CiAgICAgICAgX3BpcGVsaW5lID0gRWR1R3VhcmRQaXBlbGluZSgpCiAgICByZXR1cm4gX3BpcGVsaW5lCgoKY2xhc3MgRXZhbHVhdGVSZXF1ZXN0KEJhc2VNb2RlbCk6CiAgICBsZXNzb25fcGxhbjogc3RyID0gRmllbGQoLi4uLCBtaW5fbGVuZ3RoPTEwLCBkZXNjcmlwdGlvbj0iVGhlIGxlc3NvbiBwbGFuIG9yIGNsYXNzcm9vbSBBSSB1c2UgY2FzZSB0byBldmFsdWF0ZS4iKQogICAgY29udGV4dDogc3RyID0gRmllbGQoZGVmYXVsdD0iIiwgZGVzY3JpcHRpb249Ik9wdGlvbmFsIGNvbnRleHQ6IGdyYWRlIGxldmVsLCBzY2hvb2wsIGVtaXJhdGUsIGV0Yy4iKQoKCkBhcHAucG9zdCgiL2V2YWx1YXRlIikKZGVmIGV2YWx1YXRlKHJlcTogRXZhbHVhdGVSZXF1ZXN0KToKICAgIHRyeToKICAgICAgICByZXBvcnQgPSBnZXRfcGlwZWxpbmUoKS5ldmFsdWF0ZShyZXEubGVzc29uX3BsYW4sIHJlcS5jb250ZXh0KQogICAgICAgIHJldHVybiByZXBvcnQKICAgIGV4Y2VwdCBWYWx1ZUVycm9yIGFzIGU6CiAgICAgICAgcmFpc2UgSFRUUEV4Y2VwdGlvbihzdGF0dXNfY29kZT00MDAsIGRldGFpbD1zdHIoZSkpCiAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGU6CiAgICAgICAgcmFpc2UgSFRUUEV4Y2VwdGlvbihzdGF0dXNfY29kZT01MDAsIGRldGFpbD1mImV2YWx1YXRpb24gZmFpbGVkOiB7ZX0iKQoKCkBhcHAuZ2V0KCIvaGVhbHRoIikKZGVmIGhlYWx0aCgpOgogICAga2IgPSBQb2xpY3lLQigpCiAgICBsbG0gPSBMTE1CYWNrZW5kKCkKICAgIHJldHVybiB7CiAgICAgICAgInN0YXR1cyI6ICJvayIsCiAgICAgICAgImtiX2NodW5rcyI6IGtiLmNvdW50KCksCiAgICAgICAgImtiX3NvdXJjZXMiOiBsZW4oa2IubGlzdF9zb3VyY2VzKCkpLAogICAgICAgICJsbG1fYmFja2VuZCI6IGxsbS5iYWNrZW5kLAogICAgICAgICJsbG1fYXZhaWxhYmxlIjogbGxtLmF2YWlsYWJsZSwKICAgICAgICAibm90aWNlIjogIlNJTVVMQVRJT04gT05MWSAtIHN5bnRoZXRpYyB0ZXN0IGRhdGEuIE5vIHJlYWwgc3R1ZGVudCBkYXRhIGlzIHByb2Nlc3NlZC4iLAogICAgfQoKCkBhcHAuZ2V0KCIvc291cmNlcyIpCmRlZiBzb3VyY2VzKCk6CiAgICByZXR1cm4geyJzb3VyY2VzIjogUG9saWN5S0IoKS5saXN0X3NvdXJjZXMoKX0KCgpAYXBwLmdldCgiLyIpCmRlZiBkZW1vKCk6CiAgICBoZXJlID0gb3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpCiAgICByZXR1cm4gRmlsZVJlc3BvbnNlKG9zLnBhdGguam9pbihoZXJlLCAiZGVtby5odG1sIikpCg==
+"""EduGuard UAE - FastAPI backend.
+
+Endpoints:
+  POST /evaluate   {lesson_plan: str, context: str} -> verdict JSON
+  GET  /health     -> KB chunk count, LLM availability
+  GET  /sources    -> KB source documents with URLs
+  GET  /           -> demo UI
+
+Run:
+  uvicorn api.main:app --reload --port 8000   (from the eduguard/ directory)
+"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from pydantic import BaseModel, Field
+
+from agents.pipeline import EduGuardPipeline  # noqa: E402
+from agents.llm import LLMBackend  # noqa: E402
+from kb.store import PolicyKB  # noqa: E402
+
+app = FastAPI(
+    title="EduGuard UAE",
+    description="Evidence-anchored AI compliance agent for UAE schools (ITU AI for Good Hackathon UAE).",
+    version="0.1.0",
+)
+
+_pipeline = None
+
+
+def get_pipeline():
+    global _pipeline
+    if _pipeline is None:
+        _pipeline = EduGuardPipeline()
+    return _pipeline
+
+
+class EvaluateRequest(BaseModel):
+    lesson_plan: str = Field(..., min_length=10, description="The lesson plan or classroom AI use case to evaluate.")
+    context: str = Field(default="", description="Optional context: grade level, school, emirate, etc.")
+
+
+@app.post("/evaluate")
+def evaluate(req: EvaluateRequest):
+    try:
+        report = get_pipeline().evaluate(req.lesson_plan, req.context)
+        return report
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"evaluation failed: {e}")
+
+
+@app.get("/health")
+def health():
+    kb = PolicyKB()
+    llm = LLMBackend()
+    return {
+        "status": "ok",
+        "kb_chunks": kb.count(),
+        "kb_sources": len(kb.list_sources()),
+        "llm_backend": llm.backend,
+        "llm_available": llm.available,
+        "notice": "SIMULATION ONLY - synthetic test data. No real student data is processed.",
+    }
+
+
+@app.get("/sources")
+def sources():
+    return {"sources": PolicyKB().list_sources()}
+
+
+@app.get("/")
+def demo():
+    here = os.path.dirname(os.path.abspath(__file__))
+    return FileResponse(os.path.join(here, "demo.html"))

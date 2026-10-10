@@ -1,1 +1,160 @@
-IiIiQ29tcGxpYW5jZUNoZWNrZXI6IERFVEVSTUlOSVNUSUMgcnVsZXMgZW5naW5lLiBObyBMTE0gaW52b2x2ZWQuCgpIYXJkIHBvbGljeSBydWxlcyBhcmUgZW5jb2RlZCBoZXJlIGFzIHB1cmUgUHl0aG9uLiBUaGUgTExNIChHYXBBbmFseXplcikKaXMgYWR2aXNvcnkgb25seSBhbmQgY2FuIE5FVkVSIG92ZXJyaWRlIHRoZXNlIHJ1bGVzLiBFYWNoIHJ1bGUgcmV0dXJucyBhCmZpcmVkL25vdC1maXJlZCByZXN1bHQgd2l0aCB0aGUgZXhhY3QgcG9saWN5IGJhc2lzIChkb2NfaWQgKyBzb3VyY2UgVVJMKSwKc28gZXZlcnkgTk9OX0NPTVBMSUFOVCB2ZXJkaWN0IGlzIHRyYWNlYWJsZSB0byBhIGNvZGlmaWVkIHJ1bGUsIG5vdCB0bwptb2RlbCBvdXRwdXQuCgpWZXJkaWN0IHByZWNlZGVuY2U6IE5PTl9DT01QTElBTlQgPiBORUVEU19SRVZJRVcgPiBDT01QTElBTlQuCiIiIgoKIyBFYWNoIHJ1bGU6IGlkLCBzZXZlcml0eSwgcG9saWN5X2Jhc2lzIChkb2NfaWQgKyB1cmwpLCBtYXRjaGVyIGtleXdvcmRzLgojIEEgcnVsZSBGSVJFUyB3aGVuIGl0cyBrZXl3b3JkcyBtYXRjaCB0aGUgc3VibWlzc2lvbiB0ZXh0IChjYXNlLWluc2Vuc2l0aXZlKS4KUlVMRVMgPSBbCiAgICB7CiAgICAgICAgImlkIjogIlIxLW5vLXVucmV2aWV3ZWQtYWktZ3JhZGluZyIsCiAgICAgICAgInNldmVyaXR5IjogIk5PTl9DT01QTElBTlQiLAogICAgICAgICJ0aXRsZSI6ICJBSSBtdXN0IG5vdCBzb2xlbHkgZGV0ZXJtaW5lIHN0dWRlbnQgZ3JhZGVzIG9yIGFzc2Vzc21lbnQgb3V0Y29tZXMiLAogICAgICAgICJwb2xpY3lfYmFzaXMiOiB7CiAgICAgICAgICAgICJkb2NfaWQiOiAiZXUtYWktYWN0LWVkdWNhdGlvbiIsCiAgICAgICAgICAgICJ0aXRsZSI6ICJFVSBBSSBBY3QsIEFubmV4IElJSSAoZWR1Y2F0aW9uKSBhbmQgVU5FU0NPIEd1aWRhbmNlIG9uIEFJIGluIEVkdWNhdGlvbiIsCiAgICAgICAgICAgICJzb3VyY2VfdXJsIjogImh0dHBzOi8vY2FzcmFpLm9yZy9kaWN0aW9uYXJ5L3Rlcm0vZXUtYWktYWN0LWFubmV4LWlpaS1oaWdoLXJpc2stdXNlLWNhc2VzIiwKICAgICAgICB9LAogICAgICAgICJrZXl3b3JkcyI6IFsKICAgICAgICAgICAgInNvbGVseSBkZWNpZGUiLCAic29sZWx5IGRldGVybWluZSIsICJmaW5hbCBncmFkZSBkZWNpZGVkIGJ5IGFpIiwKICAgICAgICAgICAgImFpIGRlY2lkZXMgdGhlIGdyYWRlIiwgImF1dG9tYXRpYyBncmFkaW5nIHdpdGhvdXQgcmV2aWV3IiwKICAgICAgICAgICAgIm5vIGh1bWFuIHJldmlldyIsICJ3aXRob3V0IHRlYWNoZXIgcmV2aWV3IiwgIm5vIHRlYWNoZXIgcmV2aWV3IiwKICAgICAgICAgICAgIndpdGggbm8gdGVhY2hlciByZXZpZXciLAogICAgICAgIF0sCiAgICAgICAgImd1aWRhbmNlIjogIkFJIHN5c3RlbXMgZXZhbHVhdGluZyBsZWFybmluZyBvdXRjb21lcyBhcmUgaGlnaC1yaXNrIChFVSBBSSBBY3QgQW5uZXggSUlJLCBwb2ludCAzKGIpKS4gIgogICAgICAgICAgICAgICAgICAgICJHcmFkZXMgbXVzdCByZW1haW4gdW5kZXIgbWVhbmluZ2Z1bCBodW1hbiBvdmVyc2lnaHQ7IEFJIG1heSBhc3Npc3QgYnV0IG5vdCBzb2xlbHkgZGV0ZXJtaW5lIG91dGNvbWVzLiIsCiAgICB9LAogICAgewogICAgICAgICJpZCI6ICJSMi1uby1iaW9tZXRyaWMtbW9uaXRvcmluZyIsCiAgICAgICAgInNldmVyaXR5IjogIk5PTl9DT01QTElBTlQiLAogICAgICAgICJ0aXRsZSI6ICJObyBiaW9tZXRyaWMgaWRlbnRpZmljYXRpb24gb3IgZW1vdGlvbiByZWNvZ25pdGlvbiBvZiBzdHVkZW50cyIsCiAgICAgICAgInBvbGljeV9iYXNpcyI6IHsKICAgICAgICAgICAgImRvY19pZCI6ICJldS1haS1hY3QtZWR1Y2F0aW9uIiwKICAgICAgICAgICAgInRpdGxlIjogIkVVIEFJIEFjdCBwcm9oaWJpdGVkIHByYWN0aWNlcyAoZW1vdGlvbiBpbmZlcmVuY2UgaW4gZWR1Y2F0aW9uL3dvcmspIiwKICAgICAgICAgICAgInNvdXJjZV91cmwiOiAiaHR0cHM6Ly93d3cuYWktZXhwZXJ0LmNvLnVrL2Jsb2cvZXUtYWktYWN0LXJpc2stdGllcnMtZXhwbGFpbmVkIiwKICAgICAgICB9LAogICAgICAgICJrZXl3b3JkcyI6IFsKICAgICAgICAgICAgImZhY2lhbCByZWNvZ25pdGlvbiIsICJmYWNlIHJlY29nbml0aW9uIiwgImVtb3Rpb24gZGV0ZWN0aW9uIiwKICAgICAgICAgICAgImVtb3Rpb24gcmVjb2duaXRpb24iLCAiYmlvbWV0cmljIiwgImV5ZSB0cmFja2luZyBmb3IgYXR0ZW50aW9uIiwKICAgICAgICAgICAgImF0dGVudGlvbiBtb25pdG9yaW5nIHZpYSBjYW1lcmEiLAogICAgICAgIF0sCiAgICAgICAgImd1aWRhbmNlIjogIkVtb3Rpb24gaW5mZXJlbmNlIGFuZCBiaW9tZXRyaWMgaWRlbnRpZmljYXRpb24gaW4gZWR1Y2F0aW9uIGFyZSBwcm9oaWJpdGVkIHByYWN0aWNlcyB1bmRlciB0aGUgRVUgQUkgQWN0LiAiCiAgICAgICAgICAgICAgICAgICAgIkNsYXNzcm9vbSBtb25pdG9yaW5nIG11c3Qgbm90IHVzZSBiaW9tZXRyaWNzLiIsCiAgICB9LAogICAgewogICAgICAgICJpZCI6ICJSMy1zdHVkZW50LWRhdGEtbWluaW1pemF0aW9uIiwKICAgICAgICAic2V2ZXJpdHkiOiAiTkVFRFNfUkVWSUVXIiwKICAgICAgICAidGl0bGUiOiAiU3R1ZGVudCBwZXJzb25hbCBkYXRhIHVzZSByZXF1aXJlcyBjb25zZW50IGFuZCBtaW5pbWl6YXRpb24iLAogICAgICAgICJwb2xpY3lfYmFzaXMiOiB7CiAgICAgICAgICAgICJkb2NfaWQiOiAidWFlLWRhdGEtcHJvdGVjdGlvbi0yMDIxIiwKICAgICAgICAgICAgInRpdGxlIjogIlVBRSBGZWRlcmFsIERlY3JlZS1MYXcgTm8uIDQ1IG9mIDIwMjEgb24gUGVyc29uYWwgRGF0YSBQcm90ZWN0aW9uIChwcmluY2lwbGVzKSIsCiAgICAgICAgICAgICJzb3VyY2VfdXJsIjogImh0dHBzOi8vZWxhd3MuZ292LmFlL0VuTGVnaXNsYXRpb25zLmFzcHgiLAogICAgICAgIH0sCiAgICAgICAgImtleXdvcmRzIjogWwogICAgICAgICAgICAic3R1ZGVudCBkYXRhIiwgInBlcnNvbmFsIGRhdGEiLCAidXBsb2FkIHN0dWRlbnQiLAogICAgICAgICAgICAic3R1ZGVudCByZWNvcmRzIiwgImNoaWxkcmVuJ3MgZGF0YSIsICJjaGlsZCBkYXRhIiwKICAgICAgICAgICAgInNoYXJlIHdpdGggdGhpcmQgcGFydHkiLCAidGhpcmQtcGFydHkgYWkiLAogICAgICAgIF0sCiAgICAgICAgImd1aWRhbmNlIjogIkFueSBwcm9jZXNzaW5nIG9mIHN0dWRlbnQgcGVyc29uYWwgZGF0YSBtdXN0IGZvbGxvdyBkYXRhLW1pbmltaXphdGlvbiwgcHVycG9zZS1saW1pdGF0aW9uIGFuZCAiCiAgICAgICAgICAgICAgICAgICAgImNvbnNlbnQgcHJpbmNpcGxlcy4gVmVyaWZ5IHBhcmVudGFsIGNvbnNlbnQgZm9yIHVuZGVyLTE4cyBhbmQgYSBkYXRhLXByb2Nlc3NpbmcgYWdyZWVtZW50IHdpdGggdGhlIHZlbmRvci4iLAogICAgfSwKICAgIHsKICAgICAgICAiaWQiOiAiUjQta2ctYWdlLWFwcHJvcHJpYXRlIiwKICAgICAgICAic2V2ZXJpdHkiOiAiTkVFRFNfUkVWSUVXIiwKICAgICAgICAidGl0bGUiOiAiQUkgYWN0aXZpdGllcyBmb3IgS0cgLyBlYXJseSB5ZWFycyBtdXN0IGJlIGFnZS1hcHByb3ByaWF0ZSBhbmQgc3VwZXJ2aXNlZCIsCiAgICAgICAgInBvbGljeV9iYXNpcyI6IHsKICAgICAgICAgICAgImRvY19pZCI6ICJ1YWUtbW9lLWFpLWN1cnJpY3VsdW0tMjAyNSIsCiAgICAgICAgICAgICJ0aXRsZSI6ICJVQUUgTW9FIEFJIGN1cnJpY3VsdW0gKDIwMjUtMjAyNik6IEtHIHVzZXMgdmlzdWFsL2ludGVyYWN0aXZlIGFjdGl2aXRpZXMgdGhyb3VnaCBzdG9yaWVzIGFuZCBwbGF5IiwKICAgICAgICAgICAgInNvdXJjZV91cmwiOiAiaHR0cHM6Ly93d3cuRW50cmVwcmVuZXVyLkNvbS9lbi1hZS90ZWNobm9sb2d5L3VhZS10by1tYWtlLWFpLW9mZmljaWFsLXN1YmplY3QtaW4tc2Nob29scy80OTEwNzEiLAogICAgICAgIH0sCiAgICAgICAgImtleXdvcmRzIjogWyJraW5kZXJnYXJ0ZW4iLCAia2cgIiwgImtnLCIsICJlYXJseSB5ZWFycyIsICJhZ2UgNCIsICJhZ2UgNSIsICI1LXllYXItb2xkIl0sCiAgICAgICAgImd1aWRhbmNlIjogIlBlciB0aGUgVUFFIE1vRSBjdXJyaWN1bHVtLCBLRyBsZWFybmVycyBkaXNjb3ZlciBBSSB0aHJvdWdoIHZpc3VhbCwgaW50ZXJhY3RpdmUgYWN0aXZpdGllcywgc3RvcmllcyBhbmQgcGxheSwgIgogICAgICAgICAgICAgICAgICAgICJ3aXRoIGRlc2lnbmF0ZWQgdGVhY2hlcnMuIFVuc3VwZXJ2aXNlZCBvciB0ZXh0LWhlYXZ5IEFJIHVzZSB3aXRoIHlvdW5nIGNoaWxkcmVuIG5lZWRzIHJldmlldy4iLAogICAgfSwKICAgIHsKICAgICAgICAiaWQiOiAiUjUtdGVhY2hlci1haS1saXRlcmFjeSIsCiAgICAgICAgInNldmVyaXR5IjogIk5FRURTX1JFVklFVyIsCiAgICAgICAgInRpdGxlIjogIlRlYWNoZXJzIGRlcGxveWluZyBBSSBuZWVkIHN1ZmZpY2llbnQgQUkgbGl0ZXJhY3kiLAogICAgICAgICJwb2xpY3lfYmFzaXMiOiB7CiAgICAgICAgICAgICJkb2NfaWQiOiAiZXUtYWktYWN0LWVkdWNhdGlvbiIsCiAgICAgICAgICAgICJ0aXRsZSI6ICJFVSBBSSBBY3QgQXJ0aWNsZSA0IChBSSBsaXRlcmFjeSBkdXR5IGZvciBkZXBsb3llcnMpIiwKICAgICAgICAgICAgInNvdXJjZV91cmwiOiAiaHR0cHM6Ly93d3cubGF3Lmt1bGV1dmVuLmJlL2NpdGlwL2Jsb2cvdGhpcy10aW1lLWh1bWFucy1sZWFybi1hYm91dC1tYWNoaW5lcy1haS1saXRlcmFjeS1pbi10aGUtYWktYWN0LXBhcnQtMi8iLAogICAgICAgIH0sCiAgICAgICAgImtleXdvcmRzIjogWyJkZXBsb3kgYWkiLCAicm9sbCBvdXQiLCAiaW50cm9kdWNlIGFpIiwgIm5ldyBhaSB0b29sIiwgImFpIHN5c3RlbSBpbiBjbGFzcyJdLAogICAgICAgICMgRmlyZSBvbmx5IHdoZW4gZGVwbG95bWVudCBpcyBkZXNjcmliZWQgV0lUSE9VVCBhbnkgbWVudGlvbiBvZiB0cmFpbmluZy9saXRlcmFjeS4KICAgICAgICAicmVxdWlyZXNfYWJzZW5jZSI6IFsidHJhaW5pbmciLCAibGl0ZXJhdGUiLCAibGl0ZXJhY3kiLCAidHJhaW5lZCIsICJ3b3Jrc2hvcCIsICJjZXJ0aWZpZWQiXSwKICAgICAgICAiZ3VpZGFuY2UiOiAiRGVwbG95ZXJzIG9mIEFJIHN5c3RlbXMgbXVzdCBlbnN1cmUgc3RhZmYgaGF2ZSBzdWZmaWNpZW50IEFJIGxpdGVyYWN5IGZvciB0aGUgY29udGV4dCBvZiB1c2UgIgogICAgICAgICAgICAgICAgICAgICIoRVUgQUkgQWN0IEFydC4gNCkuIENvbmZpcm0gdGhlIHRlYWNoZXIgY29tcGxldGVkIEFJLWxpdGVyYWN5IHRyYWluaW5nIGJlZm9yZSBjbGFzc3Jvb20gZGVwbG95bWVudC4iLAogICAgfSwKICAgIHsKICAgICAgICAiaWQiOiAiUjYtcHJvaGliaXRlZC1leGFtLXN1cnZlaWxsYW5jZSIsCiAgICAgICAgInNldmVyaXR5IjogIk5PTl9DT01QTElBTlQiLAogICAgICAgICJ0aXRsZSI6ICJObyBBSS1vbmx5IHByb2N0b3JpbmcgZGVjaXNpb25zIHdpdGhvdXQgaHVtYW4gcmV2aWV3IiwKICAgICAgICAicG9saWN5X2Jhc2lzIjogewogICAgICAgICAgICAiZG9jX2lkIjogImV1LWFpLWFjdC1lZHVjYXRpb24iLAogICAgICAgICAgICAidGl0bGUiOiAiRVUgQUkgQWN0IEFubmV4IElJSSwgcG9pbnQgMyhkKTogbW9uaXRvcmluZy9kZXRlY3RpbmcgcHJvaGliaXRlZCBiZWhhdmlvdXIgZHVyaW5nIHRlc3RzIGlzIGhpZ2gtcmlzayIsCiAgICAgICAgICAgICJzb3VyY2VfdXJsIjogImh0dHBzOi8vY2FzcmFpLm9yZy9kaWN0aW9uYXJ5L3Rlcm0vZXUtYWktYWN0LWFubmV4LWlpaS1oaWdoLXJpc2stdXNlLWNhc2VzIiwKICAgICAgICB9LAogICAgICAgICJrZXl3b3JkcyI6IFsKICAgICAgICAgICAgImF1dG8tZmxhZyBjaGVhdGluZyIsICJhdXRvbWF0aWNhbGx5IGRpc3F1YWxpZnkiLCAiYWkgcHJvY3RvciIsCiAgICAgICAgICAgICJhdXRvIGRpc3F1YWxpZnkiLCAiY2hlYXRpbmcgZGV0ZWN0aW9uIHdpdGhvdXQgcmV2aWV3IiwKICAgICAgICBdLAogICAgICAgICJndWlkYW5jZSI6ICJBSSBtb25pdG9yaW5nIG9mIHByb2hpYml0ZWQgYmVoYXZpb3VyIGR1cmluZyB0ZXN0cyBpcyBoaWdoLXJpc2sgKEFubmV4IElJSSwgMyhkKSkuICIKICAgICAgICAgICAgICAgICAgICAiRmxhZ3MgbXVzdCBiZSByZXZpZXdlZCBieSBhIGh1bWFuOyBhdXRvbWF0aWMgZGlzcXVhbGlmaWNhdGlvbiBpcyBub3QgcGVybWl0dGVkLiIsCiAgICB9LApdCgoKY2xhc3MgQ29tcGxpYW5jZUNoZWNrZXI6CiAgICBkZWYgX19pbml0X18oc2VsZiwgcnVsZXM9Tm9uZSk6CiAgICAgICAgc2VsZi5ydWxlcyA9IHJ1bGVzIG9yIFJVTEVTCgogICAgZGVmIGV2YWx1YXRlKHNlbGYsIGxlc3Nvbl9wbGFuLCBjb250ZXh0PSIiKToKICAgICAgICAiIiJSZXR1cm5zICh2ZXJkaWN0LCBmaXJlZF9ydWxlcykuIFB1cmUgZnVuY3Rpb24gb2YgdGhlIGlucHV0cy4iIiIKICAgICAgICB0ZXh0ID0gZiJ7bGVzc29uX3BsYW59XG57Y29udGV4dH0iLmxvd2VyKCkKICAgICAgICBzZW50ZW5jZXMgPSBbcy5zdHJpcCgpIGZvciBzIGluIHRleHQucmVwbGFjZSgiOyIsICIuIikuc3BsaXQoIi4iKV0KICAgICAgICBuZWdhdGlvbnMgPSAoIm5vdCAiLCAid2l0aG91dCAiLCAibmV2ZXIgIiwgImRvZXNuJ3QgIiwgImRvbid0ICIsCiAgICAgICAgICAgICAgICAgICAgICJpc24ndCAiLCAiYXJlbid0ICIsICJ3b24ndCAiLCAiY2Fubm90ICIsICJjYW4ndCAiLCAibm8gIikKICAgICAgICBmaXJlZCA9IFtdCiAgICAgICAgZm9yIHJ1bGUgaW4gc2VsZi5ydWxlczoKICAgICAgICAgICAgbWF0Y2hlZCA9IFtdCiAgICAgICAgICAgIGZvciBrdyBpbiBydWxlWyJrZXl3b3JkcyJdOgogICAgICAgICAgICAgICAgZm9yIHNlbnQgaW4gc2VudGVuY2VzOgogICAgICAgICAgICAgICAgICAgIGlkeCA9IHNlbnQuZmluZChrdykKICAgICAgICAgICAgICAgICAgICBpZiBpZHggPT0gLTE6CiAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgICAgICAgICAgICAgIyBOZWdhdGVkIG9ubHkgaWYgYSBuZWdhdGlvbiB3b3JkIGFwcGVhcnMgQkVGT1JFIHRoZSBrZXl3b3JkLgogICAgICAgICAgICAgICAgICAgICMgKGUuZy4gImRvZXMgbm90IGVudGVyIHBlcnNvbmFsIGRhdGEiIGlzIGZpbmU7CiAgICAgICAgICAgICAgICAgICAgIyAgIndpdGggbm8gaHVtYW4gcmV2aWV3IiBpcyBpdHNlbGYgdGhlIHZpb2xhdGlvbi4pCiAgICAgICAgICAgICAgICAgICAgYmVmb3JlID0gZiIge3NlbnRbOmlkeF19ICIKICAgICAgICAgICAgICAgICAgICBpZiBub3QgYW55KG5lZyBpbiBiZWZvcmUgZm9yIG5lZyBpbiBuZWdhdGlvbnMpOgogICAgICAgICAgICAgICAgICAgICAgICBtYXRjaGVkLmFwcGVuZChrdykKICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWsKICAgICAgICAgICAgaWYgbm90IG1hdGNoZWQ6CiAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAjIHJlcXVpcmVzX2Fic2VuY2U6IHNraXAgaWYgYW55ICJhbHJlYWR5IGhhbmRsZWQiIHBocmFzZSBpcyBwcmVzZW50CiAgICAgICAgICAgIGFic2VudCA9IHJ1bGUuZ2V0KCJyZXF1aXJlc19hYnNlbmNlIiwgW10pCiAgICAgICAgICAgIGlmIGFueShwaHJhc2UgaW4gdGV4dCBmb3IgcGhyYXNlIGluIGFic2VudCk6CiAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICBmaXJlZC5hcHBlbmQoewogICAgICAgICAgICAgICAgICAgICJydWxlX2lkIjogcnVsZVsiaWQiXSwKICAgICAgICAgICAgICAgICAgICAic2V2ZXJpdHkiOiBydWxlWyJzZXZlcml0eSJdLAogICAgICAgICAgICAgICAgICAgICJ0aXRsZSI6IHJ1bGVbInRpdGxlIl0sCiAgICAgICAgICAgICAgICAgICAgIm1hdGNoZWRfa2V5d29yZHMiOiBtYXRjaGVkLAogICAgICAgICAgICAgICAgICAgICJndWlkYW5jZSI6IHJ1bGVbImd1aWRhbmNlIl0sCiAgICAgICAgICAgICAgICAgICAgInBvbGljeV9iYXNpcyI6IHJ1bGVbInBvbGljeV9iYXNpcyJdLAogICAgICAgICAgICAgICAgfSkKICAgICAgICB2ZXJkaWN0ID0gIkNPTVBMSUFOVCIKICAgICAgICBmb3IgZnIgaW4gZmlyZWQ6CiAgICAgICAgICAgIGlmIGZyWyJzZXZlcml0eSJdID09ICJOT05fQ09NUExJQU5UIjoKICAgICAgICAgICAgICAgIHZlcmRpY3QgPSAiTk9OX0NPTVBMSUFOVCIKICAgICAgICAgICAgICAgIGJyZWFrCiAgICAgICAgICAgIGlmIGZyWyJzZXZlcml0eSJdID09ICJORUVEU19SRVZJRVciOgogICAgICAgICAgICAgICAgdmVyZGljdCA9ICJORUVEU19SRVZJRVciCiAgICAgICAgcmV0dXJuIHZlcmRpY3QsIGZpcmVkCg==
+"""ComplianceChecker: DETERMINISTIC rules engine. No LLM involved.
+
+Hard policy rules are encoded here as pure Python. The LLM (GapAnalyzer)
+is advisory only and can NEVER override these rules. Each rule returns a
+fired/not-fired result with the exact policy basis (doc_id + source URL),
+so every NON_COMPLIANT verdict is traceable to a codified rule, not to
+model output.
+
+Verdict precedence: NON_COMPLIANT > NEEDS_REVIEW > COMPLIANT.
+"""
+
+# Each rule: id, severity, policy_basis (doc_id + url), matcher keywords.
+# A rule FIRES when its keywords match the submission text (case-insensitive).
+RULES = [
+    {
+        "id": "R1-no-unreviewed-ai-grading",
+        "severity": "NON_COMPLIANT",
+        "title": "AI must not solely determine student grades or assessment outcomes",
+        "policy_basis": {
+            "doc_id": "eu-ai-act-education",
+            "title": "EU AI Act, Annex III (education) and UNESCO Guidance on AI in Education",
+            "source_url": "https://casrai.org/dictionary/term/eu-ai-act-annex-iii-high-risk-use-cases",
+        },
+        "keywords": [
+            "solely decide", "solely determine", "final grade decided by ai",
+            "ai decides the grade", "automatic grading without review",
+            "no human review", "without teacher review", "no teacher review",
+            "with no teacher review",
+        ],
+        "guidance": "AI systems evaluating learning outcomes are high-risk (EU AI Act Annex III, point 3(b)). "
+                    "Grades must remain under meaningful human oversight; AI may assist but not solely determine outcomes.",
+    },
+    {
+        "id": "R2-no-biometric-monitoring",
+        "severity": "NON_COMPLIANT",
+        "title": "No biometric identification or emotion recognition of students",
+        "policy_basis": {
+            "doc_id": "eu-ai-act-education",
+            "title": "EU AI Act prohibited practices (emotion inference in education/work)",
+            "source_url": "https://www.ai-expert.co.uk/blog/eu-ai-act-risk-tiers-explained",
+        },
+        "keywords": [
+            "facial recognition", "face recognition", "emotion detection",
+            "emotion recognition", "biometric", "eye tracking for attention",
+            "attention monitoring via camera",
+        ],
+        "guidance": "Emotion inference and biometric identification in education are prohibited practices under the EU AI Act. "
+                    "Classroom monitoring must not use biometrics.",
+    },
+    {
+        "id": "R3-student-data-minimization",
+        "severity": "NEEDS_REVIEW",
+        "title": "Student personal data use requires consent and minimization",
+        "policy_basis": {
+            "doc_id": "uae-data-protection-2021",
+            "title": "UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection (principles)",
+            "source_url": "https://elaws.gov.ae/EnLegislations.aspx",
+        },
+        "keywords": [
+            "student data", "personal data", "upload student",
+            "student records", "children's data", "child data",
+            "share with third party", "third-party ai",
+        ],
+        "guidance": "Any processing of student personal data must follow data-minimization, purpose-limitation and "
+                    "consent principles. Verify parental consent for under-18s and a data-processing agreement with the vendor.",
+    },
+    {
+        "id": "R4-kg-age-appropriate",
+        "severity": "NEEDS_REVIEW",
+        "title": "AI activities for KG / early years must be age-appropriate and supervised",
+        "policy_basis": {
+            "doc_id": "uae-moe-ai-curriculum-2025",
+            "title": "UAE MoE AI curriculum (2025-2026): KG uses visual/interactive activities through stories and play",
+            "source_url": "https://www.Entrepreneur.Com/en-ae/technology/uae-to-make-ai-official-subject-in-schools/491071",
+        },
+        "keywords": ["kindergarten", "kg ", "kg,", "early years", "age 4", "age 5", "5-year-old"],
+        "guidance": "Per the UAE MoE curriculum, KG learners discover AI through visual, interactive activities, stories and play, "
+                    "with designated teachers. Unsupervised or text-heavy AI use with young children needs review.",
+    },
+    {
+        "id": "R5-teacher-ai-literacy",
+        "severity": "NEEDS_REVIEW",
+        "title": "Teachers deploying AI need sufficient AI literacy",
+        "policy_basis": {
+            "doc_id": "eu-ai-act-education",
+            "title": "EU AI Act Article 4 (AI literacy duty for deployers)",
+            "source_url": "https://www.law.kuleuven.be/citip/blog/this-time-humans-learn-about-machines-ai-literacy-in-the-ai-act-part-2/",
+        },
+        "keywords": ["deploy ai", "roll out", "introduce ai", "new ai tool", "ai system in class"],
+        # Fire only when deployment is described WITHOUT any mention of training/literacy.
+        "requires_absence": ["training", "literate", "literacy", "trained", "workshop", "certified"],
+        "guidance": "Deployers of AI systems must ensure staff have sufficient AI literacy for the context of use "
+                    "(EU AI Act Art. 4). Confirm the teacher completed AI-literacy training before classroom deployment.",
+    },
+    {
+        "id": "R6-prohibited-exam-surveillance",
+        "severity": "NON_COMPLIANT",
+        "title": "No AI-only proctoring decisions without human review",
+        "policy_basis": {
+            "doc_id": "eu-ai-act-education",
+            "title": "EU AI Act Annex III, point 3(d): monitoring/detecting prohibited behaviour during tests is high-risk",
+            "source_url": "https://casrai.org/dictionary/term/eu-ai-act-annex-iii-high-risk-use-cases",
+        },
+        "keywords": [
+            "auto-flag cheating", "automatically disqualify", "ai proctor",
+            "auto disqualify", "cheating detection without review",
+        ],
+        "guidance": "AI monitoring of prohibited behaviour during tests is high-risk (Annex III, 3(d)). "
+                    "Flags must be reviewed by a human; automatic disqualification is not permitted.",
+    },
+]
+
+
+class ComplianceChecker:
+    def __init__(self, rules=None):
+        self.rules = rules or RULES
+
+    def evaluate(self, lesson_plan, context=""):
+        """Returns (verdict, fired_rules). Pure function of the inputs."""
+        text = f"{lesson_plan}\n{context}".lower()
+        sentences = [s.strip() for s in text.replace(";", ".").split(".")]
+        negations = ("not ", "without ", "never ", "doesn't ", "don't ",
+                     "isn't ", "aren't ", "won't ", "cannot ", "can't ", "no ")
+        fired = []
+        for rule in self.rules:
+            matched = []
+            for kw in rule["keywords"]:
+                for sent in sentences:
+                    idx = sent.find(kw)
+                    if idx == -1:
+                        continue
+                    # Negated only if a negation word appears BEFORE the keyword.
+                    # (e.g. "does not enter personal data" is fine;
+                    #  "with no human review" is itself the violation.)
+                    before = f" {sent[:idx]} "
+                    if not any(neg in before for neg in negations):
+                        matched.append(kw)
+                        break
+            if not matched:
+                continue
+            # requires_absence: skip if any "already handled" phrase is present
+            absent = rule.get("requires_absence", [])
+            if any(phrase in text for phrase in absent):
+                continue
+            fired.append({
+                    "rule_id": rule["id"],
+                    "severity": rule["severity"],
+                    "title": rule["title"],
+                    "matched_keywords": matched,
+                    "guidance": rule["guidance"],
+                    "policy_basis": rule["policy_basis"],
+                })
+        verdict = "COMPLIANT"
+        for fr in fired:
+            if fr["severity"] == "NON_COMPLIANT":
+                verdict = "NON_COMPLIANT"
+                break
+            if fr["severity"] == "NEEDS_REVIEW":
+                verdict = "NEEDS_REVIEW"
+        return verdict, fired

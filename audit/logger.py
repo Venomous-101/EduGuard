@@ -1,1 +1,70 @@
-IiIiQXVkaXQgbG9nZ2VyOiBldmVyeSBwaXBlbGluZSBzdGVwIGlzIGFwcGVuZGVkIHRvIGEgSlNPTkwgZmlsZSB3aXRoIHRpbWVzdGFtcHMuCgpUaGlzIGlzIHRoZSB0cmFjZWFiaWxpdHkgYmFja2JvbmUgb2YgRWR1R3VhcmQgVUFFLiBKdWRnZXMgKGFuZCBhdWRpdG9ycykgY2FuCnJlcGxheSBleGFjdGx5IHdoYXQgdGhlIGFnZW50IHJldHJpZXZlZCwgd2hpY2ggcnVsZXMgZmlyZWQsIGFuZCB3aHkgYSB2ZXJkaWN0CndhcyBwcm9kdWNlZC4gTm90aGluZyBpcyBsb2dnZWQgdG8gdGhlIGNvbnNvbGUgb25seTsgZXZlcnl0aGluZyBsYW5kcyBoZXJlLgoiIiIKaW1wb3J0IGpzb24KaW1wb3J0IG9zCmltcG9ydCB0aW1lCmltcG9ydCB1dWlkCmZyb20gZGF0ZXRpbWUgaW1wb3J0IGRhdGV0aW1lLCB0aW1lem9uZQoKCmNsYXNzIEF1ZGl0TG9nZ2VyOgogICAgZGVmIF9faW5pdF9fKHNlbGYsIGxvZ19kaXI9Tm9uZSwgcnVuX2lkPU5vbmUpOgogICAgICAgIHNlbGYubG9nX2RpciA9IGxvZ19kaXIgb3Igb3MucGF0aC5qb2luKAogICAgICAgICAgICBvcy5wYXRoLmRpcm5hbWUob3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpKSwKICAgICAgICAgICAgImF1ZGl0IiwKICAgICAgICApCiAgICAgICAgb3MubWFrZWRpcnMoc2VsZi5sb2dfZGlyLCBleGlzdF9vaz1UcnVlKQogICAgICAgIHNlbGYucnVuX2lkID0gcnVuX2lkIG9yIGYicnVuLXtkYXRldGltZS5ub3codGltZXpvbmUudXRjKS5zdHJmdGltZSgnJVklbSVkLSVIJU0lUycpfS17dXVpZC51dWlkNCgpLmhleFs6Nl19IgogICAgICAgIHNlbGYucGF0aCA9IG9zLnBhdGguam9pbihzZWxmLmxvZ19kaXIsIGYie3NlbGYucnVuX2lkfS5qc29ubCIpCiAgICAgICAgc2VsZi5fc2VxID0gMAoKICAgIGRlZiBsb2coc2VsZiwgc3RhZ2UsIGV2ZW50LCBkYXRhPU5vbmUpOgogICAgICAgICIiIkFwcGVuZCBvbmUgYXVkaXQgZXZlbnQuIHN0YWdlOiBlLmcuICdyZXRyaWV2YWwnLCAncnVsZXMnLCAndmVyZGljdCcuIiIiCiAgICAgICAgc2VsZi5fc2VxICs9IDEKICAgICAgICByZWNvcmQgPSB7CiAgICAgICAgICAgICJzZXEiOiBzZWxmLl9zZXEsCiAgICAgICAgICAgICJydW5faWQiOiBzZWxmLnJ1bl9pZCwKICAgICAgICAgICAgInRzX3V0YyI6IGRhdGV0aW1lLm5vdyh0aW1lem9uZS51dGMpLmlzb2Zvcm1hdCgpLAogICAgICAgICAgICAiZXBvY2giOiB0aW1lLnRpbWUoKSwKICAgICAgICAgICAgInN0YWdlIjogc3RhZ2UsCiAgICAgICAgICAgICJldmVudCI6IGV2ZW50LAogICAgICAgICAgICAiZGF0YSI6IGRhdGEgb3Ige30sCiAgICAgICAgfQogICAgICAgIHdpdGggb3BlbihzZWxmLnBhdGgsICJhIiwgZW5jb2Rpbmc9InV0Zi04IikgYXMgZjoKICAgICAgICAgICAgZi53cml0ZShqc29uLmR1bXBzKHJlY29yZCwgZW5zdXJlX2FzY2lpPUZhbHNlKSArICJcbiIpCiAgICAgICAgcmV0dXJuIHJlY29yZAoKICAgIGRlZiBsb2dfcmV0cmlldmFsKHNlbGYsIHF1ZXJ5LCBoaXRzKToKICAgICAgICBzZWxmLmxvZygicmV0cmlldmFsIiwgImtiX3F1ZXJ5IiwgewogICAgICAgICAgICAicXVlcnkiOiBxdWVyeSwKICAgICAgICAgICAgIm51bV9oaXRzIjogbGVuKGhpdHMpLAogICAgICAgICAgICAiaGl0cyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAiZG9jX2lkIjogaC5nZXQoImRvY19pZCIpLAogICAgICAgICAgICAgICAgICAgICJ0aXRsZSI6IGguZ2V0KCJ0aXRsZSIpLAogICAgICAgICAgICAgICAgICAgICJzb3VyY2VfdXJsIjogaC5nZXQoInNvdXJjZV91cmwiKSwKICAgICAgICAgICAgICAgICAgICAiY2h1bmtfaWQiOiBoLmdldCgiY2h1bmtfaWQiKSwKICAgICAgICAgICAgICAgICAgICAiZGlzdGFuY2UiOiBoLmdldCgiZGlzdGFuY2UiKSwKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGZvciBoIGluIGhpdHMKICAgICAgICAgICAgXSwKICAgICAgICB9KQoKICAgIGRlZiBsb2dfcnVsZV9ldmFsdWF0aW9uKHNlbGYsIHJ1bGVfaWQsIGZpcmVkLCBkZXRhaWwpOgogICAgICAgIHNlbGYubG9nKCJydWxlcyIsICJydWxlX2V2YWx1YXRlZCIsIHsKICAgICAgICAgICAgInJ1bGVfaWQiOiBydWxlX2lkLAogICAgICAgICAgICAiZmlyZWQiOiBmaXJlZCwKICAgICAgICAgICAgImRldGFpbCI6IGRldGFpbCwKICAgICAgICB9KQoKICAgIGRlZiBsb2dfdmVyZGljdChzZWxmLCB2ZXJkaWN0LCBjaXRhdGlvbnMsIHJlYXNvbmluZ19zdW1tYXJ5KToKICAgICAgICBzZWxmLmxvZygidmVyZGljdCIsICJ2ZXJkaWN0X3Byb2R1Y2VkIiwgewogICAgICAgICAgICAidmVyZGljdCI6IHZlcmRpY3QsCiAgICAgICAgICAgICJudW1fY2l0YXRpb25zIjogbGVuKGNpdGF0aW9ucyksCiAgICAgICAgICAgICJjaXRhdGlvbnMiOiBjaXRhdGlvbnMsCiAgICAgICAgICAgICJyZWFzb25pbmdfc3VtbWFyeSI6IHJlYXNvbmluZ19zdW1tYXJ5LAogICAgICAgIH0pCg==
+"""Audit logger: every pipeline step is appended to a JSONL file with timestamps.
+
+This is the traceability backbone of EduGuard UAE. Judges (and auditors) can
+replay exactly what the agent retrieved, which rules fired, and why a verdict
+was produced. Nothing is logged to the console only; everything lands here.
+"""
+import json
+import os
+import time
+import uuid
+from datetime import datetime, timezone
+
+
+class AuditLogger:
+    def __init__(self, log_dir=None, run_id=None):
+        self.log_dir = log_dir or os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "audit",
+        )
+        os.makedirs(self.log_dir, exist_ok=True)
+        self.run_id = run_id or f"run-{datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')}-{uuid.uuid4().hex[:6]}"
+        self.path = os.path.join(self.log_dir, f"{self.run_id}.jsonl")
+        self._seq = 0
+
+    def log(self, stage, event, data=None):
+        """Append one audit event. stage: e.g. 'retrieval', 'rules', 'verdict'."""
+        self._seq += 1
+        record = {
+            "seq": self._seq,
+            "run_id": self.run_id,
+            "ts_utc": datetime.now(timezone.utc).isoformat(),
+            "epoch": time.time(),
+            "stage": stage,
+            "event": event,
+            "data": data or {},
+        }
+        with open(self.path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        return record
+
+    def log_retrieval(self, query, hits):
+        self.log("retrieval", "kb_query", {
+            "query": query,
+            "num_hits": len(hits),
+            "hits": [
+                {
+                    "doc_id": h.get("doc_id"),
+                    "title": h.get("title"),
+                    "source_url": h.get("source_url"),
+                    "chunk_id": h.get("chunk_id"),
+                    "distance": h.get("distance"),
+                }
+                for h in hits
+            ],
+        })
+
+    def log_rule_evaluation(self, rule_id, fired, detail):
+        self.log("rules", "rule_evaluated", {
+            "rule_id": rule_id,
+            "fired": fired,
+            "detail": detail,
+        })
+
+    def log_verdict(self, verdict, citations, reasoning_summary):
+        self.log("verdict", "verdict_produced", {
+            "verdict": verdict,
+            "num_citations": len(citations),
+            "citations": citations,
+            "reasoning_summary": reasoning_summary,
+        })

@@ -1,1 +1,96 @@
-IiIiS0IgaW5nZXN0aW9uOiBjaHVuayBwb2xpY3kgZG9jdW1lbnRzIGFuZCBsb2FkIHRoZW0gaW50byBDaHJvbWFEQi4KClNvdXJjZXMgbGl2ZSBpbiBrYi9zb3VyY2VzLyBhcyAudHh0IG9yIC5tZCBmaWxlcy4gRWFjaCBmaWxlJ3MgZmlyc3QgbGluZXMKY2FycnkgYSBzaW1wbGUgZnJvbnQtbWF0dGVyIGhlYWRlcjoKCiAgICBET0NfSUQ6IHVhZS1tb2UtYWktY3VycmljdWx1bS0yMDI1CiAgICBUSVRMRTogVUFFIE1pbmlzdHJ5IG9mIEVkdWNhdGlvbiAtIEFJIGFzIGNvbXB1bHNvcnkgS0ctMTIgc3ViamVjdCAoMjAyNS0yMDI2KQogICAgU09VUkNFX1VSTDogaHR0cHM6Ly8uLi4KCkV2ZXJ5dGhpbmcgYWZ0ZXIgdGhlIGJsYW5rIGxpbmUgZm9sbG93aW5nIHRoZSBoZWFkZXIgaXMgY2h1bmtlZCAoc2xpZGluZwp3aW5kb3csIH40MDAgd29yZHMgd2l0aCA2MC13b3JkIG92ZXJsYXApIGFuZCBlbWJlZGRlZCBsb2NhbGx5IHdpdGgKc2VudGVuY2UtdHJhbnNmb3JtZXJzIChubyBBUEkga2V5IG5lZWRlZCkuCgpVc2FnZToKICAgIHB5dGhvbiAtbSBrYi5pbmdlc3QgICAgICAgICAgICAjIGluZ2VzdCBhbGwgZmlsZXMgaW4ga2Ivc291cmNlcy8KICAgIHB5dGhvbiAtbSBrYi5pbmdlc3QgLS1yZXNldCAgICAjIHdpcGUgdGhlIGNvbGxlY3Rpb24gZmlyc3QKIiIiCmltcG9ydCBhcmdwYXJzZQppbXBvcnQgZ2xvYgppbXBvcnQgb3MKaW1wb3J0IHJlCmltcG9ydCBzeXMKCnN5cy5wYXRoLmluc2VydCgwLCBvcy5wYXRoLmRpcm5hbWUob3MucGF0aC5kaXJuYW1lKG9zLnBhdGguYWJzcGF0aChfX2ZpbGVfXykpKSkKCmZyb20ga2Iuc3RvcmUgaW1wb3J0IFBvbGljeUtCICAjIG5vcWE6IEU0MDIKClNPVVJDRVNfRElSID0gb3MucGF0aC5qb2luKG9zLnBhdGguZGlybmFtZShvcy5wYXRoLmFic3BhdGgoX19maWxlX18pKSwgInNvdXJjZXMiKQpDSFVOS19XT1JEUyA9IDQwMApPVkVSTEFQX1dPUkRTID0gNjAKCgpkZWYgcGFyc2Vfc291cmNlX2ZpbGUocGF0aCk6CiAgICB3aXRoIG9wZW4ocGF0aCwgZW5jb2Rpbmc9InV0Zi04IikgYXMgZjoKICAgICAgICByYXcgPSBmLnJlYWQoKQogICAgaGVhZGVyLCBfLCBib2R5ID0gcmF3LnBhcnRpdGlvbigiXG5cbiIpCiAgICBtZXRhID0ge30KICAgIGZvciBsaW5lIGluIGhlYWRlci5zcGxpdGxpbmVzKCk6CiAgICAgICAgaWYgIjoiIGluIGxpbmU6CiAgICAgICAgICAgIGssIHYgPSBsaW5lLnNwbGl0KCI6IiwgMSkKICAgICAgICAgICAgbWV0YVtrLnN0cmlwKCkudXBwZXIoKV0gPSB2LnN0cmlwKCkKICAgIGRvY19pZCA9IG1ldGEuZ2V0KCJET0NfSUQiKSBvciBvcy5wYXRoLnNwbGl0ZXh0KG9zLnBhdGguYmFzZW5hbWUocGF0aCkpWzBdCiAgICB0aXRsZSA9IG1ldGEuZ2V0KCJUSVRMRSIpIG9yIGRvY19pZAogICAgc291cmNlX3VybCA9IG1ldGEuZ2V0KCJTT1VSQ0VfVVJMIiwgIiIpCiAgICBpZiBub3Qgc291cmNlX3VybDoKICAgICAgICByYWlzZSBWYWx1ZUVycm9yKGYie3BhdGh9OiBTT1VSQ0VfVVJMIGlzIHJlcXVpcmVkIGluIHRoZSBoZWFkZXIiKQogICAgcmV0dXJuIGRvY19pZCwgdGl0bGUsIHNvdXJjZV91cmwsIGJvZHkuc3RyaXAoKQoKCmRlZiBjaHVua190ZXh0KHRleHQsIGNodW5rX3dvcmRzPUNIVU5LX1dPUkRTLCBvdmVybGFwPU9WRVJMQVBfV09SRFMpOgogICAgd29yZHMgPSByZS5maW5kYWxsKHIiXFMrIiwgdGV4dCkKICAgIGNodW5rcyA9IFtdCiAgICBzdGFydCA9IDAKICAgIHdoaWxlIHN0YXJ0IDwgbGVuKHdvcmRzKToKICAgICAgICBlbmQgPSBtaW4oc3RhcnQgKyBjaHVua193b3JkcywgbGVuKHdvcmRzKSkKICAgICAgICBjaHVua3MuYXBwZW5kKCIgIi5qb2luKHdvcmRzW3N0YXJ0OmVuZF0pKQogICAgICAgIGlmIGVuZCA9PSBsZW4od29yZHMpOgogICAgICAgICAgICBicmVhawogICAgICAgIHN0YXJ0ID0gZW5kIC0gb3ZlcmxhcAogICAgcmV0dXJuIGNodW5rcwoKCmRlZiBpbmdlc3QocmVzZXQ9RmFsc2UpOgogICAga2IgPSBQb2xpY3lLQigpCiAgICBpZiByZXNldDoKICAgICAgICBrYi5jbGllbnQuZGVsZXRlX2NvbGxlY3Rpb24oImVkdWd1YXJkX3BvbGljeV9rYiIpCiAgICAgICAga2IgPSBQb2xpY3lLQigpCiAgICBmaWxlcyA9IHNvcnRlZChnbG9iLmdsb2Iob3MucGF0aC5qb2luKFNPVVJDRVNfRElSLCAiKi50eHQiKSkgKwogICAgICAgICAgICAgICAgICAgZ2xvYi5nbG9iKG9zLnBhdGguam9pbihTT1VSQ0VTX0RJUiwgIioubWQiKSkpCiAgICB0b3RhbCA9IDAKICAgIGZvciBwYXRoIGluIGZpbGVzOgogICAgICAgIGlmIG9zLnBhdGguYmFzZW5hbWUocGF0aCkuc3RhcnRzd2l0aCgiXyIpOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIGRvY19pZCwgdGl0bGUsIHNvdXJjZV91cmwsIGJvZHkgPSBwYXJzZV9zb3VyY2VfZmlsZShwYXRoKQogICAgICAgIGNodW5rcyA9IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiBjLAogICAgICAgICAgICAgICAgImRvY19pZCI6IGRvY19pZCwKICAgICAgICAgICAgICAgICJ0aXRsZSI6IHRpdGxlLAogICAgICAgICAgICAgICAgInNvdXJjZV91cmwiOiBzb3VyY2VfdXJsLAogICAgICAgICAgICAgICAgImNodW5rX2lkIjogZiJ7ZG9jX2lkfTo6Y2h1bmste2k6MDNkfSIsCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZm9yIGksIGMgaW4gZW51bWVyYXRlKGNodW5rX3RleHQoYm9keSkpCiAgICAgICAgXQogICAgICAgIGtiLmFkZF9jaHVua3MoY2h1bmtzKQogICAgICAgIHRvdGFsICs9IGxlbihjaHVua3MpCiAgICAgICAgcHJpbnQoZiJpbmdlc3RlZCB7bGVuKGNodW5rcyk6M2R9IGNodW5rcyAge2RvY19pZH0iKQogICAgcHJpbnQoZiJUT1RBTDoge3RvdGFsfSBjaHVua3MsIHtrYi5jb3VudCgpfSBpbiBjb2xsZWN0aW9uIikKICAgIHJldHVybiB0b3RhbAoKCmlmIF9fbmFtZV9fID09ICJfX21haW5fXyI6CiAgICBhcCA9IGFyZ3BhcnNlLkFyZ3VtZW50UGFyc2VyKCkKICAgIGFwLmFkZF9hcmd1bWVudCgiLS1yZXNldCIsIGFjdGlvbj0ic3RvcmVfdHJ1ZSIpCiAgICBhcmdzID0gYXAucGFyc2VfYXJncygpCiAgICBpbmdlc3QocmVzZXQ9YXJncy5yZXNldCkK
+"""KB ingestion: chunk policy documents and load them into ChromaDB.
+
+Sources live in kb/sources/ as .txt or .md files. Each file's first lines
+carry a simple front-matter header:
+
+    DOC_ID: uae-moe-ai-curriculum-2025
+    TITLE: UAE Ministry of Education - AI as compulsory KG-12 subject (2025-2026)
+    SOURCE_URL: https://...
+
+Everything after the blank line following the header is chunked (sliding
+window, ~400 words with 60-word overlap) and embedded locally with
+sentence-transformers (no API key needed).
+
+Usage:
+    python -m kb.ingest            # ingest all files in kb/sources/
+    python -m kb.ingest --reset    # wipe the collection first
+"""
+import argparse
+import glob
+import os
+import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from kb.store import PolicyKB  # noqa: E402
+
+SOURCES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sources")
+CHUNK_WORDS = 400
+OVERLAP_WORDS = 60
+
+
+def parse_source_file(path):
+    with open(path, encoding="utf-8") as f:
+        raw = f.read()
+    header, _, body = raw.partition("\n\n")
+    meta = {}
+    for line in header.splitlines():
+        if ":" in line:
+            k, v = line.split(":", 1)
+            meta[k.strip().upper()] = v.strip()
+    doc_id = meta.get("DOC_ID") or os.path.splitext(os.path.basename(path))[0]
+    title = meta.get("TITLE") or doc_id
+    source_url = meta.get("SOURCE_URL", "")
+    if not source_url:
+        raise ValueError(f"{path}: SOURCE_URL is required in the header")
+    return doc_id, title, source_url, body.strip()
+
+
+def chunk_text(text, chunk_words=CHUNK_WORDS, overlap=OVERLAP_WORDS):
+    words = re.findall(r"\S+", text)
+    chunks = []
+    start = 0
+    while start < len(words):
+        end = min(start + chunk_words, len(words))
+        chunks.append(" ".join(words[start:end]))
+        if end == len(words):
+            break
+        start = end - overlap
+    return chunks
+
+
+def ingest(reset=False):
+    kb = PolicyKB()
+    if reset:
+        kb.client.delete_collection("eduguard_policy_kb")
+        kb = PolicyKB()
+    files = sorted(glob.glob(os.path.join(SOURCES_DIR, "*.txt")) +
+                   glob.glob(os.path.join(SOURCES_DIR, "*.md")))
+    total = 0
+    for path in files:
+        if os.path.basename(path).startswith("_"):
+            continue
+        doc_id, title, source_url, body = parse_source_file(path)
+        chunks = [
+            {
+                "text": c,
+                "doc_id": doc_id,
+                "title": title,
+                "source_url": source_url,
+                "chunk_id": f"{doc_id}::chunk-{i:03d}",
+            }
+            for i, c in enumerate(chunk_text(body))
+        ]
+        kb.add_chunks(chunks)
+        total += len(chunks)
+        print(f"ingested {len(chunks):3d} chunks  {doc_id}")
+    print(f"TOTAL: {total} chunks, {kb.count()} in collection")
+    return total
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--reset", action="store_true")
+    args = ap.parse_args()
+    ingest(reset=args.reset)
