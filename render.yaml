@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: eduguard-uae
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 7860

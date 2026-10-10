@@ -82,7 +82,7 @@ class GapAnalyzer:
             "findings": [
                 {
                     "type": "gap",
-                    "summary": "LLM unavailable; manual review of retrieved policy required.",
+                    "summary": "Policy excerpt relevant to this use case. Review the quoted text against your plan.",
                     "verbatim_quote": h["text"][:400],
                     "source_title": h["title"],
                     "source_url": h["source_url"],
@@ -90,4 +90,5 @@ class GapAnalyzer:
                 for h in hits[:4]
             ],
             "llm_available": False,
+            "note": "Extractive mode: showing verbatim policy excerpts. Deterministic guardrails above are authoritative.",
         }
