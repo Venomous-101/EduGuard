@@ -257,7 +257,131 @@ RULES = [
                     "access to education (EU AI Act Annex III high-risk). AI may assist, but a human must make or "
                     "meaningfully review the final decision.",
     },
+    {
+        "id": "R11-no-student-data-sale",
+        "severity": "NON_COMPLIANT",
+        "title": "Student personal data must not be sold, traded, or commercially monetized",
+        "policy_basis": {
+            "doc_id": "uae-data-protection-2021",
+            "title": "UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection (purpose limitation); UAE Federal Decree-Law No. 26 of 2025 (Child Digital Safety)",
+            "source_url": "https://elaws.gov.ae/EnLegislations.aspx",
+        },
+        "keywords": [
+            "sell student data",
+            "selling student data",
+            "sold student data",
+            "sell personal data",
+            "selling personal data",
+            "sold personal data",
+            "selling personal data of students",
+            "sell personal data of students",
+            "sold personal data of students",
+            "sell students' personal data",
+            "selling students' personal data",
+            "sold students' personal data",
+            "sell student's personal data",
+            "selling student's personal data",
+            "sold student's personal data",
+            "sell students personal data",
+            "selling students personal data",
+            "sold students personal data",
+            "trade personal data",
+            "trading personal data",
+            "traded personal data",
+            "trade student data",
+            "trading student data",
+            "traded student data",
+            "trade student records",
+            "trading student records",
+            "traded student records",
+            "trade students' personal data",
+            "trading students' personal data",
+            "sell student records",
+            "selling student records",
+            "sold student records",
+            "sell student information",
+            "selling student information",
+            "sold student information",
+            "sell to third parties",
+            "selling to third parties",
+            "sold to third parties",
+            "sell to data brokers",
+            "selling to data brokers",
+            "sold to data brokers",
+            "sell to brokers",
+            "selling to brokers",
+            "sold to brokers",
+            "sell to advertisers",
+            "selling to advertisers",
+            "sold to advertisers",
+            "selling them to advertisers",
+            "sell them to advertisers",
+            "sold them to advertisers",
+            "selling them to third parties",
+            "sell them to third parties",
+            "sold them to third parties",
+            "selling them to brokers",
+            "sell them to brokers",
+            "sold them to brokers",
+            "monetize student data",
+            "monetizing student data",
+            "monetized student data",
+            "monetise student data",
+            "monetising student data",
+            "monetised student data",
+            "monetize student records",
+            "monetizing student records",
+            "monetized student records",
+            "monetize pupil records",
+            "monetizing pupil records",
+            "monetized pupil records",
+            "monetize pupil data",
+            "monetizing pupil data",
+            "monetized pupil data",
+            "monetize personal data",
+            "monetizing personal data",
+            "monetized personal data",
+            "sell pupil records",
+            "selling pupil records",
+            "sold pupil records",
+            "sell pupil data",
+            "selling pupil data",
+            "sold pupil data",
+            "commercially share student data",
+            "commercially sharing student data",
+            "commercially shared student data",
+            "commercially share personal data",
+            "commercially sharing personal data",
+            "commercially shared personal data",
+            "commercially share student records",
+            "commercially sharing student records",
+            "commercially share students' personal data",
+            "commercially sharing students' personal data",
+            "share student data commercially",
+            "sharing student data commercially",
+            "share personal data commercially",
+            "sharing personal data commercially",
+        ],
+        "requires_absence": [
+            "do not sell student data",
+            "never sell student data",
+            "will not sell",
+            "no sale of student data",
+            "prohibit the sale of student data",
+        ],
+        "guidance": "Selling, trading, or commercially monetizing student personal data violates purpose-limitation "
+                    "and lawful-processing principles under UAE Federal Decree-Law No. 45 of 2021 and UAE Child "
+                    "Digital Safety Law. Student records must never be sold to third parties, data brokers, or advertisers.",
+    },
 ]
+
+_CLAUSE_BOUNDARY_RE = re.compile(
+    r",\s*(?:and|but|however|yet|while|whereas|so|then)\b"
+    r"|\band\s+(?:the|a|an|we|they|it|he|she|our|their|this|that|students|teachers|school|schools|vendor|vendors|app)\b"
+    r"|\b(?:because|although|though|whereas|while|but|however|yet)\b"
+    r"|\bwithout\s+\w+\s+(?=(?:can|will|may|must|shall|should|is|are|was|were|use|uses|have|has)\b)"
+    r"|:"
+)
 
 
 class ComplianceChecker:
@@ -283,8 +407,9 @@ class ComplianceChecker:
                     m = re.search(kw_pattern, sent)
                     if not m:
                         continue
-                    # Negated only if a negation word appears BEFORE the keyword.
-                    before = f" {sent[:m.start()]} "
+                    # Negated only if a negation word appears BEFORE the keyword in the active clause.
+                    active_clause = _CLAUSE_BOUNDARY_RE.split(sent[:m.start()])[-1]
+                    before = f" {active_clause} "
                     if not any(neg in before for neg in negations):
                         matched.append(kw)
                         matched_sentences.append(sent)
