@@ -382,13 +382,18 @@ def test_openrouter_401_auth_failure_fallback():
     from unittest.mock import MagicMock, patch
     import requests
     from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
 
     mock_resp = MagicMock()
     mock_resp.status_code = 401
     mock_resp.raise_for_status.side_effect = requests.exceptions.HTTPError("401 Client Error: Unauthorized")
 
-    with patch("agents.llm.requests.post", return_value=mock_resp):
-        analyzer = GapAnalyzer()
+    with patch("agents.llm.requests.post", return_value=mock_resp), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="invalid-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
         result = analyzer.analyze(
             "Upload student records to an external app.",
             "Grade 6",
@@ -405,9 +410,14 @@ def test_openrouter_request_timeout_fallback():
     from unittest.mock import patch
     import requests
     from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
 
-    with patch("agents.llm.requests.post", side_effect=requests.exceptions.Timeout("Connection timed out")):
-        analyzer = GapAnalyzer()
+    with patch("agents.llm.requests.post", side_effect=requests.exceptions.Timeout("Connection timed out")), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="timeout-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
         result = analyzer.analyze(
             "Upload student records to an external app.",
             "Grade 6",
@@ -420,9 +430,11 @@ def test_openrouter_request_timeout_fallback():
 
 
 def test_openrouter_malformed_json_fallback():
-    """Mocked OpenRouter malformed JSON (both HTTP body and LLM content) falls back to extractive mode."""
+    """Mocked OpenRouter malformed JSON (HTTP body, LLM content, and non-dict findings) falls back to extractive mode."""
     from unittest.mock import MagicMock, patch
+    import requests
     from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
 
     # Case 1: HTTP response .json() raises ValueError (malformed HTTP JSON payload)
     mock_bad_http = MagicMock()
@@ -430,8 +442,12 @@ def test_openrouter_malformed_json_fallback():
     mock_bad_http.raise_for_status.return_value = None
     mock_bad_http.json.side_effect = ValueError("No JSON object could be decoded")
 
-    with patch("agents.llm.requests.post", return_value=mock_bad_http):
-        analyzer = GapAnalyzer()
+    with patch("agents.llm.requests.post", return_value=mock_bad_http), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="malformed-http-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
         res1 = analyzer.analyze(
             "Upload student records to an external app.",
             "Grade 6",
@@ -450,7 +466,9 @@ def test_openrouter_malformed_json_fallback():
         "choices": [{"message": {"content": "{malformed_json: [unclosed"}}]
     }
 
-    with patch("agents.llm.requests.post", return_value=mock_bad_content):
+    with patch("agents.llm.requests.post", return_value=mock_bad_content), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
         analyzer = GapAnalyzer()
         res2 = analyzer.analyze(
             "Upload student records to an external app.",
@@ -462,19 +480,46 @@ def test_openrouter_malformed_json_fallback():
         assert len(res2["findings"]) == 1
         assert "Extractive mode" in res2.get("note", "")
 
+    # Case 3: LLM returns valid JSON object but findings contains non-dict items
+    mock_bad_schema = MagicMock()
+    mock_bad_schema.status_code = 200
+    mock_bad_schema.raise_for_status.return_value = None
+    mock_bad_schema.json.return_value = {
+        "choices": [{"message": {"content": '{"findings": ["invalid-item"]}'}}]
+    }
+
+    with patch("agents.llm.requests.post", return_value=mock_bad_schema), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        analyzer = GapAnalyzer()
+        res3 = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+            openrouter_key="malformed-schema-token",
+        )
+        assert res3["llm_available"] is False
+        assert len(res3["findings"]) == 1
+        assert "Extractive mode" in res3.get("note", "")
+
 
 def test_openrouter_429_rate_limit_fallback():
     """Mocked OpenRouter 429 rate-limit error degrades gracefully to extractive mode."""
     from unittest.mock import MagicMock, patch
     import requests
     from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
 
     mock_resp = MagicMock()
     mock_resp.status_code = 429
     mock_resp.raise_for_status.side_effect = requests.exceptions.HTTPError("429 Client Error: Too Many Requests")
 
-    with patch("agents.llm.requests.post", return_value=mock_resp):
-        analyzer = GapAnalyzer()
+    with patch("agents.llm.requests.post", return_value=mock_resp), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="rate-limited-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
         result = analyzer.analyze(
             "Upload student records to an external app.",
             "Grade 6",
@@ -497,9 +542,56 @@ def test_r11_sentence_scoped_absence():
     assert any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired)
 
 
+def test_r11_passive_commercial_and_multiclause_negation():
+    """R11 fires on passive voice, commercial sharing, possessives, and multi-clause sentences with early negations,
+    while not false-firing on policy statements prohibiting sale of student data."""
+    checker = ComplianceChecker()
+    must_fire_cases = [
+        "Student records are sold to third parties for marketing.",
+        "Student personal data was sold to advertisers.",
+        "The vendor is commercially sharing personal data of students.",
+        "School will sell students' personal data to brokers.",
+        "We do not use facial recognition, and we sell student data to brokers.",
+        "There is no cost to the school because the vendor will sell student data to advertisers.",
+        "Students without laptops use school tablets, and the app is selling student data.",
+    ]
+    for text in must_fire_cases:
+        verdict, fired = checker.evaluate(text, "Grade 8")
+        assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT for {text!r}, got {verdict}"
+        assert any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired), f"R11 did not fire for {text!r}"
+
+    verdict_ok, fired_ok = checker.evaluate(
+        "Any sale of student data is strictly prohibited by school policy.",
+        "Grade 8",
+    )
+    assert not any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired_ok), (
+        f"R11 false positive on prohibition statement: {fired_ok}"
+    )
+
+
+def test_deduplicate_full_pairs_keeps_relevant_secondary_before_irrelevant():
+    """Relevant secondary chunks (distance < 1.2) must rank ahead of irrelevant primary chunks (distance >= 1.2)."""
+    from kb.store import deduplicate_full_pairs
+
+    hits = [
+        {"doc_id": "eu-ai-act-education-full", "chunk_id": "eu-ai-act-education-full::0", "distance": 0.30, "text": "a"},
+        {"doc_id": "eu-ai-act-education-full", "chunk_id": "eu-ai-act-education-full::1", "distance": 0.45, "text": "b"},
+        {"doc_id": "uae-data-protection-2021", "chunk_id": "uae-data-protection-2021::0", "distance": 0.50, "text": "c"},
+        {"doc_id": "singapore-ai-education-framework", "chunk_id": "singapore::0", "distance": 1.55, "text": "irrel"},
+    ]
+    deduped = deduplicate_full_pairs(hits)
+    top3_ids = [h["chunk_id"] for h in deduped[:3]]
+    assert top3_ids == [
+        "eu-ai-act-education-full::0",
+        "uae-data-protection-2021::0",
+        "eu-ai-act-education-full::1",
+    ], f"unexpected ordering: {top3_ids}"
+
+
 def test_openrouter_never_overrides_deterministic_rule():
     """Even when OpenRouter returns 'aligned' findings or fails with 429, deterministic NON_COMPLIANT verdict wins."""
     from unittest.mock import MagicMock, patch
+    import requests
     from agents.pipeline import EduGuardPipeline
 
     mock_resp = MagicMock()
@@ -525,7 +617,9 @@ def test_openrouter_never_overrides_deterministic_rule():
         ]
     }
 
-    with patch("agents.llm.requests.post", return_value=mock_resp):
+    with patch("agents.llm.requests.post", return_value=mock_resp), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
         pipe = EduGuardPipeline(log_dir="/tmp/eduguard-test-audit")
         report = pipe.evaluate(
             "Teacher is selling personal data of students",
@@ -536,5 +630,6 @@ def test_openrouter_never_overrides_deterministic_rule():
         assert any(r["rule_id"] == "R11-no-student-data-sale" for r in report["deterministic_rules_fired"])
         # Hallucinated quote must be rejected and marked INSUFFICIENT_EVIDENCE
         assert any("INSUFFICIENT_EVIDENCE" in f["summary"] for f in report["advisory_gap_findings"])
+
 
 

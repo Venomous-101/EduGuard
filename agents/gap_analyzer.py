@@ -23,8 +23,9 @@ class GapAnalyzer:
     def analyze(self, lesson_plan, context, retrieval, openrouter_key=None):
         # Per-request OpenRouter key (user's own key from the UI)
         llm = self.llm
-        if openrouter_key:
-            llm = LLMBackend(api_key=openrouter_key, backend_override="openrouter")
+        clean_key = (openrouter_key or "").strip() if isinstance(openrouter_key, str) else ""
+        if clean_key:
+            llm = LLMBackend(api_key=clean_key, backend_override="openrouter")
         hits = retrieval["hits"]
         if not hits:
             return {
@@ -52,7 +53,11 @@ class GapAnalyzer:
             parsed = json.loads(m.group(0))
         except Exception:
             return self._extractive_fallback(lesson_plan, hits)
-        if not isinstance(parsed, dict) or not isinstance(parsed.get("findings"), list):
+        if (
+            not isinstance(parsed, dict)
+            or not isinstance(parsed.get("findings"), list)
+            or any(not isinstance(f, dict) for f in parsed.get("findings", []))
+        ):
             return self._extractive_fallback(lesson_plan, hits)
         parsed["llm_available"] = True
         # Validate: every finding must carry a verbatim quote + source URL,
@@ -61,13 +66,16 @@ class GapAnalyzer:
         chunk_texts = [h["text"] for h in hits]
         valid = []
         for f in parsed.get("findings", []):
-            quote = (f.get("verbatim_quote") or "").strip()
+            raw_quote = f.get("verbatim_quote")
+            quote = raw_quote.strip() if isinstance(raw_quote, str) else ""
+            raw_summary = f.get("summary")
+            summary_str = raw_summary if isinstance(raw_summary, str) else ""
             if quote and f.get("source_url") and self._quote_in_chunks(quote, chunk_texts):
                 valid.append(f)
             else:
                 f["type"] = "gap"
                 f["verbatim_quote"] = ""
-                f["summary"] = (f.get("summary") or "") + " [INSUFFICIENT_EVIDENCE: quote not found in retrieved policy]"
+                f["summary"] = summary_str + " [INSUFFICIENT_EVIDENCE: quote not found in retrieved policy]"
                 valid.append(f)
         parsed["findings"] = valid
         return parsed

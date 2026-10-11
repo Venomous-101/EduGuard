@@ -122,7 +122,8 @@ def deduplicate_full_pairs(scored_hits, full_doc_ids=None):
     source. The pair is collapsed to a single canonical entry (preferring the
     `-full` document metadata/text when available, with the best score achieved
     by either half of the pair). Secondary chunks of an already-included
-    document are placed after primary chunks of distinct canonical documents.
+    document are placed after primary chunks of distinct canonical documents,
+    while keeping all relevant chunks (distance < 1.2) ahead of irrelevant ones.
     """
     if full_doc_ids is None:
         full_doc_ids = {
@@ -135,25 +136,40 @@ def deduplicate_full_pairs(scored_hits, full_doc_ids=None):
         if did in full_doc_ids and did not in best_full_chunk:
             best_full_chunk[did] = h
 
-    primary = []
-    secondary = []
+    rel_primary = []
+    rel_secondary = []
+    irrel_primary = []
+    irrel_secondary = []
     seen_canonical = {}
     for h in scored_hits:
         did = h.get("doc_id") or ""
         can_id = canonical_doc_id(did)
         full_twin = f"{can_id}-full"
         if can_id not in seen_canonical:
-            if full_twin in best_full_chunk and did != full_twin:
+            if (
+                full_twin in best_full_chunk
+                and did != full_twin
+                and (best_full_chunk[full_twin].get("distance", 2.0) < 1.2 or h.get("distance", 2.0) >= 1.2)
+            ):
                 rep = dict(best_full_chunk[full_twin])
                 rep["distance"] = min(h["distance"], rep["distance"])
                 seen_canonical[can_id] = full_twin
-                primary.append(rep)
+                target_hit = rep
             else:
                 seen_canonical[can_id] = did
-                primary.append(h)
-        elif seen_canonical[can_id] == did and all(p.get("chunk_id") != h.get("chunk_id") for p in primary):
-            secondary.append(h)
-    return primary + secondary
+                target_hit = h
+            if target_hit.get("distance", 2.0) < 1.2:
+                rel_primary.append(target_hit)
+            else:
+                irrel_primary.append(target_hit)
+        elif seen_canonical[can_id] == did and all(
+            p.get("chunk_id") != h.get("chunk_id") for p in rel_primary + irrel_primary
+        ):
+            if h.get("distance", 2.0) < 1.2:
+                rel_secondary.append(h)
+            else:
+                irrel_secondary.append(h)
+    return rel_primary + rel_secondary + irrel_primary + irrel_secondary
 
 
 def get_chroma_path():
