@@ -46,10 +46,14 @@ class GapAnalyzer:
             return self._extractive_fallback(lesson_plan, hits)
         import json, re
         m = re.search(r"\{.*\}", text, re.DOTALL)
+        if not m:
+            return self._extractive_fallback(lesson_plan, hits)
         try:
-            parsed = json.loads(m.group(0)) if m else {"findings": []}
+            parsed = json.loads(m.group(0))
         except Exception:
-            parsed = {"findings": [], "raw": text[:500]}
+            return self._extractive_fallback(lesson_plan, hits)
+        if not isinstance(parsed, dict) or not isinstance(parsed.get("findings"), list):
+            return self._extractive_fallback(lesson_plan, hits)
         parsed["llm_available"] = True
         # Validate: every finding must carry a verbatim quote + source URL,
         # AND the quote must actually appear in the retrieved chunks.
