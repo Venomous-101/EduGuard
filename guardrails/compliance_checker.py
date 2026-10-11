@@ -157,6 +157,106 @@ RULES = [
                     "Protection guidelines. This submission must be escalated to school safeguarding "
                     "authorities immediately. EduGuard refuses to mark such content compliant.",
     },
+    {
+        "id": "R8-ai-hallucination-risk",
+        "severity": "NEEDS_REVIEW",
+        "title": "AI-generated educational content must be fact-checked before classroom use",
+        "policy_basis": {
+            "doc_id": "unesco-genai-guidance-2023",
+            "title": "UNESCO Guidance for Generative AI in Education and Research (2023): validate AI outputs; do not treat hallucinations as fact",
+            "source_url": "https://www.unesco.org/en/digital-education/generative-ai",
+        },
+        "keywords": [
+            "ai generates lesson content without fact-checking",
+            "ai-generated content without fact-check",
+            "ai writes the curriculum without verification",
+            "ai creates exam questions without review",
+            "students rely on ai answers without verification",
+            "ai chatbot answers without teacher checking",
+            "ai tutor gives unverified answers",
+            "ai generates learning materials without validation",
+            "ai-generated homework answers without checking",
+            "let ai write essays without checking",
+            "ai summarizes textbooks without verification",
+            "trust ai output blindly",
+            "ai-generated notes without review",
+            "present ai output as fact without verification",
+        ],
+        # Suppressed when the same sentence affirmatively describes verification
+        # of AI output. (Phrased affirmatively so they cannot appear inside the
+        # "without X" violation keywords above.)
+        "requires_absence": ["fact-checks", "fact-checked", "verified",
+                             "teacher reviews", "reviewed", "validated"],
+        "guidance": "Generative AI systems hallucinate; UNESCO guidance requires that AI-generated educational "
+                    "content be validated before classroom use. Confirm a teacher fact-checks AI outputs before "
+                    "students rely on them.",
+    },
+    {
+        "id": "R9-age-inappropriate-ai-tools",
+        "severity": "NEEDS_REVIEW",
+        "title": "AI tools for adults must not be used with young children without age verification",
+        "policy_basis": {
+            "doc_id": "uae-tdra-digital-safety",
+            "title": "UNESCO GenAI guidance age-13 recommendation; UAE Federal Decree-Law No. 26 of 2025 (Child Digital Safety) under-13 protections",
+            "source_url": "https://www.tdra.gov.ae/",
+        },
+        "keywords": [
+            "adult ai tools with young children",
+            "young children using adult ai",
+            "children under 13 using generative ai",
+            "under-13 using generative ai",
+            "ai chatbot for 8-year-olds",
+            "generative ai for 10-year-olds",
+            "kids use chatgpt unsupervised",
+            "elementary students on adult ai platforms",
+            "no age verification",
+            "without age verification",
+            "ai companion for primary school children",
+            "open ai chatbot for young kids",
+            "adult chatbot with primary students",
+            "unrestricted ai access for young children",
+        ],
+        # Suppressed when age gating or parental consent is affirmatively described
+        # in the same sentence. (Phrased affirmatively so they cannot appear inside
+        # the "no/without X" violation keywords above.)
+        "requires_absence": ["with age verification", "age verification in place",
+                             "age-verified", "with parental consent",
+                             "age gating in place", "age-appropriate version",
+                             "age restriction in place"],
+        "guidance": "UNESCO recommends a minimum age of 13 for generative AI tools, and UAE child digital safety "
+                    "law restricts under-13 data processing. Confirm age verification or an age-appropriate, "
+                    "supervised version before deploying adult AI tools with young children.",
+    },
+    {
+        "id": "R10-no-unreviewed-high-stakes-decisions",
+        "severity": "NON_COMPLIANT",
+        "title": "AI must not solely make disciplinary, admissions, or special-needs decisions",
+        "policy_basis": {
+            "doc_id": "eu-ai-act-education-full",
+            "title": "EU AI Act (Regulation (EU) 2024/1689), Annex III: access to education and evaluation are high-risk; human oversight required",
+            "source_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+        },
+        "keywords": [
+            "ai decides disciplinary action",
+            "ai determines suspension",
+            "ai expels students",
+            "automatic expulsion",
+            "ai decides admissions",
+            "ai screens applicants without human review",
+            "ai determines special needs placement",
+            "ai diagnoses learning disabilities",
+            "ai decides special education eligibility",
+            "automated disciplinary decisions",
+            "ai recommends expulsion without review",
+            "ai alone decides student dismissal",
+            "algorithmic admissions decisions",
+            "ai flags students for discipline without review",
+            "ai determines exclusion from school",
+        ],
+        "guidance": "Disciplinary, admissions, and special-needs determinations are high-stakes decisions affecting "
+                    "access to education (EU AI Act Annex III high-risk). AI may assist, but a human must make or "
+                    "meaningfully review the final decision.",
+    },
 ]
 
 

@@ -153,3 +153,71 @@ def test_r5_suppressed_when_training_in_same_sentence():
         "Grade 9",
     )
     assert verdict == "COMPLIANT", f"expected COMPLIANT, got {verdict}: {fired}"
+
+
+def test_r8_hallucination_risk_fires():
+    """R8: AI-generated educational content without fact-checking -> NEEDS_REVIEW."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "The AI generates lesson content without fact-checking and students rely on ai answers without verification.",
+        "Grade 6",
+    )
+    assert verdict == "NEEDS_REVIEW", f"expected NEEDS_REVIEW, got {verdict}"
+    assert any(fr["rule_id"] == "R8-ai-hallucination-risk" for fr in fired)
+
+
+def test_r8_suppressed_when_teacher_fact_checks():
+    """R8 must not fire when the teacher fact-checks AI output."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "The AI generates lesson content without fact-checking, but the teacher fact-checks every AI output before class.",
+        "Grade 6",
+    )
+    assert not any(fr["rule_id"] == "R8-ai-hallucination-risk" for fr in fired), \
+        f"R8 false positive: {[f['rule_id'] for f in fired]}"
+
+
+def test_r9_age_inappropriate_ai_tools():
+    """R9: adult AI tools with young children and no age verification -> NEEDS_REVIEW."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "We will give young children using adult ai tools full access with no age verification.",
+        "Grade 3",
+    )
+    assert verdict == "NEEDS_REVIEW", f"expected NEEDS_REVIEW, got {verdict}"
+    assert any(fr["rule_id"] == "R9-age-inappropriate-ai-tools" for fr in fired)
+
+
+def test_r9_suppressed_with_age_verification():
+    """R9 must not fire when age verification / parental consent is in place."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "Children under 13 using generative ai with parental consent and age verification in place.",
+        "Grade 4",
+    )
+    assert not any(fr["rule_id"] == "R9-age-inappropriate-ai-tools" for fr in fired), \
+        f"R9 false positive: {[f['rule_id'] for f in fired]}"
+
+
+def test_r10_high_stakes_disciplinary():
+    """R10: AI-only disciplinary decisions -> NON_COMPLIANT."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "The AI decides disciplinary action and ai expels students automatically.",
+        "Grade 9",
+    )
+    assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT, got {verdict}"
+    assert any(fr["rule_id"] == "R10-no-unreviewed-high-stakes-decisions" for fr in fired)
+
+
+def test_r10_high_stakes_admissions_and_special_needs():
+    """R10 fires for admissions and special-needs determinations without human review."""
+    checker = ComplianceChecker()
+    for text in (
+        "We use AI to screen admissions; ai decides admissions for new applicants.",
+        "The AI diagnoses learning disabilities to determine special education eligibility.",
+    ):
+        verdict, fired = checker.evaluate(text, "School")
+        assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT for {text!r}, got {verdict}"
+        assert any(fr["rule_id"] == "R10-no-unreviewed-high-stakes-decisions" for fr in fired), \
+            f"R10 did not fire for {text!r}"

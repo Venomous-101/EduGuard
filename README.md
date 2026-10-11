@@ -98,8 +98,15 @@ python -m pytest tests/ -x -q
 
 ## ITU standards alignment
 
-- **Y.3172 ML pipeline mapping**: KB ingestion = data source nodes; the four agents = ML pipeline nodes; `EduGuardPipeline` = ML Function Orchestrator; error-scenario evaluations = ML sandbox (isolated test environment).
+- **Y.3172 ML pipeline mapping**: KB ingestion = data source nodes; the four agents = ML pipeline nodes; `EduGuardPipeline` = ML Function Orchestrator; error-scenario evaluations = ML sandbox (isolated test environment). See [docs/y3172-architecture.html](docs/y3172-architecture.html) for the visual mapping.
 - **AI Readiness Framework**: the KB operationalizes the "standards-enabled stakeholder buy-in" and "sandbox and pilot experimentation" factors for the education domain.
+
+## Documentation
+
+- [Technical report](docs/technical-report-final.md) - 5-page ITU submission report
+- [Y.3172 architecture diagram](docs/y3172-architecture.html) - visual pipeline mapping
+- [Demo video script](docs/demo-video-script.md) - 7-minute demo structure
+- [Retrieval benchmark](docs/retrieval-benchmark.md) - precision measurements
 
 ## License
 
