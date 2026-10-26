@@ -221,3 +221,415 @@ def test_r10_high_stakes_admissions_and_special_needs():
         assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT for {text!r}, got {verdict}"
         assert any(fr["rule_id"] == "R10-no-unreviewed-high-stakes-decisions" for fr in fired), \
             f"R10 did not fire for {text!r}"
+
+
+def test_r11_student_data_sale_direct():
+    """R11 fires on direct sale of student personal data -> NON_COMPLIANT."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "Teacher is selling personal data of students",
+        "Grade 10, Dubai",
+    )
+    assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT, got {verdict}"
+    assert any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired)
+
+
+def test_r11_student_data_sale_paraphrase():
+    """R11 fires on paraphrased monetization/advertising sale of pupil records."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "school plans to monetize pupil records by selling them to advertisers",
+        "Grade 8",
+    )
+    assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT, got {verdict}"
+    assert any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired)
+
+
+def test_r11_suppressed_on_do_not_sell():
+    """R11 must not fire when the submission states 'we do not sell student data'."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "We do not sell student data and we prohibit the sale of student data.",
+        "Grade 9",
+    )
+    assert not any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired), \
+        f"R11 false positive: {[f['rule_id'] for f in fired]}"
+
+
+def test_r11_does_not_fire_on_benign_data_minimization():
+    """R11 must not fire on a standard data-minimization case where no sale occurs."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "Upload student records including names and grades to a third-party AI tutoring app "
+        "under a strict data-processing agreement.",
+        "Grade 5",
+    )
+    assert verdict == "NEEDS_REVIEW"
+    assert any(fr["rule_id"] == "R3-student-data-minimization" for fr in fired)
+    assert not any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired), \
+        f"R11 should not fire on non-sale data sharing: {[f['rule_id'] for f in fired]}"
+
+
+def test_hybrid_retrieval_top3_quality():
+    """Hybrid retrieval must rank authoritative policy sources in top-3 across labeled queries
+    and de-duplicate '-full' source pairs."""
+    from agents.policy_retriever import PolicyRetriever
+    from kb.store import canonical_doc_id, expand_query_terms, tokenize
+
+    # Verify query expansion for policy concepts
+    expanded_grading = expand_query_terms(tokenize("grading"))
+    for concept in ("assessment", "evaluation", "marks"):
+        assert concept in expanded_grading, f"expected {concept!r} in expanded grading terms"
+
+    retriever = PolicyRetriever()
+    labeled_queries = [
+        ("AI grading final exams no human review", {"eu-ai-act-education", "eu-ai-act-education-full"}),
+        ("facial recognition cameras students", {"eu-ai-act-education", "eu-ai-act-education-full"}),
+        ("student personal data third party", {"uae-data-protection-2021"}),
+        ("kindergarten AI chatbot children", {"uae-moe-ai-curriculum-2025", "uae-moe-ai-guidelines-schools"}),
+        ("teacher training AI literacy", {"uae-teacher-ai-training-framework"}),
+        ("UAE AI curriculum 2025", {"uae-moe-ai-curriculum-2025"}),
+        ("child safety online protection", {"uae-tdra-digital-safety", "itu-ai-standards-education"}),
+        ("UNESCO AI competency students", {"unesco-ai-competency-students-2024"}),
+    ]
+
+    for query, expected_primary_docs in labeled_queries:
+        res = retriever.retrieve(query)
+        assert res["retrieval_confidence"] == "high", f"expected high confidence for {query!r}"
+        top3_docs = [h["doc_id"] for h in res["hits"][:3]]
+        assert any(d in expected_primary_docs for d in top3_docs), (
+            f"Query {query!r}: expected one of {expected_primary_docs} in top-3, got {top3_docs}"
+        )
+        # Verify -full pair deduplication: no two hits in top-3 share the same canonical doc_id
+        top3_canonical = [canonical_doc_id(d) for d in top3_docs]
+        assert len(top3_canonical) == len(set(top3_canonical)), (
+            f"Duplicate canonical sources in top-3 for {query!r}: {top3_docs}"
+        )
+
+
+def _sample_retrieval_fixture():
+    return {
+        "hits": [
+            {
+                "text": (
+                    "Federal Decree-Law No. 45 of 2021 is the UAE's first federal data "
+                    "protection law. It establishes the principles governing the processing "
+                    "of personal data in the UAE."
+                ),
+                "doc_id": "uae-data-protection-2021",
+                "title": "UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data",
+                "source_url": "https://elaws.gov.ae/EnLegislations.aspx",
+                "chunk_id": "uae-data-protection-2021::chunk-000",
+                "distance": 0.35,
+            }
+        ],
+        "num_hits": 1,
+        "retrieval_confidence": "low",
+    }
+
+
+def test_openrouter_successful_response():
+    """Mocked OpenRouter 200 OK response parses findings with verbatim quotes."""
+    from unittest.mock import MagicMock, patch
+    from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
+
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.raise_for_status.return_value = None
+    mock_resp.json.return_value = {
+        "choices": [
+            {
+                "message": {
+                    "content": json.dumps({
+                        "findings": [
+                            {
+                                "type": "conflict",
+                                "summary": "Requires lawful basis and consent for student data.",
+                                "verbatim_quote": (
+                                    "It establishes the principles governing the processing "
+                                    "of personal data in the UAE."
+                                ),
+                                "source_title": "UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data",
+                                "source_url": "https://elaws.gov.ae/EnLegislations.aspx",
+                            }
+                        ]
+                    })
+                }
+            }
+        ]
+    }
+
+    with patch("agents.llm.requests.post", return_value=mock_resp) as mock_post:
+        llm = LLMBackend(api_key="dummy-openrouter-token", backend_override="openrouter")
+        assert llm.available is True
+        assert llm.backend == "openrouter"
+        analyzer = GapAnalyzer(llm=llm)
+        result = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+        )
+        assert mock_post.called
+        assert result["llm_available"] is True
+        assert len(result["findings"]) == 1
+        assert result["findings"][0]["type"] == "conflict"
+        assert "processing of personal data" in result["findings"][0]["verbatim_quote"]
+
+
+def test_openrouter_401_auth_failure_fallback():
+    """Mocked OpenRouter 401 Unauthorized degrades gracefully to extractive mode."""
+    from unittest.mock import MagicMock, patch
+    import requests
+    from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
+
+    mock_resp = MagicMock()
+    mock_resp.status_code = 401
+    mock_resp.raise_for_status.side_effect = requests.exceptions.HTTPError("401 Client Error: Unauthorized")
+
+    with patch("agents.llm.requests.post", return_value=mock_resp), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="invalid-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
+        result = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+            openrouter_key="invalid-token",
+        )
+        assert result["llm_available"] is False
+        assert len(result["findings"]) == 1
+        assert "Extractive mode" in result.get("note", "")
+
+
+def test_openrouter_request_timeout_fallback():
+    """Mocked OpenRouter request timeout degrades gracefully to extractive mode."""
+    from unittest.mock import patch
+    import requests
+    from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
+
+    with patch("agents.llm.requests.post", side_effect=requests.exceptions.Timeout("Connection timed out")), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="timeout-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
+        result = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+            openrouter_key="timeout-token",
+        )
+        assert result["llm_available"] is False
+        assert len(result["findings"]) == 1
+        assert "Extractive mode" in result.get("note", "")
+
+
+def test_openrouter_malformed_json_fallback():
+    """Mocked OpenRouter malformed JSON (HTTP body, LLM content, and non-dict findings) falls back to extractive mode."""
+    from unittest.mock import MagicMock, patch
+    import requests
+    from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
+
+    # Case 1: HTTP response .json() raises ValueError (malformed HTTP JSON payload)
+    mock_bad_http = MagicMock()
+    mock_bad_http.status_code = 200
+    mock_bad_http.raise_for_status.return_value = None
+    mock_bad_http.json.side_effect = ValueError("No JSON object could be decoded")
+
+    with patch("agents.llm.requests.post", return_value=mock_bad_http), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="malformed-http-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
+        res1 = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+            openrouter_key="malformed-http-token",
+        )
+        assert res1["llm_available"] is False
+        assert len(res1["findings"]) == 1
+        assert "Extractive mode" in res1.get("note", "")
+
+    # Case 2: HTTP response is valid JSON, but LLM message content is malformed JSON
+    mock_bad_content = MagicMock()
+    mock_bad_content.status_code = 200
+    mock_bad_content.raise_for_status.return_value = None
+    mock_bad_content.json.return_value = {
+        "choices": [{"message": {"content": "{malformed_json: [unclosed"}}]
+    }
+
+    with patch("agents.llm.requests.post", return_value=mock_bad_content), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        analyzer = GapAnalyzer()
+        res2 = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+            openrouter_key="malformed-content-token",
+        )
+        assert res2["llm_available"] is False
+        assert len(res2["findings"]) == 1
+        assert "Extractive mode" in res2.get("note", "")
+
+    # Case 3: LLM returns valid JSON object but findings contains non-dict items
+    mock_bad_schema = MagicMock()
+    mock_bad_schema.status_code = 200
+    mock_bad_schema.raise_for_status.return_value = None
+    mock_bad_schema.json.return_value = {
+        "choices": [{"message": {"content": '{"findings": ["invalid-item"]}'}}]
+    }
+
+    with patch("agents.llm.requests.post", return_value=mock_bad_schema), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        analyzer = GapAnalyzer()
+        res3 = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+            openrouter_key="malformed-schema-token",
+        )
+        assert res3["llm_available"] is False
+        assert len(res3["findings"]) == 1
+        assert "Extractive mode" in res3.get("note", "")
+
+
+def test_openrouter_429_rate_limit_fallback():
+    """Mocked OpenRouter 429 rate-limit error degrades gracefully to extractive mode."""
+    from unittest.mock import MagicMock, patch
+    import requests
+    from agents.gap_analyzer import GapAnalyzer
+    from agents.llm import LLMBackend
+
+    mock_resp = MagicMock()
+    mock_resp.status_code = 429
+    mock_resp.raise_for_status.side_effect = requests.exceptions.HTTPError("429 Client Error: Too Many Requests")
+
+    with patch("agents.llm.requests.post", return_value=mock_resp), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        llm = LLMBackend(api_key="rate-limited-token", backend_override="openrouter")
+        assert llm.generate("sys", "user") is None
+        analyzer = GapAnalyzer(llm=llm)
+        result = analyzer.analyze(
+            "Upload student records to an external app.",
+            "Grade 6",
+            _sample_retrieval_fixture(),
+            openrouter_key="rate-limited-token",
+        )
+        assert result["llm_available"] is False
+        assert len(result["findings"]) == 1
+        assert "Extractive mode" in result.get("note", "")
+
+
+def test_r11_sentence_scoped_absence():
+    """R11 still fires if one sentence claims 'do not sell student data' but a second sentence sells records."""
+    checker = ComplianceChecker()
+    verdict, fired = checker.evaluate(
+        "In our core LMS we do not sell student data. However, the free analytics plugin will sell student records to third parties.",
+        "Grade 10",
+    )
+    assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT, got {verdict}"
+    assert any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired)
+
+
+def test_r11_passive_commercial_and_multiclause_negation():
+    """R11 fires on passive voice, commercial sharing, possessives, and multi-clause sentences with early negations,
+    while not false-firing on policy statements prohibiting sale of student data."""
+    checker = ComplianceChecker()
+    must_fire_cases = [
+        "Student records are sold to third parties for marketing.",
+        "Student personal data was sold to advertisers.",
+        "The vendor is commercially sharing personal data of students.",
+        "School will sell students' personal data to brokers.",
+        "We do not use facial recognition, and we sell student data to brokers.",
+        "There is no cost to the school because the vendor will sell student data to advertisers.",
+        "Students without laptops use school tablets, and the app is selling student data.",
+    ]
+    for text in must_fire_cases:
+        verdict, fired = checker.evaluate(text, "Grade 8")
+        assert verdict == "NON_COMPLIANT", f"expected NON_COMPLIANT for {text!r}, got {verdict}"
+        assert any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired), f"R11 did not fire for {text!r}"
+
+    verdict_ok, fired_ok = checker.evaluate(
+        "Any sale of student data is strictly prohibited by school policy.",
+        "Grade 8",
+    )
+    assert not any(fr["rule_id"] == "R11-no-student-data-sale" for fr in fired_ok), (
+        f"R11 false positive on prohibition statement: {fired_ok}"
+    )
+
+
+def test_deduplicate_full_pairs_keeps_relevant_secondary_before_irrelevant():
+    """Relevant secondary chunks (distance < 1.2) must rank ahead of irrelevant primary chunks (distance >= 1.2)."""
+    from kb.store import deduplicate_full_pairs
+
+    hits = [
+        {"doc_id": "eu-ai-act-education-full", "chunk_id": "eu-ai-act-education-full::0", "distance": 0.30, "text": "a"},
+        {"doc_id": "eu-ai-act-education-full", "chunk_id": "eu-ai-act-education-full::1", "distance": 0.45, "text": "b"},
+        {"doc_id": "uae-data-protection-2021", "chunk_id": "uae-data-protection-2021::0", "distance": 0.50, "text": "c"},
+        {"doc_id": "singapore-ai-education-framework", "chunk_id": "singapore::0", "distance": 1.55, "text": "irrel"},
+    ]
+    deduped = deduplicate_full_pairs(hits)
+    top3_ids = [h["chunk_id"] for h in deduped[:3]]
+    assert top3_ids == [
+        "eu-ai-act-education-full::0",
+        "uae-data-protection-2021::0",
+        "eu-ai-act-education-full::1",
+    ], f"unexpected ordering: {top3_ids}"
+
+
+def test_openrouter_never_overrides_deterministic_rule():
+    """Even when OpenRouter returns 'aligned' findings or fails with 429, deterministic NON_COMPLIANT verdict wins."""
+    from unittest.mock import MagicMock, patch
+    import requests
+    from agents.pipeline import EduGuardPipeline
+
+    mock_resp = MagicMock()
+    mock_resp.status_code = 200
+    mock_resp.raise_for_status.return_value = None
+    mock_resp.json.return_value = {
+        "choices": [
+            {
+                "message": {
+                    "content": json.dumps({
+                        "findings": [
+                            {
+                                "type": "aligned",
+                                "summary": "Everything looks completely fine.",
+                                "verbatim_quote": "hallucinated quote that is not in any policy chunk",
+                                "source_title": "Fake Source",
+                                "source_url": "https://example.com",
+                            }
+                        ]
+                    })
+                }
+            }
+        ]
+    }
+
+    with patch("agents.llm.requests.post", return_value=mock_resp), patch(
+        "agents.llm.requests.get", side_effect=requests.exceptions.ConnectionError("mocked offline")
+    ):
+        pipe = EduGuardPipeline(log_dir="/tmp/eduguard-test-audit")
+        report = pipe.evaluate(
+            "Teacher is selling personal data of students",
+            "Grade 10, Dubai",
+            openrouter_key="dummy-openrouter-token",
+        )
+        assert report["verdict"] == "NON_COMPLIANT"
+        assert any(r["rule_id"] == "R11-no-student-data-sale" for r in report["deterministic_rules_fired"])
+        # Hallucinated quote must be rejected and marked INSUFFICIENT_EVIDENCE
+        assert any("INSUFFICIENT_EVIDENCE" in f["summary"] for f in report["advisory_gap_findings"])
+
+
+

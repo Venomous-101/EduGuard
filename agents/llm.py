@@ -19,9 +19,10 @@ import requests
 class LLMBackend:
     def __init__(self, api_key=None, backend_override=None):
         # Per-request override (e.g. user's own OpenRouter key from the UI)
-        if backend_override == "openrouter" and api_key:
+        clean_key = (api_key or "").strip() if isinstance(api_key, str) else ""
+        if backend_override == "openrouter" and clean_key:
             self.backend = "openrouter"
-            self._api_key = api_key
+            self._api_key = clean_key
             self.model = os.environ.get("OPENROUTER_MODEL", "meta-llama/llama-3.3-70b-instruct:free")
             self.available = True
             return
