@@ -29,17 +29,17 @@ The pipeline maps directly to ITU-T Y.3172 machine-learning pipeline nodes:
 | SRC (data source) | 22 policy documents | UAE law, MoE guidance, UNESCO, EU AI Act, OECD, UNICEF |
 | C (collector) + PP (preprocessor) | kb/ingest.py | Chunking (400 words, 60-word overlap), metadata validation |
 | M (model) | kb/store.py + GapAnalyzer | ChromaDB retrieval with local ONNX embeddings; advisory LLM analysis |
-| P (policy node) | guardrails/compliance_checker.py | 10 deterministic rules (pure Python, no LLM); authoritative verdict |
+| P (policy node) | guardrails/compliance_checker.py | 11 deterministic rules (pure Python, no LLM); authoritative verdict |
 | D (distributor) | agents/reporter.py | Assembles cited verdict, recommended actions |
 | SINK (action target) | Verdict + audit log | JSONL audit trail with run IDs, chunk IDs, fired rules |
 | MLFO (orchestrator) | agents/pipeline.py | Sequences all stages |
-| ML sandbox | tests/test_pipeline.py | 11 tests incl. adversarial scenarios |
+| ML sandbox | tests/test_pipeline.py | 31 tests incl. adversarial scenarios |
 
 The critical architectural decision is the P node: deterministic guardrails the LLM can never override. A language model alone can hallucinate policy; a rules engine alone cannot parse natural language. Together, the LLM provides understanding and the rules provide guarantees.
 
 ### 2.2 Deterministic guardrails (authoritative)
 
-Ten rules encode the highest-risk patterns as pure Python:
+Eleven rules encode the highest-risk patterns as pure Python:
 
 | ID | Pattern | Verdict |
 |---|---|---|
@@ -47,6 +47,7 @@ Ten rules encode the highest-risk patterns as pure Python:
 | R2 | Biometric or emotion-recognition monitoring of students | NON_COMPLIANT |
 | R6 | AI-only exam proctoring decisions | NON_COMPLIANT |
 | R7 | Sexual content, abuse, or exploitation involving minors (zero tolerance) | NON_COMPLIANT |
+| R11 | Student personal data sold or shared for commercial purposes | NON_COMPLIANT |
 | R3 | Student personal data shared with third parties | NEEDS_REVIEW |
 | R4 | Unsupervised AI use with kindergarten children | NEEDS_REVIEW |
 | R5 | Classroom AI deployment without teacher AI-literacy training | NEEDS_REVIEW |
@@ -78,7 +79,7 @@ The corpus is deliberately comparative: UAE policy as the local baseline, UNESCO
 
 ## 4. Evaluation
 
-### 4.1 Rule tests (11 passing)
+### 4.1 Rule tests (31 passing)
 
 | Scenario | Expected | Result |
 |---|---|---|
@@ -93,6 +94,10 @@ The corpus is deliberately comparative: UAE policy as the local baseline, UNESCO
 | Sexual content involving minors | NON_COMPLIANT (R7) | PASS |
 | Legitimate health education with consent | No R7 false positive | PASS |
 | Empty retrieval | NEEDS_REVIEW + INSUFFICIENT_EVIDENCE | PASS |
+| Student personal data sold to advertisers | NON_COMPLIANT (R11) | PASS |
+| Student data monetized through a vendor deal | NON_COMPLIANT (R11) | PASS |
+| "We do not sell student data" (negation) | No false positive | PASS |
+| Benign data sharing with parental consent | No R11 false positive | PASS |
 
 ### 4.2 End-to-end verification
 
@@ -100,7 +105,7 @@ Full pipeline on the AI-grading scenario: NON_COMPLIANT, R1 fired, 12 knowledge-
 
 ### 4.3 Adversarial testing
 
-10/10 adversarial scenarios pass, including paraphrased violations ("the chatbot alone decides each student's final mark"), new AI deployment without training, and emotion-AI monitoring. Stress tests with 5,000-character inputs, repetitive text, and edge cases: 9/9 pass with no errors and sub-3-second response times.
+Adversarial scenarios pass, including paraphrased violations ("the chatbot alone decides each student's final mark"), new AI deployment without training, and emotion-AI monitoring. Stress tests with 5,000-character inputs, repetitive text, and edge cases pass with no errors and sub-3-second response times.
 
 ### 4.4 Limitations
 
@@ -110,7 +115,7 @@ Keyword-based matching covers the highest-risk patterns but may miss novel parap
 
 ### 5.1 Path to the 2027 Summit
 
-**Phase 1 (now to 10 Nov deadline):** Harden MVP, expand rules, add Arabic sources, record demo video. Public deployment URL live for judges. **Phase 2 (mentoring through early 2027):** Pilot with UAE schools, validate rule precision against human expert review on anonymized teacher submissions. **Phase 3 (2027 Summit):** Deploy as a live station in the multi-country error exercise. The deterministic engine makes this feasible: fully reproducible behavior, a requirement for judged live exercises.
+**Phase 1 (now to 10 Nov deadline):** Harden MVP, expand rules, add Arabic sources, record demo video. **Phase 2 (mentoring through early 2027):** Pilot with UAE schools, validate rule precision against human expert review on anonymized teacher submissions. **Phase 3 (2027 Summit):** Deploy as a live station in the multi-country error exercise. The deterministic engine makes this feasible: fully reproducible behavior, a requirement for judged live exercises.
 
 ### 5.2 Responsible AI
 
